@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //scene = SceneManager.GetActiveScene();
-        FlutterUnityIntegration.NativeAPI.OnSceneLoaded(SceneManager.GetActiveScene(), LoadSceneMode.Single);
+        // FlutterUnityIntegration.NativeAPI.OnSceneLoaded(SceneManager.GetActiveScene(), LoadSceneMode.Single);
     }
 
     // Start is called before the first frame update
