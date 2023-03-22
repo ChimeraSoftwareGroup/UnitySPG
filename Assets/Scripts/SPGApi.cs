@@ -1,41 +1,70 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.Networking;
 using UnityEngine;
-
-using UnityEngine.UI;
+using UnityEngine.Networking;
+using System.Collections;
 
 public class SPGApi : MonoBehaviour
 {
     public void TestData()
     {
         Debug.Log("Start Call !");
-        StartCoroutine(GetRequest("https://pokeapi.co/api/v2/pokemon/ditto"));
+        StartCoroutine(Get("https://pokeapi.co/api/v2/pokemon/ditto"));
     }
 
-    IEnumerator GetRequest(string uri)
+    private IEnumerator HandleRequest(UnityWebRequest req)
     {
-        using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
+        // Request and wait for the desired page.
+        yield return req.SendWebRequest();
+
+        switch (req.result)
         {
-            // Request and wait for the desired page.
-            yield return webRequest.SendWebRequest();
+            case UnityWebRequest.Result.ConnectionError:
+            case UnityWebRequest.Result.DataProcessingError:
+                Debug.LogError("Error: " + req.error);
+                break;
+            case UnityWebRequest.Result.ProtocolError:
+                Debug.LogError("HTTP Error: " + req.error);
+                break;
+            case UnityWebRequest.Result.Success:
+                Debug.Log("Received: " + req.downloadHandler.text);
+                break;
+        }
+    }
 
-            string[] pages = uri.Split('/');
-            int page = pages.Length - 1;
+    private IEnumerator Get(string url)
+    {
+        using (UnityWebRequest req = UnityWebRequest.Get(url))
+        {
+            return HandleRequest(req);
+        }
+    }
 
-            switch (webRequest.result)
-            {
-                case UnityWebRequest.Result.ConnectionError:
-                case UnityWebRequest.Result.DataProcessingError:
-                    Debug.LogError(pages[page] + ": Error: " + webRequest.error);
-                    break;
-                case UnityWebRequest.Result.ProtocolError:
-                    Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
-                    break;
-                case UnityWebRequest.Result.Success:
-                    Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
-                    break;
-            }
+    private IEnumerator Post(string url)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("myField", "myData");
+
+        using (UnityWebRequest req = UnityWebRequest.Post(url, form))
+        {
+            return HandleRequest(req);
+        }
+    }
+
+    private IEnumerator Put(string url)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("myField", "myData");
+
+        using (UnityWebRequest req = UnityWebRequest.Put(url, form))
+        {
+            return HandleRequest(req);
+        }
+    }
+
+    private IEnumerator Delete(string url)
+    {
+        using (UnityWebRequest req = UnityWebRequest.Delete(url))
+        {
+            return HandleRequest(req);
         }
     }
 }
