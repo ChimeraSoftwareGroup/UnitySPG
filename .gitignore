@@ -8,7 +8,14 @@
 /[Bb]uild/
 /[Bb]uilds/
 /[Ll]ogs/
+/.[Vv][Ss][Cc]ode/
+/.[Vv][Ss]/
 /[Mm]emoryCaptures/
+
+# Generated if you use the new UIElements (either for editor or runtime in 2020)
+/[Uu][Ii][Ee]lements[Ss]chema/
+# Ignore UserSettings, we most likely don't want to sync these across users
+/[Uu]ser[Ss]ettings/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -57,4 +64,9 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+# Mac stuff
+.DS_Store
+.bak
+.BAK
 
