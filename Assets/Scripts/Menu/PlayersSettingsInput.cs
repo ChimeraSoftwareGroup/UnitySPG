@@ -13,7 +13,6 @@ public class PlayersSettingsInput : MonoBehaviour
     [SerializeField] LayoutGroup _listPlayerLayoutGroup;
     [SerializeField] InputField _playerNameIF;
     [SerializeField] PlayerName _playerNameInUI;
-    [SerializeField] GameObject _gameCanvas;
 
     public string playerName;
     public string numberOfGames;
@@ -32,63 +31,18 @@ public class PlayersSettingsInput : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
-        if (instance != null)
+        if (instance == null)
         {
-            Debug.LogWarning("Il y a plus d'une instance de PlayersSettingsInput dans la scène");
-            return;
+            instance = this;
+            DontDestroyOnLoad(this);
         }
-        instance = this;
     }
 
+    // Players Set Upping
     public void ReadNameOfPlayers(string name)
     {
         playerName = name;
         if (name == null) print("NO NAME == NULL");
-    }
-    public void ReadingNumberOfGames(string _numberOfGames)
-    {
-        numberOfGames = _numberOfGames;
-        if (_numberOfGames == "") numberOfGames = "3";
-       // Debug.Log("numberOfGames " + numberOfGames);
-        GameManager.instance.numberOfGames = int.Parse(numberOfGames);
-    }
-
-    public void ReadingSecondsPerGames(string _secondsPerGames)
-    {
-        secondsPerGames = _secondsPerGames;
-        Debug.Log("secondsPerGames " + secondsPerGames);
-
-        if (_secondsPerGames == "") secondsPerGames = "20";
-        try{
-            GameManager.instance.timeOfEachGameChosenByPlayers = float.Parse(secondsPerGames);
-        }
-        catch{
-            GameManager.instance.timeOfEachGameChosenByPlayers = 20;
-        }
-    }
-
-   
-    public void GoChooseNumberOfGames()
-    {
-        _listOfPlayersCanvas.gameObject.SetActive(false);
-        AddNbMiniGameToGM();
-        GameManager.instance.ActiveGameCanvas();
-        GameManager.instance.NewGame();
-
-        // _numberOfPlayerCanvas.gameObject.SetActive(true);
-    }
-
-    public void AddNbMiniGameToGM()
-    {
-        _secondsByGamesCanvas.gameObject.SetActive(true);
-        _numberOfPlayerCanvas.gameObject.SetActive(false);
-
-    }
-    public void AddSecondsByGameToGM()
-    {
-        FinishSetUp();
-        _secondsByGamesCanvas.SetActive(false);
     }
 
     public void AddPlayerAtList()
@@ -96,18 +50,9 @@ public class PlayersSettingsInput : MonoBehaviour
         nameOfPlayersList.Add(playerName);
         AddPlayerInListPlayerUI();
         _countPlayer++;
-
-        // We set back data to null
         _playerNameIF.text = "";
-        // Ajouter le GameObject à la VerticalLayoutGroup
-       // playerName.SetParent(_listPlayerLayoutGroup.transform, false);
-
-        //foreach (string playerName in nameOfPlayersList)
-        //{
-        //    Debug.Log(playerName);
-        //}
     }
-    
+
     private void AddPlayerInListPlayerUI()
     {
         PlayerName playerNameToAddToUI = Instantiate(_playerNameInUI, _listPlayerLayoutGroup.transform.position, Quaternion.identity);
@@ -115,15 +60,52 @@ public class PlayersSettingsInput : MonoBehaviour
         playerNameToAddToUI.gameObject.transform.parent = _listPlayerLayoutGroup.gameObject.transform;
     }
 
-    private void FinishSetUp()
+    public void FinishPlayerListAndStartSetUpGamesNumber()
     {
+        _listOfPlayersCanvas.gameObject.SetActive(false);
+        _numberOfPlayerCanvas.gameObject.SetActive(true);
+    }
+    
+    // GAMES SET UPPING
+    public void ReadingNumberOfGames(string _numberOfGames)
+    {
+        numberOfGames = _numberOfGames;
+    }
+    public void AddNbMiniGameToGM()
+    {
+        _numberOfPlayerCanvas.gameObject.SetActive(false);
+        _secondsByGamesCanvas.gameObject.SetActive(true);
+        if (numberOfGames == "") numberOfGames = "3";
+    }
+    // TIME OF GAMES SET UPPING
+    public void ReadingSecondsPerGames(string _secondsPerGames)
+    {
+        secondsPerGames = _secondsPerGames;
+    }
+    public void AddSecondsByGameToGMAndStartCoopGame()
+    {
+        PlayerHealth.instance.SetHP(3);
+
+        if(numberOfGames == "")
+        {
+            numberOfGames = "3";
+        }
+        int numberOfMiniGamesSelected = int.Parse(numberOfGames);
+
+        if (secondsPerGames == "")
+        {
+            secondsPerGames = "20";
+        }
+        float timeSelectedinSeconds = float.Parse(secondsPerGames);
         _gameManager.setParametersOfCoopGame(
             nameOfPlayersList,
-            true,
-            5,
-            5
+            true, // Is Shuffle On
+            timeSelectedinSeconds, // Timer Choosed
+            numberOfMiniGamesSelected  // Number of Games
             ); // EXEMPLE
-        _gameCanvas.gameObject.SetActive(true);
         _dialogManager.StartTutorialDialog();
+        _secondsByGamesCanvas.SetActive(false);
+        _gameManager.GameObjectsActivationAtStartEatchGame();
+        _gameManager.NewGame();
     }
 }

@@ -11,10 +11,17 @@ public class SpawnerManager : MonoBehaviour
     private float _elapsedTime = 0;
     private int _lastSpawn;
     private int _nowSpawn;
+    public SpawnerManager instance;
 
     private void Awake()
     {
         DontDestroyOnLoad(this);
+        gameObject.SetActive(false);
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
     }
 
     void Update()

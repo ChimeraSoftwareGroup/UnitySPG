@@ -10,6 +10,13 @@ public class EndingManager : MonoBehaviour
     [SerializeField] GameObject _rain;
     [SerializeField] GameObject bg;
 
+    [Header("Destroy")]
+    [SerializeField] GameObject _generalGameCanvas;
+    [SerializeField] GameObject _dialogManager;
+    [SerializeField] GameObject _spawnerManager;
+    [SerializeField] GameObject _settingsByPlayer;
+
+
     public static EndingManager instance;
 
     private void Awake()
@@ -29,13 +36,10 @@ public class EndingManager : MonoBehaviour
     {
         if(_gameManager.isPlayerHasWin == true)
         {
-            print(_gameManager.isPlayerHasWin);
             Wining();
         }
         else  
         {
-            print(_gameManager.isPlayerHasWin);
-
             Losing();
         }
     }
@@ -57,9 +61,10 @@ public class EndingManager : MonoBehaviour
 
     }
 
+    [System.Obsolete]
     public void ReturnMainMenu()
     {
         SceneManager.LoadScene(0);
-
+        //SceneManager.UnloadScene(4);
     }
 }

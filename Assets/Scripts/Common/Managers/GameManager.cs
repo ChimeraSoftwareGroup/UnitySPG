@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _startGameCanvas;
     [SerializeField] private GameObject _screenDeath;
     [SerializeField] private GameObject _winScreen;
-    [SerializeField] private GameObject _gameCanvas;
     [SerializeField] private GameObject _settingsByPlayerCanvas;
     [SerializeField] private GameObject _timer;
     [SerializeField] private GameObject _healthBar;
@@ -42,7 +41,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioClip looseSound;
     [SerializeField] AudioClip winSound;
 
-    public bool isFinishMiniGame;
+    public bool isMiniGameFinished;
     private bool _thePartyIsFinished = false;
     private bool _isNewSceneReadyToPlay;
     private int sceneIndex = 2; // 2 is the index of landing page (Potato)
@@ -63,16 +62,15 @@ public class GameManager : MonoBehaviour
     private bool _gameHasStarted = false;
 
 
+
     //private Scene scene;
     private void Awake()
     {
-        if (instance != null)
+        if (instance == null)
         {
-            Debug.LogWarning("Il existe déjà une instance de GameManager dans la scène");
-            return;
+            instance = this;
+            DontDestroyOnLoad(this);
         }
-        instance = this;
-        DontDestroyOnLoad(this);
 
         //for (int i = 3; i < SceneManager.sceneCountInBuildSettings; i++) {
         //    _allGamingScenesIndex[i] = i ;
@@ -111,19 +109,19 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(isFinishMiniGame)
+        if(isMiniGameFinished)
         {
             print("Je win !!!");
             WinMiniGame();
         }
 
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.H) && _gameHasStarted)
         {
             _player.PlayerTakeDamage();
         }
 
 
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.J) && _gameHasStarted)
         {
             WinMiniGame();
         }
@@ -140,11 +138,13 @@ public class GameManager : MonoBehaviour
             _gameHasStarted = true;
         }
     }
-
     private void ShowNameForCurrentPlayer()
     {
-       
-        if (_playerNameList.Count < _idOfCurrentPlayerPlaying++) _idOfCurrentPlayerPlaying = 0;  // EW AUSSI (METHOD A) (should be good to test with prints);
+       Debug.Log("_idOfCurrentPlayerPlaying " + _idOfCurrentPlayerPlaying);
+       Debug.Log("id 0  " + _playerNameList[0]);
+       Debug.Log("id 1  " + _playerNameList[1]);
+       Debug.Log("id 2  " + _playerNameList[2]);
+        if (_playerNameList.Count == _idOfCurrentPlayerPlaying) _idOfCurrentPlayerPlaying = 0;  // EW AUSSI (METHOD A) (should be good to test with prints);
         // print("_idOfCurrentPlayerPlaying " + _playerNameList[_idOfCurrentPlayerPlaying]);
         _nextPlayerToPlayText.text = _playerNameList[_idOfCurrentPlayerPlaying];
         _idOfCurrentPlayerPlaying++;
@@ -165,12 +165,7 @@ public class GameManager : MonoBehaviour
         //    _nextPlayerToPlayText.text = nextPlayerName;
         //}
     }
-
-    public void ActiveGameCanvas()
-    {
-        _gameCanvas.gameObject.SetActive(true);
-    }
-
+    
     private void initGameManager()
     {
         
@@ -180,10 +175,11 @@ public class GameManager : MonoBehaviour
 
     public void InputSettingsByPlayer()
     {
-        _gameCanvas.gameObject.SetActive(false);
+        //_gameCanvas.gameObject.SetActive(false);
         _settingsByPlayerCanvas.gameObject.SetActive(true);
     }
 
+    [System.Obsolete]
     public void NewGame()
     {
         _gameHasStarted = false;
@@ -193,27 +189,20 @@ public class GameManager : MonoBehaviour
         _screenDeath.SetActive(false);
         _countdown.StartCountDown();
         _timer.GetComponent<Timer>().SetTimer(timeOfEachGameChosenByPlayers);
-        isFinishMiniGame = false;
+        isMiniGameFinished = false;
         //isCamActiveFroggyScene = true; // C'est quoi ça là
         //   SetUpNewGameCanvas();
     }
 
     private void PrepareNextGameAndResetTimer()
     {
-        
-        RemoveSceneOfTheList(); // Maybe not remove the game previously done for Potato
+        // RemoveSceneOfTheList(); // Maybe not remove the game previously done for Potato
         ShuffleGame();
         SceneManager.LoadScene(sceneIndex);
         GameObjectsActivationAtStartEatchGame();
-
+        ShowNameForCurrentPlayer();
         // Ne pas l'appeler si les utilisateurs ne veulent pas des tutos.
         if (_doWeShowTutorial) DialogManager.instance.StartTutorialDialog();
-    }
-
-    private void SetUpNewGameCanvas()
-    {
-        ShowNameForCurrentPlayer();
-        
     }
 
     /** 
@@ -247,17 +236,22 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        print("GAME OVER FUNCTION");
-
         SceneManager.LoadScene(4);
         audioSource.PlayOneShot(looseSound);
 
         _thePartyIsFinished = true;
         isPlayerHasWin = false;
-        _gameCanvas.SetActive(false);
-        _spawnerManager.gameObject.SetActive(false);
+        StopGame();
     }
 
+    private void StopGame()
+    {
+        _startGameCanvas.SetActive(false);
+        _healthBar.SetActive(false);
+        _timer.SetActive(false);
+    }
+
+    [System.Obsolete]
     public void WinPotato()
     {
         print("WIN POTATO FUNCTION");
@@ -275,9 +269,9 @@ public class GameManager : MonoBehaviour
             isPlayerHasWin = true;
             SceneManager.LoadScene(4);
             audioSource.PlayOneShot(winSound);
-            _gameCanvas.SetActive(false);
+            StopGame();
         }
-      
+
     }
     /** 
    * Methods used in Flutter
@@ -382,10 +376,12 @@ public class GameManager : MonoBehaviour
         List<string> playerList,
         bool isTutoOn,
         float timerChoosed,
-        int numberOfGames
+        int numberOfMiniGamesChoosed
     )
     {
         _playerNameList = playerList;
+        timeOfEachGameChosenByPlayers = timerChoosed;
+        numberOfGames = numberOfMiniGamesChoosed;
     }
 
 }

@@ -20,7 +20,7 @@ public class Timer : MonoBehaviour
             IncreaseTimer();
         }
         else if (_secondsLeft <= 1 && _isRunning) {
-            GameManager.instance.isFinishMiniGame = true;
+            GameManager.instance.isMiniGameFinished = true;
             print("TIMER FINI " + isFinish);
         }
 

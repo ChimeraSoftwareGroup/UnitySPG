@@ -24,6 +24,12 @@ public class PlayerHealth : MonoBehaviour
         _healthBar.SetMaxHealth(_maxHealth);
     }
 
+    public void SetHP(int hp)
+    {
+        _healthBar.SetHealth(hp);
+    }
+
+
     public void UpdateHealthbar(int damage)
     {
         currentHealth -= damage;

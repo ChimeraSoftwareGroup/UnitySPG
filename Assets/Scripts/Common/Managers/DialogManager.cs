@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 
 public class DialogManager : MonoBehaviour
 {
@@ -19,13 +19,11 @@ public class DialogManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
-        if (instance != null)
+        if (instance == null)
         {
-            Debug.LogWarning("Il y a plus d'une instance de DialogueManager dans la scène");
-            return;
+            instance = this;
+            DontDestroyOnLoad(this);
         }
-        instance = this;
     }
 
     private void Start()
@@ -80,6 +78,8 @@ public class DialogManager : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
     }
+
+    [System.Obsolete]
     private void EndDialogue()
     {
         _animator.SetBool("isOpen", false);
