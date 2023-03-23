@@ -34,7 +34,12 @@ public class FroggyMovement : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Obstacle")) _isMoving = false;
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
+            gameObject.SetActive(false);
+            _isMoving = false;
+        }
+
     }
     void Update()
     {

@@ -16,6 +16,8 @@ public class FroggyJump : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Floor")) velocity = 0;
     }
+
+  
     void Update()
     {
         velocity += gravity * gravityScale * Time.deltaTime;

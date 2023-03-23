@@ -6,21 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MenueScene.unity
+    guid: 4143cf976da80df4b9787dc902b1c4fe
+  - enabled: 1
+    path: Assets/Scenes/PotatoMenu.unity
+    guid: e52d1594d0d81494a85cb6cc54c6fb89
+  - enabled: 1
     path: Assets/Scenes/LandingScene.unity
     guid: f2d53c05142d80140bc968024ed56d5a
   - enabled: 1
-    path: Assets/Scenes/PotatoeMenu.unity
-    guid: e52d1594d0d81494a85cb6cc54c6fb89
+    path: Assets/Scenes/Credits.unity
+    guid: 4a42e24fd67117843b63ef8efd4ddc9a
+  - enabled: 1
+    path: Assets/Scenes/EndingScene.unity
+    guid: 4d9e1a5ea6995754680c0a1b0f47d081
   - enabled: 1
     path: Assets/Scenes/SneukScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Scenes/GiraffeScene.unity
-    guid: 4545a26f86b3c1e4ebf5ae7d147c9534
   - enabled: 1
     path: Assets/Scenes/FroggyScene.unity
     guid: e5faf171955887144a56e32981129b04
   - enabled: 1
     path: Assets/Scenes/BobeeScene.unity
     guid: b528552679c6fa946998323dde2b46e0
+  - enabled: 1
+    path: Assets/Scenes/GiraffeScene.unity
+    guid: 4545a26f86b3c1e4ebf5ae7d147c9534
   m_configObjects: {}

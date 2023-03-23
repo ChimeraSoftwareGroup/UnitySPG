@@ -8,6 +8,9 @@ TagManager:
   - Floor
   - 'Player '
   - Obstacle
+  - GameCanvas
+  - SpawnerManager
+  - Spawn
   layers:
   - Default
   - TransparentFX

@@ -2,20 +2,32 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private PlayerHealth _ph;
-    private GameManager _gameManager;
+    [SerializeField] PlayerHealth _ph;
+    public GameManager _gameManager;
 
     private void Start()
     {
-        _ph = GameObject.Find("GameManager").GetComponentInParent<PlayerHealth>();
+        _ph = GameObject.Find("GameManager").GetComponent<PlayerHealth>();
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        NotifyGameManager();
     }
 
+    private void Update()
+    {
+        if (_ph.currentHealth == 0)
+        {
+            _gameManager.GameOver();
+        }
+    }
+
+    private void NotifyGameManager()
+    {
+        _gameManager.NotificationPlayerAndSceneHasChanged(this);
+    }
     public void PlayerTakeDamage()
     {
-        print("In playerTakeDamage");
         _ph.UpdateHealthbar(1);
-        _gameManager.GameOver();
+        _gameManager.LoseMiniGame();
         gameObject.SetActive(false);
     }
 
