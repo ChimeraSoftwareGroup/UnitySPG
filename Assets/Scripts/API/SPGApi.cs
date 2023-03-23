@@ -6,6 +6,7 @@ public class SPGApi
 {
     private static string baseUrl = "";
     private string url;
+    private System.Action<string, bool> callback;
 
     public SPGApi(string url)
     {
@@ -17,19 +18,12 @@ public class SPGApi
     {
         // Request and wait for the desired page.
         yield return req.SendWebRequest();
-
-        switch (req.result)
+        if (req.result == UnityWebRequest.Result.Success)
         {
-            case UnityWebRequest.Result.ConnectionError:
-            case UnityWebRequest.Result.DataProcessingError:
-                Debug.LogError("Error: " + req.error);
-                break;
-            case UnityWebRequest.Result.ProtocolError:
-                Debug.LogError("HTTP Error: " + req.error);
-                break;
-            case UnityWebRequest.Result.Success:
-                Debug.Log("Received: " + req.downloadHandler.text);
-                break;
+            this.callback(req.downloadHandler.text, false);
+        } else
+        {
+            this.callback(req.error, false);
         }
     }
 
@@ -71,44 +65,44 @@ public class SPGApi
     }
     #endregion
 
-    static public IEnumerator CreateRoom(string roomName)
+    static public IEnumerator CreateRoom(string roomName, System.Action<string, bool> callback)
     {
         WWWForm body = new WWWForm();
         body.AddField("name", roomName);
-        SPGApi api = new SPGApi(SPGApi.baseUrl + "/room");
+        SPGApi api = new SPGApi(SPGApi.baseUrl + "/room", callback);
         return api.Post(body);
     }
 
-    static public IEnumerator ModifyRoom(int idRoom, byte[] data)
+    static public IEnumerator ModifyRoom(int idRoom, byte[] body, System.Action<string, bool> callback)
     {
-        SPGApi api = new SPGApi(SPGApi.baseUrl + "/room/" + idRoom);
-        return api.Put(data);
+        SPGApi api = new SPGApi(SPGApi.baseUrl + "/room/" + idRoom, callback);
+        return api.Put(body);
     } 
 
-    static public IEnumerator DeleteRoom(int idRoom)
+    static public IEnumerator DeleteRoom(int idRoom, System.Action<string, bool> callback)
     {
-        SPGApi api = new SPGApi(SPGApi.baseUrl + "/room/" + idRoom);
+        SPGApi api = new SPGApi(SPGApi.baseUrl + "/room/" + idRoom, callback);
         return api.Delete();
     }
 
-    static public IEnumerator GetPlayerList(int idRoom)
+    static public IEnumerator GetPlayerList(int idRoom, System.Action<string, bool> callback)
     {
-        SPGApi api = new SPGApi(SPGApi.baseUrl + "/room/" + idRoom + "/player");
+        SPGApi api = new SPGApi(SPGApi.baseUrl + "/room/" + idRoom + "/player", callback);
         return api.Get();
     }
 
-    static public IEnumerator JoinRoom(string password, int idPlayer)
+    static public IEnumerator JoinRoom(string password, int idPlayer, System.Action<string, bool> callback)
     {
         WWWForm body = new WWWForm();
         body.AddField("password", password);
         body.AddField("id_player", idPlayer);
-        SPGApi api = new SPGApi(SPGApi.baseUrl + "/room/join");
+        SPGApi api = new SPGApi(SPGApi.baseUrl + "/room/join", callback);
         return api.Post(body);
     }
 
-    static public IEnumerator QuitRoom(int idRoom, int idPlayer)
+    static public IEnumerator QuitRoom(int idRoom, int idPlayer, System.Action<string, bool> callback)
     {
-        SPGApi api = new SPGApi(SPGApi.baseUrl + "/room/" + idRoom + "/players/" + idPlayer + "/leave");
+        SPGApi api = new SPGApi(SPGApi.baseUrl + "/room/" + idRoom + "/players/" + idPlayer + "/leave", callback);
         return api.Delete();
     }
 }
