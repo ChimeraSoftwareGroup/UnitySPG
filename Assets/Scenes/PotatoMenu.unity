@@ -602,8 +602,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.9630966, y: 139.28058}
-  m_SizeDelta: {x: 165, y: 71.4958}
+  m_AnchoredPosition: {x: -1.1323, y: 118.90874}
+  m_SizeDelta: {x: 215.1738, y: 137.4173}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &285617626
 MonoBehaviour:
@@ -638,7 +638,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SECONDS BY GAMES
+  m_Text: SECONDES  PAR MINI  JEUX
 --- !u!222 &285617627
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1144,8 +1144,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.963089, y: 150.80719}
-  m_SizeDelta: {x: 165, y: 48.4426}
+  m_AnchoredPosition: {x: 4.0592, y: 111.5709}
+  m_SizeDelta: {x: 246.5343, y: 126.9152}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &750102092
 MonoBehaviour:
@@ -1180,7 +1180,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NB GAMES
+  m_Text: NOMBRE DE MINI JEUX
 --- !u!222 &750102093
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1991,7 +1991,7 @@ MonoBehaviour:
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 1
-  m_CharacterLimit: 0
+  m_CharacterLimit: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -2647,14 +2647,14 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1378026642}
   m_TextComponent: {fileID: 895737368}
   m_Placeholder: {fileID: 1370046461}
-  m_ContentType: 0
+  m_ContentType: 2
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
-  m_CharacterLimit: 0
+  m_CharacterValidation: 1
+  m_CharacterLimit: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -2666,7 +2666,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2058476528}
         m_TargetAssemblyTypeName: PlayersSettingsInput, Assembly-CSharp
-        m_MethodName: ReadNameOfPlayers
+        m_MethodName: ReadingSecondsPerGames
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

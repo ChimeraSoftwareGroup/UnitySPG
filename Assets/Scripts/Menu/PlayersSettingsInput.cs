@@ -50,14 +50,15 @@ public class PlayersSettingsInput : MonoBehaviour
     {
         numberOfGames = _numberOfGames;
         if (_numberOfGames == "") numberOfGames = "3";
-        Debug.Log("numberOfGames " + numberOfGames);
+       // Debug.Log("numberOfGames " + numberOfGames);
         GameManager.instance.numberOfGames = int.Parse(numberOfGames);
     }
 
     public void ReadingSecondsPerGames(string _secondsPerGames)
     {
         secondsPerGames = _secondsPerGames;
-        Debug.Log(secondsPerGames); 
+        Debug.Log("secondsPerGames " + secondsPerGames);
+
         if (_secondsPerGames == "") secondsPerGames = "20";
         try{
             GameManager.instance.timeOfEachGameChosenByPlayers = float.Parse(secondsPerGames);
@@ -80,14 +81,12 @@ public class PlayersSettingsInput : MonoBehaviour
 
     public void AddNbMiniGameToGM()
     {
-        print("AddNbMiniGameToGM");
         _secondsByGamesCanvas.gameObject.SetActive(true);
         _numberOfPlayerCanvas.gameObject.SetActive(false);
 
     }
     public void AddSecondsByGameToGM()
     {
-        print("FinishSetUp");
         FinishSetUp();
         _secondsByGamesCanvas.SetActive(false);
     }
