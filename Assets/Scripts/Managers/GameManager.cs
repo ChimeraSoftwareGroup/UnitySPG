@@ -13,13 +13,11 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this);
-        _screenDeath = GameObject.Find("GameOverMenu").GetComponent<GameObject>();
-        _winScreen = GameObject.Find("WinMenu").GetComponent<GameObject>();
+        //_screenDeath = GameObject.Find("GameOverMenu").GetComponent<GameObject>();
+        //_winScreen = GameObject.Find("WinMenu").GetComponent<GameObject>();
         isDead = false;
         _screenDeath.SetActive(false);
         _winScreen.SetActive(false);
-        
-
     }
     private void Start()
     {
