@@ -8,9 +8,10 @@ public class SPGApi
     private string url;
     private System.Action<string, bool> callback;
 
-    public SPGApi(string url)
+    public SPGApi(string url, System.Action<string, bool> callback)
     {
         this.url = url;
+        this.callback = callback;
     }
 
     #region Request Route
