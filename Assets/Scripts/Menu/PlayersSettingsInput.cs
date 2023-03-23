@@ -67,15 +67,11 @@ public class PlayersSettingsInput : MonoBehaviour
         }
     }
 
-    public void GoChooseSecondsPerGames()
-    {
-        print("Click");
-        _numberOfPlayerCanvas.gameObject.SetActive(false);
-        _secondsByGamesCanvas.gameObject.SetActive(true);
-    }
+   
     public void GoChooseNumberOfGames()
     {
         _listOfPlayersCanvas.gameObject.SetActive(false);
+        AddNbMiniGameToGM();
         GameManager.instance.ActiveGameCanvas();
         GameManager.instance.NewGame();
 
@@ -84,11 +80,14 @@ public class PlayersSettingsInput : MonoBehaviour
 
     public void AddNbMiniGameToGM()
     {
-        FinishSetUp();
-        _numberOfPlayerCanvas.SetActive(false);
-    } 
+        print("AddNbMiniGameToGM");
+        _secondsByGamesCanvas.gameObject.SetActive(true);
+        _numberOfPlayerCanvas.gameObject.SetActive(false);
+
+    }
     public void AddSecondsByGameToGM()
     {
+        print("FinishSetUp");
         FinishSetUp();
         _secondsByGamesCanvas.SetActive(false);
     }

@@ -984,7 +984,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &523156326
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1204,7 +1204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &834053750
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1984,13 +1984,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1155470496}
   m_TextComponent: {fileID: 907562369}
   m_Placeholder: {fileID: 2092676291}
-  m_ContentType: 0
+  m_ContentType: 2
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 1
   m_CharacterLimit: 0
   m_OnSubmit:
     m_PersistentCalls:
@@ -2951,7 +2951,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2058476528}
         m_TargetAssemblyTypeName: PlayersSettingsInput, Assembly-CSharp
-        m_MethodName: AddNbMiniGame
+        m_MethodName: AddNbMiniGameToGM
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3443,7 +3443,7 @@ MonoBehaviour:
   _dialogManager: {fileID: 1745737094}
   _listOfPlayersCanvas: {fileID: 1536942628}
   _numberOfPlayerCanvas: {fileID: 834053749}
-  _secondsByGamesCanvas: {fileID: 834053749}
+  _secondsByGamesCanvas: {fileID: 523156325}
   _buttonAddPlayer: {fileID: 313528804}
   _listPlayerLayoutGroup: {fileID: 871601327}
   _playerNameIF: {fileID: 1237009289}

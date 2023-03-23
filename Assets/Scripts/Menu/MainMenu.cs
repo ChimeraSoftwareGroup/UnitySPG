@@ -12,10 +12,12 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject _buttonsMainMenu;
     [SerializeField] GameObject _settingsWindow;
     [SerializeField] GameObject _textClickToStart;
+    [SerializeField] GameObject _errorPage;
 
     public AudioSource audioSource;
     public AudioClip sound;
     public AudioClip pageSound;
+    public AudioClip errorSound;
 
     public void ChangeFirstPageByMainMenue()
     {
@@ -55,6 +57,18 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("PotatoMenu");
 
+    }
 
+    public void CloseErrorPage()
+    {
+        _errorPage.SetActive(false);
+        audioSource.PlayOneShot(pageSound);
+
+    }
+
+    public void ShowErrorPage()
+    {
+        audioSource.PlayOneShot(errorSound);
+        _errorPage.SetActive(true);
     }
 }
