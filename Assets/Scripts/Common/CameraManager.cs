@@ -23,26 +23,5 @@ public class CameraManager : MonoBehaviour
             this.gameObject.SetActive(false);
 
         }
-
-
-
-        if (GameManager.instance.isCamActiveFroggyScene == false)
-        {
-            // Désactive la caméra actuelle
-            cameras[currentCameraIndex].gameObject.SetActive(false);
-
-            // Passe à la caméra suivante dans la liste
-            currentCameraIndex++;
-            if (currentCameraIndex >= cameras.Length)
-            {
-                currentCameraIndex = 0;
-            }
-
-            // Active la nouvelle caméra
-            cameras[currentCameraIndex].gameObject.SetActive(true);
-        }
-
-
-
     }
 }

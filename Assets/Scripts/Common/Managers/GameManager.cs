@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private string[] _potatoesPlayers;
     [SerializeField] public float timeOfEachGameChosenByPlayers;
     [SerializeField] public int numberOfGames;
-    //[SerializeField] private int _gamesSelected;
 
     [Header("Canvas")]
     [SerializeField] private GameObject _startGameCanvas;
@@ -31,7 +30,6 @@ public class GameManager : MonoBehaviour
 
     [Header("Ingame Managers")]
     [SerializeField] private SpawnerManager _spawnerManager;
-    // [SerializeField] Timer _gameTimer;
 
     [Header("Player Conf for Tutos")]
     [SerializeField] private bool _doWeShowTutorial = true;
@@ -48,21 +46,19 @@ public class GameManager : MonoBehaviour
     private int _idOfCurrentPlayerPlaying = 0;
 
     public bool isMiniGameFinished;
+    private bool _gameHasStarted = false;
     private bool _thePartyIsFinished = false;
     private bool _isNewSceneReadyToPlay;
+
     private int sceneIndex = 2; // 2 is the index of landing page (Coop)
     private int sceneActiveID;
+    private int[] _allScenesIndex;
+    private int _miniGameFinished = 0;
+    private int _hpPlayer = 3;
+
     private List<int> sceneIndexes = new List<int>();
 
     public static GameManager instance;
-    private int[] _allScenesIndex;
-    public bool isCamActiveFroggyScene = false;
-
-    private int _miniGameFinished = 0;
-    private int _hpPlayer = 3;
-    private bool _gameHasStarted = false;
-
-    //private Scene scene;
     private void Awake()
     {
         if (instance == null) // Singleton : pour pouvoir appeler l'instance de ce script n'importe où
@@ -167,7 +163,7 @@ public class GameManager : MonoBehaviour
     }
 
     /** 
-    * Lancer lemode coop - les initialisations
+    * Lancer le mode coop - les initialisations
     */
 
     private void initGameManager()
@@ -328,8 +324,7 @@ public class GameManager : MonoBehaviour
 
     public void WinMiniGame()
     {
-        isCamActiveFroggyScene = false;
-           _miniGameFinished++;
+        _miniGameFinished++;
         _spawnerManager.DeactivateSpawners();
         if (_miniGameFinished == numberOfGames)
         {
@@ -349,7 +344,6 @@ public class GameManager : MonoBehaviour
     public void LoseMiniGame()
     {
         _miniGameFinished++;
-        isCamActiveFroggyScene = false;
 
         _spawnerManager.DeactivateSpawners();
         _hpPlayer--;
