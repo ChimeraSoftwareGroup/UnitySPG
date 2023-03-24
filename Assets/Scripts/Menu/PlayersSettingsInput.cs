@@ -4,8 +4,11 @@ using System.Collections.Generic;
 
 public class PlayersSettingsInput : MonoBehaviour
 {
+    [Header("Managers")]
     [SerializeField] GameManager _gameManager;
     [SerializeField] DialogManager _dialogManager;
+
+    [Header("Canvas")]
     [SerializeField] GameObject _listOfPlayersCanvas;
     [SerializeField] GameObject _numberOfPlayerCanvas;
     [SerializeField] GameObject _secondsByGamesCanvas;
@@ -14,12 +17,12 @@ public class PlayersSettingsInput : MonoBehaviour
     [SerializeField] InputField _playerNameIF;
     [SerializeField] PlayerName _playerNameInUI;
 
+    [Header("Settings")]
     public string playerName;
     public string numberOfGames;
     public string secondsPerGames;
 
     public static PlayersSettingsInput instance;
-
 
     [SerializeField] GameObject playerNameInput;
     [SerializeField] GameObject numberOfPlayerInput;
@@ -29,9 +32,9 @@ public class PlayersSettingsInput : MonoBehaviour
     private int _countPlayer = 0;
 
 
-    private void Awake()
+    private void Awake() 
     {
-        if (instance == null)
+        if (instance == null) // Singleton : pour pouvoir appeler l'instance de ce script n'importe où
         {
             instance = this;
             DontDestroyOnLoad(this);
@@ -102,7 +105,7 @@ public class PlayersSettingsInput : MonoBehaviour
             true, // Is Shuffle On
             timeSelectedinSeconds, // Timer Choosed
             numberOfMiniGamesSelected  // Number of Games
-            ); // EXEMPLE
+            ); 
         _dialogManager.StartTutorialDialog();
         _secondsByGamesCanvas.SetActive(false);
         _gameManager.GameObjectsActivationAtStartEatchGame();
