@@ -170,6 +170,8 @@ public class GameManager : MonoBehaviour
     {
         if(numberOfGames > 3) numberOfGames = 3;
         if(timeOfEachGameChosenByPlayers <= 0) timeOfEachGameChosenByPlayers = 20;
+
+       
     }
 
     public void InputSettingsByPlayer()

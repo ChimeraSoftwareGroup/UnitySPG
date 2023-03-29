@@ -13,11 +13,22 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject _settingsWindow;
     [SerializeField] GameObject _textClickToStart;
     [SerializeField] GameObject _errorPage;
+    [SerializeField] GameObject _legalPage;
+    [SerializeField] GameObject _contactPage;
 
     public AudioSource audioSource;
     public AudioClip sound;
     public AudioClip pageSound;
     public AudioClip errorSound;
+
+    [SerializeField] Animator _animator;
+
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+        _animator.SetBool("isOpenContact", false);
+
+    }
 
     public void ChangeFirstPageByMainMenue()
     {
@@ -70,5 +81,42 @@ public class MainMenu : MonoBehaviour
     {
         audioSource.PlayOneShot(errorSound);
         _errorPage.SetActive(true);
+    }
+
+    public void ShowLegalPage()
+    {
+        audioSource.PlayOneShot(pageSound);
+        _legalPage.SetActive(true);
+
+    }
+    public void CloseLegalPage()
+    {
+        audioSource.PlayOneShot(pageSound);
+        _legalPage.SetActive(false);
+
+    }
+    public void ShowContactPage()
+    {
+        audioSource.PlayOneShot(sound);
+        _contactPage.SetActive(true);
+        _animator.Play("Contact");
+        _animator.SetBool("isOpenContact", false);
+
+
+    }
+    public void CloseContactPage()
+    {
+
+        _animator.SetBool("isOpenContact", true);
+
+        audioSource.PlayOneShot(sound);
+        _animator.Play("ContactClose");
+
+        //_contactPage.SetActive(false);
+    }
+
+    public void ShowDocUser()
+    {
+        Application.OpenURL("https://dianavi22.itch.io/super-party-game");
     }
 }

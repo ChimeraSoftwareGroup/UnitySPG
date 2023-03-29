@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System;
 
 public class PlayersSettingsInput : MonoBehaviour
 {
@@ -79,7 +80,15 @@ public class PlayersSettingsInput : MonoBehaviour
         _numberOfPlayerCanvas.gameObject.SetActive(false);
         _secondsByGamesCanvas.gameObject.SetActive(true);
         if (numberOfGames == "") numberOfGames = "3";
+        Debug.Log(numberOfGames);
+       
     }
+
+    private int intParse(string numberOfGames)
+    {
+        throw new NotImplementedException();
+    }
+
     // TIME OF GAMES SET UPPING
     public void ReadingSecondsPerGames(string _secondsPerGames)
     {
