@@ -1759,7 +1759,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: IL N'Y A PAS ASSEZ DE JEUX POUR TOUT LE MONDE
+  m_Text: IL N'Y A PAS ASSEZ DE TEMPS (MIN 10 SEC)
 --- !u!222 &833643065
 CanvasRenderer:
   m_ObjectHideFlags: 0
