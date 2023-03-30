@@ -14,6 +14,8 @@ public class PlayersSettingsInput : MonoBehaviour
     [SerializeField] GameObject _numberOfPlayerCanvas;
     [SerializeField] GameObject _secondsByGamesCanvas;
     [SerializeField] GameObject _errorCanvasPlayerList;
+    [SerializeField] GameObject _errorCanvasNumberOfGame;
+    [SerializeField] GameObject _errorCanvasSeconds;
     [SerializeField] Button _buttonAddPlayer;
     [SerializeField] LayoutGroup _listPlayerLayoutGroup;
     [SerializeField] InputField _playerNameIF;
@@ -88,11 +90,28 @@ public class PlayersSettingsInput : MonoBehaviour
     }
     public void AddNbMiniGameToGM()
     {
+        print("Je passe ici");
+        if(int.Parse(numberOfGames) < nameOfPlayersList.Count)
+        {
+            _errorCanvasNumberOfGame.SetActive(true);
+            return;
+        }
+        else if(numberOfGames == "")
+        {
+            print("et là aussi");
+
+            _errorCanvasNumberOfGame.SetActive(true);
+            return;
+        }
+        print(numberOfGames);
         _numberOfPlayerCanvas.gameObject.SetActive(false);
         _secondsByGamesCanvas.gameObject.SetActive(true);
-        if (numberOfGames == "") numberOfGames = "3";
-        Debug.Log(numberOfGames);
+        
        
+    }
+    public void CloseErrorGamesPage()
+    {
+        _errorCanvasNumberOfGame.SetActive(false);
     }
     private int intParse(string numberOfGames)
     {
@@ -104,19 +123,25 @@ public class PlayersSettingsInput : MonoBehaviour
     {
         secondsPerGames = _secondsPerGames;
     }
+
+    public void CloseErrorSecondsPage()
+    {
+        _errorCanvasSeconds.SetActive(false);
+    }
     public void AddSecondsByGameToGMAndStartCoopGame()
     {
         PlayerHealth.instance.SetHP(3);
-
-        if(numberOfGames == "")
-        {
-            numberOfGames = "3";
-        }
         int numberOfMiniGamesSelected = int.Parse(numberOfGames);
 
         if (secondsPerGames == "")
         {
             secondsPerGames = "20";
+        }
+
+        if(int.Parse(secondsPerGames) < 10)
+        {
+            _errorCanvasSeconds.SetActive(true);
+            return;
         }
         float timeSelectedinSeconds = float.Parse(secondsPerGames);
         _gameManager.setParametersOfCoopGame(
