@@ -590,11 +590,11 @@ MonoBehaviour:
   _errorPage: {fileID: 2093263221}
   _legalPage: {fileID: 756244334}
   _contactPage: {fileID: 1741959}
+  _animator: {fileID: 555570096}
   audioSource: {fileID: 555570095}
   sound: {fileID: 8300000, guid: 7e71a941d6bc4594caf9ac7aee7d0131, type: 3}
   pageSound: {fileID: 8300000, guid: 77e05740ac7b37141aed605fed8420e7, type: 3}
   errorSound: {fileID: 8300000, guid: 1b9a8ef3db34e454bbc37af16d86af5f, type: 3}
-  _animator: {fileID: 555570096}
 --- !u!82 &555570095
 AudioSource:
   m_ObjectHideFlags: 0
@@ -885,6 +885,21 @@ PrefabInstance:
     - target: {fileID: 4909311283693155599, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909311283767778057, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909311285096747026, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
+      propertyPath: m_Text
+      value: '
+
+
+
+
+
+
+        NE PAS VOLER SVP '
       objectReference: {fileID: 0}
     - target: {fileID: 4909311285192189786, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

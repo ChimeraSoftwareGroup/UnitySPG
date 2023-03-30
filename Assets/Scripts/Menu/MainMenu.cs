@@ -15,19 +15,18 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject _errorPage;
     [SerializeField] GameObject _legalPage;
     [SerializeField] GameObject _contactPage;
+    [SerializeField] Animator _animator;
 
     public AudioSource audioSource;
     public AudioClip sound;
     public AudioClip pageSound;
     public AudioClip errorSound;
 
-    [SerializeField] Animator _animator;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
         _animator.SetBool("isOpenContact", false);
-
     }
 
     public void ChangeFirstPageByMainMenue()
@@ -62,19 +61,16 @@ public class MainMenu : MonoBehaviour
     public void CallSettingsWindows()
     {
         _settingsWindow.SetActive(true);
-
     }
     public void CallCoopMenu()
     {
         SceneManager.LoadScene("PotatoMenu");
-
     }
 
     public void CloseErrorPage()
     {
         _errorPage.SetActive(false);
         audioSource.PlayOneShot(pageSound);
-
     }
 
     public void ShowErrorPage()
@@ -87,13 +83,11 @@ public class MainMenu : MonoBehaviour
     {
         audioSource.PlayOneShot(pageSound);
         _legalPage.SetActive(true);
-
     }
     public void CloseLegalPage()
     {
         audioSource.PlayOneShot(pageSound);
         _legalPage.SetActive(false);
-
     }
     public void ShowContactPage()
     {
@@ -101,18 +95,13 @@ public class MainMenu : MonoBehaviour
         _contactPage.SetActive(true);
         _animator.Play("Contact");
         _animator.SetBool("isOpenContact", false);
-
-
     }
     public void CloseContactPage()
     {
-
         _animator.SetBool("isOpenContact", true);
-
         audioSource.PlayOneShot(sound);
         _animator.Play("ContactClose");
-
-        //_contactPage.SetActive(false);
+        _contactPage.SetActive(false);
     }
 
     public void ShowDocUser()

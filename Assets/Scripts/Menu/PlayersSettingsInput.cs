@@ -13,10 +13,12 @@ public class PlayersSettingsInput : MonoBehaviour
     [SerializeField] GameObject _listOfPlayersCanvas;
     [SerializeField] GameObject _numberOfPlayerCanvas;
     [SerializeField] GameObject _secondsByGamesCanvas;
+    [SerializeField] GameObject _errorCanvasPlayerList;
     [SerializeField] Button _buttonAddPlayer;
     [SerializeField] LayoutGroup _listPlayerLayoutGroup;
     [SerializeField] InputField _playerNameIF;
     [SerializeField] PlayerName _playerNameInUI;
+
 
     [Header("Settings")]
     public string playerName;
@@ -66,10 +68,19 @@ public class PlayersSettingsInput : MonoBehaviour
 
     public void FinishPlayerListAndStartSetUpGamesNumber()
     {
+        if(nameOfPlayersList.Count == 0)
+        {
+            _errorCanvasPlayerList.SetActive(true);
+            return;
+        }
         _listOfPlayersCanvas.gameObject.SetActive(false);
         _numberOfPlayerCanvas.gameObject.SetActive(true);
     }
-    
+    public void CloseErrorPage()
+    {
+        _errorCanvasPlayerList.SetActive(false);
+    }
+
     // GAMES SET UPPING
     public void ReadingNumberOfGames(string _numberOfGames)
     {
@@ -83,7 +94,6 @@ public class PlayersSettingsInput : MonoBehaviour
         Debug.Log(numberOfGames);
        
     }
-
     private int intParse(string numberOfGames)
     {
         throw new NotImplementedException();
