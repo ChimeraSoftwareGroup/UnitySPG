@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject _errorPage;
     [SerializeField] GameObject _legalPage;
     [SerializeField] GameObject _contactPage;
+    [SerializeField] GameObject _choiceBattleRoyale;
     [SerializeField] Animator _animator;
 
     public AudioSource audioSource;
@@ -102,6 +103,17 @@ public class MainMenu : MonoBehaviour
         audioSource.PlayOneShot(sound);
         _animator.Play("ContactClose");
         _contactPage.SetActive(false);
+    }
+
+    public void ShowChoiceBattleRoyal()
+    {
+        audioSource.PlayOneShot(pageSound);
+        _choiceBattleRoyale.SetActive(true);
+    }
+    public void CloseChoiceBattleRoyal()
+    {
+        audioSource.PlayOneShot(pageSound);
+        _choiceBattleRoyale.SetActive(false);
     }
 
     public void ShowDocUser()
