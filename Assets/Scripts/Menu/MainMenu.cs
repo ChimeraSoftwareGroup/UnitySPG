@@ -23,7 +23,6 @@ public class MainMenu : MonoBehaviour
     public AudioClip pageSound;
     public AudioClip errorSound;
 
-
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -42,7 +41,7 @@ public class MainMenu : MonoBehaviour
     {
         _textClickToStart.SetActive(false);
         _buttonsMainMenu.SetActive(true);
-    } 
+    }
     public void GoToCoopMenu()
     {
         audioSource.PlayOneShot(sound);
@@ -52,7 +51,7 @@ public class MainMenu : MonoBehaviour
     {
         audioSource.PlayOneShot(sound);
         SceneManager.LoadScene("Credits");
-    }  
+    }
     public void GoToSettings()
     {
         audioSource.PlayOneShot(pageSound);
@@ -116,8 +115,17 @@ public class MainMenu : MonoBehaviour
         _choiceBattleRoyale.SetActive(false);
     }
 
+    public void EnterInBattleRoyaleMode()
+    {
+        SceneManager.LoadScene("BattleRoyalMenu");
+    }
+
     public void ShowDocUser()
     {
         Application.OpenURL("https://dianavi22.itch.io/super-party-game");
+    }
+    public void QuitButton()
+    {
+        Application.Quit();
     }
 }
