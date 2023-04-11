@@ -21,7 +21,7 @@ public class PlayersSettingsInput : MonoBehaviour
     [SerializeField] LayoutGroup _listPlayerLayoutGroup;
     [SerializeField] InputField _playerNameIF;
     [SerializeField] PlayerName _playerNameInUI;
-
+    [SerializeField] GameObject _buttonCloseModeCoop;
 
     [Header("Settings")]
     public string playerName;
@@ -150,7 +150,8 @@ public class PlayersSettingsInput : MonoBehaviour
             true, // Is Shuffle On
             timeSelectedinSeconds, // Timer Choosed
             numberOfMiniGamesSelected  // Number of Games
-            ); 
+            );
+        _buttonCloseModeCoop.SetActive(false);
         _dialogManager.StartTutorialDialog();
         _secondsByGamesCanvas.SetActive(false);
         _gameManager.GameObjectsActivationAtStartEatchGame();

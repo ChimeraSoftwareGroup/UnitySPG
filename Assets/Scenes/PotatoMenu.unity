@@ -5158,6 +5158,7 @@ MonoBehaviour:
   _listPlayerLayoutGroup: {fileID: 871601327}
   _playerNameIF: {fileID: 1237009289}
   _playerNameInUI: {fileID: 8816556944940223432, guid: a72e86a7a6a49d941b9625943696d2f7, type: 3}
+  _buttonCloseModeCoop: {fileID: 1337954174}
   playerName: X
   numberOfGames: 3
   secondsPerGames: 20
