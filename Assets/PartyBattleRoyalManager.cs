@@ -9,6 +9,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
     [SerializeField] GameObject _hostCanvas;
     [SerializeField] GameObject _joinCanvas;
     [SerializeField] GameObject _battleRoyaleChoice;
+    [SerializeField] GameObject _errorPage;
     
 
     public void EnterInBattleRoyaleModeInHost()
@@ -56,6 +57,13 @@ public class PartyBattleRoyalManager : MonoBehaviour
         _hostCanvas.SetActive(false);
         _joinCanvas.SetActive(false);
     }
-
+    public void ShowError()
+    {
+        _errorPage.SetActive(true);
+    }
+    public void HideError()
+    {
+        _errorPage.SetActive(false);
+    }
 
 }

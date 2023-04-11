@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using System;
 
 public class PlayersSettingsInput : MonoBehaviour
@@ -154,5 +155,11 @@ public class PlayersSettingsInput : MonoBehaviour
         _secondsByGamesCanvas.SetActive(false);
         _gameManager.GameObjectsActivationAtStartEatchGame();
         _gameManager.NewGame();
+    }
+
+    public void QuitButton()
+    {
+        SceneManager.LoadScene("MenueScene");
+
     }
 }

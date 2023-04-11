@@ -106,8 +106,8 @@ public class MainMenu : MonoBehaviour
 
     public void ShowChoiceBattleRoyal()
     {
-        audioSource.PlayOneShot(pageSound);
-        _choiceBattleRoyale.SetActive(true);
+        SceneManager.LoadScene("BattleRoyalMenu");
+
     }
     public void CloseChoiceBattleRoyal()
     {
