@@ -414,9 +414,9 @@ RectTransform:
   m_Father: {fileID: 1707547290}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1197}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -3.1286618e-10, y: 200}
   m_SizeDelta: {x: 450, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &611766451
@@ -798,8 +798,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: -1998.1616}
-  m_SizeDelta: {x: -0, y: 4000.324}
+  m_AnchoredPosition: {x: -0.00024414062, y: -1999.2}
+  m_SizeDelta: {x: 0.00048828, y: 3998.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1707547291
 Animator:
@@ -929,8 +929,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.000091553, y: -2000.2002}
-  m_SizeDelta: {x: 1920, y: 4000.3}
+  m_AnchoredPosition: {x: 0.00056267, y: -2000.2002}
+  m_SizeDelta: {x: 450, y: 4000.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1796575801
 MonoBehaviour:
@@ -965,111 +965,29 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '<SIZE=60><B>SUPER PARTY GAME</B>
-
-    </SIZE>
-
-    <SIZE=30> </SIZE>
-
-
-
-
-
-    <SIZE=60><B>ASSETS 
-    USED</B>
-
-    </SIZE>
-
-
-
-    <SIZE=60>- GRAPHICS -</SIZE>
-
-
-
-    <SIZE=30>APPLICATION
-    DESIGN
-
-    <I>BY  TOMMY WISEAU</I></SIZE>
-
-
-
-    <SIZE=30>GAME DESIGN
-
-    <I>BY 
-    TOMMY WISEAU</I></SIZE>
-
-
-
-    <SIZE=30>PROPS
-
-    <I>BY  TOMMY WISEAU</I></SIZE>
-
-
-
-
-
-
-
-    <SIZE=60>-
-    AUDIO -</SIZE>
-
-
-
-    <SIZE=30>MUSIC
-
-    <I>TOMMY WISEAU</I></SIZE>
-
-
-
-    <SIZE=30>MUSIC
-
-    <I>TOMMY
-    WISEAU</I></SIZE>
-
-
-
-    <SIZE=30>BIP BOOP
-
-    <I>TOMMY WISEAU</I></SIZE>
-
-
-
-
-
-
-
-    <SIZE=60>-
-    FONT -</SIZE>
-
-
-
-    <SIZE=30>PIXELATED
-
-    <I>BY  SKYLAR  PARK</I></SIZE>
-
-
-
-
-
-
-
-    <SIZE=60>-
-    SPECIAL  THANKS -</SIZE>
-
-
-
-    <SIZE=30>TOMMY WISEAU
-
-
-
-    <I>TOMMY WISEAU,TOMMY
-    WISEAU,TOMMY WISEAU,TOMMY WISEAU,TOMMY WISEAU,TOMMY WISEAU</I></SIZE>
-
-
-
-
-
-'
+  m_Text: "<SIZE=70><B>SUPER  PARTY  GAME</B></SIZE>\r\n<SIZE=30> </SIZE>\r\n<SIZE=60>APPLICATION 
+    DEVELOPPEMENT</SIZE>\r\n\r\n<SIZE=30>APPLICATION  DESIGN\r\n<I>BY JADE  BOUIGES</I>\r\n<I>CHAT 
+    GPT</I></SIZE>\r\n                \r\n<SIZE=30>BACKEND\r\n<I>BY   LUBIN  PAUBLY</I>\r\n<I>BRIAN 
+    RICHARD</I></SIZE>\r\n\r\n<SIZE=30>SERVER\r\n<I>BY KEVIN  DOBROTA</I></SIZE>\r\n\r\n<SIZE=60>- 
+    GRAPHICS  -</SIZE>\r\n\r\n<SIZE=30>GAME DESIGN\r\n<I>BY JADE  BOUIGES</I></SIZE>\r\n\r\n<SIZE=30>ANIMATIONS\r\n<I>BY
+    JADE  BOUIGES</I></SIZE>\r\n\r\n<SIZE=60><B>-  ASSETS  USED  -</B></SIZE>\r\n\r\n<SIZE=30><B>MENU</B>\r\n\r\n<I>MENU
+    (CLOUD)  -  NUBE</I>\r\n<I>MENU (TREE)  -  PNGWING</I>\r\n<I>MENU (LEAF)  - 
+    588KU</I>\r\n<I>BLUE BIRD  -  MA9ICI4N</I>\r\n<I>GANDALF  -  PETEBITS25</I>\r\n<I>PANEL 
+    -  JADE BOUIGES</I>\r\n<I>PAPER  -  JADE BOUIGES</I></SIZE>\r\n\r\n<SIZE=30><B>GAMES</B>\r\n\r\n<I>SNEUK 
+    -  BUCH</I>\r\n<I>FROGGY  -  NICOLE  MARIE  T</I>\r\n<I>BOBEE  -  JXY25</I>\r\n<I>SPIDER 
+    -  DON'T  STARVE</I>\r\n<I>FOREST  (BACKGROUND)  -  MEMOANGELES</I>\r\n<I>BOXE 
+    -  STOCK  VECTOR</I></SIZE>\r\n\r\n<SIZE=30><B>OTHER</B>\r\n\r\n<I>ICON  -  JADE 
+    BOUIGES</I>\r\n</SIZE>\r\n\r\n<SIZE=60>- AUDIO -</SIZE>\r\n\r\n<SIZE=30>SOUND 
+    MANAGER\r\n<I>JADE  BOUIGES</I></SIZE>\r\n\r\n<SIZE=30>MUSIC\r\n<I>MENU : THAT 
+    ON  DRAGON  BALL  NES  MUSIC  -  TOSE</I>\r\n<I>SNEUK : HEAT  OF  THE  WORLD 
+    -  KENLITEN</I>\r\n<I>FROGGY : DADDY'S  JOURNEY  MUSIC  -  KEVIN  DOBROTA</I>\r\n<I>BOBEE
+    : STRANGER  OF  YOU  -  KENLITEN</I></SIZE>\r\n\r\n\r\n<SIZE=30>SOUNDS\r\n<I>8-BIT
+    SOUNDS  LIBRARY  -  LITTLE  ROBOT  SOUND\r\nFACTORY</I>\r\n<I>NES 8-BIT  SOUND 
+    EFFECTS - SHIRU8BIT</I>\r\n<I>BOOK FLIPS - STAR NINJAS</I>\r\n</SIZE>\r\n\r\n\r\n<SIZE=60>-
+    FONT -</SIZE>\r\n\r\n<SIZE=30>PIXELATED\r\n<I>BY SKYLAR  PARK</I></SIZE>\r\n\r\n<SIZE=60>-
+    SPECIAL  THANKS -</SIZE>\r\n\r\n<SIZE=30>CODING  FACTORY\r\n\r\n<I>ROBIN  PENEA,\r\nCOLOMBE 
+    VAN  MASTRISH,\r\nVALERIE  ECAILLE,\r\nTOMAS  LEBRUN,\r\nKEVIN  FAGOT,\r\nMELANIE 
+    VAUBIEN,\r\nMAXIME  JOULIN,\r\nCHATGPT</I></SIZE>"
 --- !u!222 &1796575802
 CanvasRenderer:
   m_ObjectHideFlags: 0

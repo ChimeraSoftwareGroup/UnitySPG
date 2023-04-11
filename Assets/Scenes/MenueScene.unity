@@ -596,10 +596,6 @@ MonoBehaviour:
   sound: {fileID: 8300000, guid: 7e71a941d6bc4594caf9ac7aee7d0131, type: 3}
   pageSound: {fileID: 8300000, guid: 77e05740ac7b37141aed605fed8420e7, type: 3}
   errorSound: {fileID: 8300000, guid: 1b9a8ef3db34e454bbc37af16d86af5f, type: 3}
-  windowContact: {fileID: 1789417866}
-  _contactOpen: {fileID: 7400000, guid: b34818f0034ada64a8906eb59a895d95, type: 2}
-  _contactClose: {fileID: 7400000, guid: ad30c29c32b5b5742adb95b8ee655a5d, type: 2}
-  _animatorContact: {fileID: 1789417869}
 --- !u!82 &555570095
 AudioSource:
   m_ObjectHideFlags: 0
@@ -716,132 +712,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!1 &567754436
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 567754437}
-  - component: {fileID: 567754440}
-  - component: {fileID: 567754439}
-  - component: {fileID: 567754438}
-  m_Layer: 5
-  m_Name: Text (Legacy)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &567754437
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567754436}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 674454610}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.25, y: -1607.6827}
-  m_SizeDelta: {x: 183.5, y: 3216.8264}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &567754438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567754436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
-  m_VerticalFit: 2
---- !u!114 &567754439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567754436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "Pr\xE9sentation du jeu\r\n\nLe jeu Super Party Game est d\xE9velopp\xE9
-    et \xE9dit\xE9 par Chimera Software, une soci\xE9t\xE9 \xE0 responsabilit\xE9
-    limit\xE9e, immatricul\xE9e au registre du commerce et des soci\xE9t\xE9s sous
-    le num\xE9ro 1234 5678 9069 et dont le si\xE8ge social est situ\xE9 au 35 Boulevard
-    du Port\r\n95000 Cergy. Le jeu est accessible via Andriod et IOS, une plateforme
-    de distribution en ligne g\xE9r\xE9e par Chimera Software Enterprises Holding
-    Inc.\r\n\r\nPropri\xE9t\xE9 intellectuelle\r\nLe jeu, ainsi que l'ensemble des
-    \xE9l\xE9ments qui le composent, tels que les images, les sons, les vid\xE9os,
-    les textes et les logos, sont la propri\xE9t\xE9 exclusive de Chimera Software
-    ou de ses partenaires et sont prot\xE9g\xE9s par le droit d'auteur et le droit
-    des marques. Toute utilisation non autoris\xE9e de ces \xE9l\xE9ments est strictement
-    interdite et peut donner lieu \xE0 des poursuites judiciaires.\r\n\r\nLicence
-    d'utilisation\r\nLe joueur est autoris\xE9 \xE0 utiliser le jeu uniquement pour
-    son usage personnel et non commercial. La licence d'utilisation accord\xE9e par
-    Chimera Software est non exclusive, personnelle, incessible et non transf\xE9rable.
-    Toutefois, le joueur peut autoriser un tiers \xE0 utiliser le jeu sur le m\xEAme
-    terminal que celui utilis\xE9 par le joueur. Tout autre usage du jeu est strictement
-    interdit.\r\n\r\nDonn\xE9es personnelles\r\nLes donn\xE9es personnelles collect\xE9es
-    dans le cadre de l'utilisation du jeu sont trait\xE9es conform\xE9ment \xE0 la
-    politique de confidentialit\xE9 de Chimera Software, disponible sur le site internet
-    de l'\xE9diteur. Le joueur dispose d'un droit d'acc\xE8s, de rectification et
-    de suppression des donn\xE9es le concernant, qu'il peut exercer en \xE9crivant
-    \xE0 chimerasoftware.group@gmail.com.\r\n\r\nGaranties et responsabilit\xE9s\r\nLe
-    jeu est fourni tel quel, sans garantie d'aucune sorte, expresse ou implicite.
-    Chimera Software ne saurait \xEAtre tenu responsable en cas de dommage subi par
-    le joueur ou un tiers du fait de l'utilisation du jeu. La responsabilit\xE9 de
-    Chimera Software ne saurait \xEAtre engag\xE9e au-del\xE0 du montant pay\xE9
-    par le joueur pour l'acquisition du jeu.\r\n\r\nDroit applicable et juridiction
-    comp\xE9tente\r\nLes pr\xE9sentes mentions l\xE9gales sont soumises au droit
-    fran\xE7ais. Tout litige relatif \xE0 l'utilisation du jeu sera soumis \xE0 la
-    comp\xE9tence exclusive des tribunaux fran\xE7ais.\r\n\r\nNous vous remercions
-    d'avoir pris connaissance de ces mentions l\xE9gales."
---- !u!222 &567754440
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567754436}
-  m_CullTransparentMesh: 1
 --- !u!1 &601324648
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,13 +799,86 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 555570093}
     m_Modifications:
-    - target: {fileID: 4909311283446407986, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 567754437, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 180.964
+      objectReference: {fileID: 0}
+    - target: {fileID: 567754437, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 3537.7485
+      objectReference: {fileID: 0}
+    - target: {fileID: 567754437, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4909311283446407986, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
+    - target: {fileID: 567754437, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1768.8743
+      objectReference: {fileID: 0}
+    - target: {fileID: 567754439, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
+      propertyPath: m_Text
+      value: "<SIZE=25>Pr\xE9sentation du jeu\r</SIZE>\n\nLe jeu Super Party Game
+        est d\xE9velopp\xE9 et \xE9dit\xE9 par Chimera Software, une soci\xE9t\xE9
+        \xE0 responsabilit\xE9 limit\xE9e, immatricul\xE9e au registre du commerce
+        et des soci\xE9t\xE9s sous le num\xE9ro 1234 5678 9069 et dont le si\xE8ge
+        social est situ\xE9 au 35 Boulevard du Port\r\n95000 Cergy. Le jeu est accessible
+        via Andriod et IOS, une plateforme de distribution en ligne g\xE9r\xE9e par
+        Chimera Software Enterprises Holding Inc.\r\n\r\n<SIZE=30>Propri\xE9t\xE9
+        intellectuelle\r</SIZE>\n\nLe jeu, ainsi que l'ensemble des \xE9l\xE9ments
+        qui le composent, tels que les images, les sons, les vid\xE9os, les textes
+        et les logos, sont la propri\xE9t\xE9 exclusive de Chimera Software ou de
+        ses partenaires et sont prot\xE9g\xE9s par le droit d'auteur et le droit
+        des marques. Toute utilisation non autoris\xE9e de ces \xE9l\xE9ments est
+        strictement interdite et peut donner lieu \xE0 des poursuites judiciaires.\r\n\r\n<SIZE=25>Licence
+        d'utilisation\r</SIZE>\n\nLe joueur est autoris\xE9 \xE0 utiliser le jeu
+        uniquement pour son usage personnel et non commercial. La licence d'utilisation
+        accord\xE9e par Chimera Software est non exclusive, personnelle, incessible
+        et non transf\xE9rable. Toutefois, le joueur peut autoriser un tiers \xE0
+        utiliser le jeu sur le m\xEAme terminal que celui utilis\xE9 par le joueur.
+        Tout autre usage du jeu est strictement interdit.\r\n\r\n<SIZE=25>Donn\xE9es
+        personnelles\r</SIZE>\n\nLes donn\xE9es personnelles collect\xE9es dans le
+        cadre de l'utilisation du jeu sont trait\xE9es conform\xE9ment \xE0 la politique
+        de confidentialit\xE9 de Chimera Software, disponible sur le site internet
+        de l'\xE9diteur. Le joueur dispose d'un droit d'acc\xE8s, de rectification
+        et de suppression des donn\xE9es le concernant, qu'il peut exercer en \xE9crivant
+        \xE0 chimerasoftware.group@gmail.com.\r\n\r\n<SIZE=25>Garanties et responsabilit\xE9s\r</SIZE>\n\nLe
+        jeu est fourni tel quel, sans garantie d'aucune sorte, expresse ou implicite.
+        Chimera Software ne saurait \xEAtre tenu responsable en cas de dommage subi
+        par le joueur ou un tiers du fait de l'utilisation du jeu. La responsabilit\xE9
+        de Chimera Software ne saurait \xEAtre engag\xE9e au-del\xE0 du montant pay\xE9
+        par le joueur pour l'acquisition du jeu.\r\n\r\n<SIZE=25>Droit applicable
+        et juridiction comp\xE9tente\r</SIZE>\n\nLes pr\xE9sentes mentions l\xE9gales
+        sont soumises au droit fran\xE7ais. Tout litige relatif \xE0 l'utilisation
+        du jeu sera soumis \xE0 la comp\xE9tence exclusive des tribunaux fran\xE7ais.\r\n\r\nNous
+        vous remercions d'avoir pris connaissance de ces mentions l\xE9gales.\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 567754439, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 674511669, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 674511669, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 674511669, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.94275516
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849054100, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849054100, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1849054100, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -6.793
       objectReference: {fileID: 0}
     - target: {fileID: 4909311283693155584, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
       propertyPath: m_Name
@@ -1029,33 +972,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4909311283767778057, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4909311284713675419, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4909311285096747026, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
-      propertyPath: m_Text
-      value: '
-
-
-
-
-
-
-        NE PAS VOLER SVP '
-      objectReference: {fileID: 0}
     - target: {fileID: 4909311285192189786, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 555570094}
-    - target: {fileID: 4909311285192189786, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseLegalPage
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
 --- !u!224 &639063535 stripped
@@ -1063,293 +983,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4909311283693155599, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
   m_PrefabInstance: {fileID: 639063534}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &639063536 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4909311284747783513, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
-  m_PrefabInstance: {fileID: 639063534}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &674454609
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 674454610}
-  m_Layer: 5
-  m_Name: Content
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &674454610
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 674454609}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 567754437}
-  m_Father: {fileID: 1849054100}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 3493.765}
-  m_Pivot: {x: 0, y: 1}
---- !u!1 &674511668
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 674511669}
-  - component: {fileID: 674511671}
-  - component: {fileID: 674511670}
-  m_Layer: 5
-  m_Name: Handle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &674511669
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 674511668}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1003467166}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.94275516}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &674511670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 674511668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &674511671
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 674511668}
-  m_CullTransparentMesh: 1
---- !u!1 &734464888
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 734464889}
-  - component: {fileID: 734464892}
-  - component: {fileID: 734464891}
-  - component: {fileID: 734464890}
-  m_Layer: 5
-  m_Name: Scrollbar Vertical
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &734464889
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734464888}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1003467166}
-  m_Father: {fileID: 2100894183}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: -0.000015259}
-  m_Pivot: {x: 1, y: 1}
---- !u!114 &734464890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734464888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 674511670}
-  m_HandleRect: {fileID: 674511669}
-  m_Direction: 2
-  m_Value: 1
-  m_Size: 0.05724484
-  m_NumberOfSteps: 0
-  m_OnValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &734464891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734464888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &734464892
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734464888}
-  m_CullTransparentMesh: 1
 --- !u!1 &756244334 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4909311283693155584, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
   m_PrefabInstance: {fileID: 639063534}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1003467165
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1003467166}
-  m_Layer: 5
-  m_Name: Sliding Area
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1003467166
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003467165}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 674511669}
-  m_Father: {fileID: 734464889}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1056860209 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 127209572822074879, guid: 682550e16824ec44aa068a9103caeacc, type: 3}
@@ -1693,97 +1331,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!1 &1849054099
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1849054100}
-  - component: {fileID: 1849054103}
-  - component: {fileID: 1849054102}
-  - component: {fileID: 1849054101}
-  m_Layer: 5
-  m_Name: Viewport
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1849054100
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1849054099}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 674454610}
-  m_Father: {fileID: 2100894183}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 0}
-  m_Pivot: {x: 0, y: 1}
---- !u!114 &1849054101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1849054099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 0
---- !u!114 &1849054102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1849054099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1849054103
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1849054099}
-  m_CullTransparentMesh: 1
 --- !u!1 &1867736935
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,115 +1610,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6542536185672755727, guid: 8d5e8cfbee77e68469d981cdb5ddf3b6, type: 3}
   m_PrefabInstance: {fileID: 6542536185752667001}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2100894182
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2100894183}
-  - component: {fileID: 2100894186}
-  - component: {fileID: 2100894185}
-  - component: {fileID: 2100894184}
-  m_Layer: 5
-  m_Name: Scroll View
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2100894183
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100894182}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1849054100}
-  - {fileID: 734464889}
-  m_Father: {fileID: 639063536}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -144}
-  m_SizeDelta: {x: 200, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2100894184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100894182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Content: {fileID: 674454610}
-  m_Horizontal: 1
-  m_Vertical: 1
-  m_MovementType: 1
-  m_Elasticity: 0.1
-  m_Inertia: 1
-  m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
-  m_Viewport: {fileID: 1849054100}
-  m_HorizontalScrollbar: {fileID: 0}
-  m_VerticalScrollbar: {fileID: 734464890}
-  m_HorizontalScrollbarVisibility: 2
-  m_VerticalScrollbarVisibility: 2
-  m_HorizontalScrollbarSpacing: -3
-  m_VerticalScrollbarSpacing: -3
-  m_OnValueChanged:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &2100894185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100894182}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &2100894186
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100894182}
-  m_CullTransparentMesh: 1
 --- !u!1001 &127209571996970446
 PrefabInstance:
   m_ObjectHideFlags: 0
