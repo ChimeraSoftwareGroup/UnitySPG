@@ -1,27 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraManager : MonoBehaviour
+public class CameraSwitch : MonoBehaviour
 {
-    [SerializeField] Camera _camPlayer;
+    public Camera mainCamera;
+    public Camera secondaryCamera;
 
-    public Camera[] cameras;
-    private int currentCameraIndex;
-    private void Start()
-    {
-        currentCameraIndex = 0;
-    }
     void Update()
     {
-        if(_camPlayer == null)
+        if (!mainCamera.gameObject.activeSelf)
         {
-            this.gameObject.SetActive(true);
+            secondaryCamera.gameObject.SetActive(true);
         }
         else
         {
-            this.gameObject.SetActive(false);
-
+            secondaryCamera.gameObject.SetActive(false);
         }
     }
 }
