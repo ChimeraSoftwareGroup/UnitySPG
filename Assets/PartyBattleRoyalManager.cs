@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class PartyBattleRoyalManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
     [SerializeField] GameObject _errorPage;
     [SerializeField] GameObject _errorNbGame;
     [SerializeField] GameObject _errorCodeRoom;
+    [SerializeField] Text _codeRoomHost;
 
     public AudioSource audioSource;
     public AudioClip buttonSound;
@@ -85,7 +87,6 @@ public class PartyBattleRoyalManager : MonoBehaviour
             else
             {
                 audioSource.PlayOneShot(buttonSound);
-
                 print("FIGHT ! ");
             }
         }
@@ -120,7 +121,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
         else
         {
             audioSource.PlayOneShot(buttonSound);
-
+            _codeRoomHost.text = "1234567890";
             _nbMiniGames = int.Parse(numberOfGames);
             _hostCanvas.SetActive(true);
             audioSource.PlayOneShot(buttonSound);
