@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using System;
 
 public class PlayersSettingsInput : MonoBehaviour
@@ -20,7 +21,8 @@ public class PlayersSettingsInput : MonoBehaviour
     [SerializeField] LayoutGroup _listPlayerLayoutGroup;
     [SerializeField] InputField _playerNameIF;
     [SerializeField] PlayerName _playerNameInUI;
-
+    [SerializeField] GameObject _buttonCloseModeCoop;
+    [SerializeField] GameObject _playerList;
 
     [Header("Settings")]
     public string playerName;
@@ -31,11 +33,12 @@ public class PlayersSettingsInput : MonoBehaviour
 
     [SerializeField] GameObject playerNameInput;
     [SerializeField] GameObject numberOfPlayerInput;
+    
     [SerializeField] GameObject secondsByGamesInput;
 
     List<string> nameOfPlayersList = new List<string>();
     private int _countPlayer = 0;
-
+    private Vector3 lastValidPosition;
 
     private void Awake() 
     {
@@ -44,6 +47,20 @@ public class PlayersSettingsInput : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this);
         }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            print("travers wall");
+            transform.position = lastValidPosition;
+        }
+    }
+    private void Update()
+    {
+        lastValidPosition = transform.position;
+
     }
 
     // Players Set Upping
@@ -75,6 +92,7 @@ public class PlayersSettingsInput : MonoBehaviour
             _errorCanvasPlayerList.SetActive(true);
             return;
         }
+        _playerList.SetActive(false);
         _listOfPlayersCanvas.gameObject.SetActive(false);
         _numberOfPlayerCanvas.gameObject.SetActive(true);
     }
@@ -149,10 +167,17 @@ public class PlayersSettingsInput : MonoBehaviour
             true, // Is Shuffle On
             timeSelectedinSeconds, // Timer Choosed
             numberOfMiniGamesSelected  // Number of Games
-            ); 
+            );
+        _buttonCloseModeCoop.SetActive(false);
         _dialogManager.StartTutorialDialog();
         _secondsByGamesCanvas.SetActive(false);
         _gameManager.GameObjectsActivationAtStartEatchGame();
         _gameManager.NewGame();
+    }
+
+    public void QuitButton()
+    {
+        SceneManager.LoadScene("MenueScene");
+
     }
 }

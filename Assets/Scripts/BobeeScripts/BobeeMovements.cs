@@ -4,13 +4,12 @@ public class BobeeMovements : MonoBehaviour
 {
     public CharacterController controller;
     public float speed = 6f;
-
     private Joystick joystick;
     private void Start()
     {
         joystick = FindObjectOfType<Joystick>();
     }
-
+   
     private void Update()
     {
         // float horizontal = Input.GetAxisRaw("Horizontal");
@@ -28,6 +27,7 @@ public class BobeeMovements : MonoBehaviour
         //{
         //    controller.Move(dir * speed * Time.deltaTime);
         //}
+
     }
 
 
