@@ -2128,6 +2128,14 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4657666683445377598, guid: ae32ea896115f794fa30fa42403ca451, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4657666683445377598, guid: ae32ea896115f794fa30fa42403ca451, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4657666683683754201, guid: ae32ea896115f794fa30fa42403ca451, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
