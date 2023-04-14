@@ -33,11 +33,12 @@ public class PlayersSettingsInput : MonoBehaviour
 
     [SerializeField] GameObject playerNameInput;
     [SerializeField] GameObject numberOfPlayerInput;
+    
     [SerializeField] GameObject secondsByGamesInput;
 
     List<string> nameOfPlayersList = new List<string>();
     private int _countPlayer = 0;
-
+    private Vector3 lastValidPosition;
 
     private void Awake() 
     {
@@ -46,6 +47,20 @@ public class PlayersSettingsInput : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this);
         }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            print("travers wall");
+            transform.position = lastValidPosition;
+        }
+    }
+    private void Update()
+    {
+        lastValidPosition = transform.position;
+
     }
 
     // Players Set Upping
