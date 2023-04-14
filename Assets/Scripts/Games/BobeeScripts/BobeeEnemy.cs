@@ -6,17 +6,15 @@ using UnityEngine.AI;
 
 public class BobeeEnemy : ObjectsToSpawn
 {
-    [SerializeField] private GameObject _target;
+    [SerializeField] private Player _target;
     public float speed = 5f;
-    [SerializeField] private float lifeTime = 30;
-    [SerializeField] private float currentLife;
+    [SerializeField] private float lifeTime = 5;
+    [SerializeField] private float currentLife = 0;
     // public NavMeshAgent enemy;
 
     void Start()
     {
-        currentLife = 0;
-        InvokeRepeating("UpdateSpawn", 0f, 0.5f);
-        _target = GameObject.Find("Bobee").gameObject;
+        _target = GameObject.FindObjectOfType<Player>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -25,11 +23,11 @@ public class BobeeEnemy : ObjectsToSpawn
 
     void Update()
     {
-        if (_target == null)
+        if (_target == null || _target.enabled == false)
         {
             return;
         }
-
+        currentLife += Time.deltaTime;
         Vector3 dir = _target.transform.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
         if (currentLife > lifeTime)
@@ -37,12 +35,6 @@ public class BobeeEnemy : ObjectsToSpawn
             EnemyDeath();
         }
     }
-
-    void UpdateSpawn()
-    {
-        currentLife++;
-    }
-
     void EnemyDeath()
     {
         Destroy(gameObject);

@@ -2,28 +2,39 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [SerializeField] HealthBar _healthBar;
     [SerializeField] int _maxHealth = 3;
-    [SerializeField] int _currentHealth = 3;
-    public HealthBar _healthBar;
+
+    public int currentHealth;
+    public static PlayerHealth instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("Il y a plus d'une instance de PlayerHealth dans la scène");
+            return;
+        }
+        instance = this;
+    }
+
     void Start()
     {
-        _currentHealth = _maxHealth;
-        _healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
+        currentHealth = _maxHealth;
         _healthBar.SetMaxHealth(_maxHealth);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetHP(int hp)
     {
-       if (Input.GetKeyDown(KeyCode.H))
-        {
-            UpdateHealthbar(1);
-        }
+        _healthBar.SetHealth(hp);
     }
+
 
     public void UpdateHealthbar(int damage)
     {
-        _currentHealth -= damage;
-        _healthBar.SetHealth(_currentHealth);
+        currentHealth -= damage;
+        GameManager.instance.DisablePlayerAfterDamage();
+        Debug.Log(currentHealth);
+        _healthBar.SetHealth(currentHealth);
     }
 }
