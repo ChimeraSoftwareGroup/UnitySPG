@@ -1,18 +1,21 @@
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
+using System;
 public class SPGApi
 {
     private static string baseUrl = "";
     private string url;
     private System.Action<string, bool> callback;
+    public static SPGApi instance;
 
     public SPGApi(string url, System.Action<string, bool> callback)
     {
         this.url = url;
         this.callback = callback;
     }
+
 
     #region Request Route
     private IEnumerator HandleRequest(UnityWebRequest req)

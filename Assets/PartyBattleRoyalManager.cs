@@ -27,6 +27,9 @@ public class PartyBattleRoyalManager : MonoBehaviour
     private int codeToJoin;
     public bool isCodeExist;
 
+    private int _minIdGame = 6;
+    private int _maxIdGame = 8;
+
     public void EnterInBattleRoyaleModeInHost()
     {
         isHosting = true;
@@ -64,6 +67,8 @@ public class PartyBattleRoyalManager : MonoBehaviour
     }
     public void joinRoom()
     {
+        // Envoyer un code au back 
+        // Back renvoie à unity 
         if(codeRoom == null)
         {
             audioSource.PlayOneShot(errorSound);
@@ -85,6 +90,8 @@ public class PartyBattleRoyalManager : MonoBehaviour
             {
                 audioSource.PlayOneShot(buttonSound);
                 print("FIGHT ! ");
+                // Ajoute le joueur à la liste des joueurs dans la room
+                // Envoyer un message depuis back : "Vous avez rejoint la room numéro + "id room" "
             }
         }
     }
@@ -103,6 +110,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
 
     public void GoBackChoiceBattleRoyaleRole()
     {
+        // Faire en sorte que l room créée s'il y en a une, se supprime
         _battleRoyaleChoice.SetActive(true);
         _hostCanvas.SetActive(false);
         audioSource.PlayOneShot(pageSound);
@@ -110,6 +118,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
     }
     public void ShowCodeForHosting()
     {
+        
         if(numberOfGames == null)
         {
             audioSource.PlayOneShot(errorSound);
@@ -117,8 +126,12 @@ public class PartyBattleRoyalManager : MonoBehaviour
         }
         else
         {
+            // Envoyer "_nbMiniGames" au back avec en plus min et max des ID des mini-jeu (cf variables)
+            // Moulinette dans le back pour faire une liste entre id min et id max de la longueure de _nbMiniGames
+            // Renvoie la liste à unity (print la liste)
+            // Générer un code et le montrer à l'host (envoyer un int ça suffit + print)
             audioSource.PlayOneShot(buttonSound);
-            _codeRoomHost.text = "1234567890";
+            _codeRoomHost.text = "1234567890"; // variable du code
             _nbMiniGames = int.Parse(numberOfGames);
             _hostCanvas.SetActive(true);
             audioSource.PlayOneShot(buttonSound);
