@@ -22,6 +22,7 @@ public class PlayersSettingsInput : MonoBehaviour
     [SerializeField] InputField _playerNameIF;
     [SerializeField] PlayerName _playerNameInUI;
     [SerializeField] GameObject _buttonCloseModeCoop;
+    [SerializeField] GameObject _playerList;
 
     [Header("Settings")]
     public string playerName;
@@ -76,6 +77,7 @@ public class PlayersSettingsInput : MonoBehaviour
             _errorCanvasPlayerList.SetActive(true);
             return;
         }
+        _playerList.SetActive(false);
         _listOfPlayersCanvas.gameObject.SetActive(false);
         _numberOfPlayerCanvas.gameObject.SetActive(true);
     }

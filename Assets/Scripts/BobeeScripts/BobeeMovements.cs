@@ -4,13 +4,20 @@ public class BobeeMovements : MonoBehaviour
 {
     public CharacterController controller;
     public float speed = 6f;
-
+    private Vector3 lastValidPosition;
     private Joystick joystick;
     private void Start()
     {
         joystick = FindObjectOfType<Joystick>();
     }
-
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            print("travers wll");
+            transform.position = lastValidPosition;
+        }
+    }
     private void Update()
     {
         // float horizontal = Input.GetAxisRaw("Horizontal");
@@ -28,6 +35,8 @@ public class BobeeMovements : MonoBehaviour
         //{
         //    controller.Move(dir * speed * Time.deltaTime);
         //}
+
+        lastValidPosition = transform.position;
     }
 
 

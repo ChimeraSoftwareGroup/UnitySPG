@@ -53,7 +53,6 @@ public class PartyBattleRoyalManager : MonoBehaviour
             _joinCanvas.SetActive(false);
             audioSource.PlayOneShot(buttonSound);
             _choiceNbMiniGame.SetActive(true);
-
         }
         else
         {
@@ -65,8 +64,6 @@ public class PartyBattleRoyalManager : MonoBehaviour
     }
     public void joinRoom()
     {
-        print("Code room " + codeRoom);
-       
         if(codeRoom == null)
         {
             audioSource.PlayOneShot(errorSound);
