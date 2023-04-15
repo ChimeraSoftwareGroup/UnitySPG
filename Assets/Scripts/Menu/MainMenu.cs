@@ -27,6 +27,7 @@ public class MainMenu : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _animator.SetBool("isOpenContact", false);
+        //StartCoroutine(SPGApi.TestApi((string res, bool isSuccess) => { Debug.Log(res); Debug.Log(isSuccess); }));
     }
 
     public void ChangeFirstPageByMainMenue()

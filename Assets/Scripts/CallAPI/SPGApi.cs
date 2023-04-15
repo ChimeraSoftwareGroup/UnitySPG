@@ -3,13 +3,31 @@ using UnityEngine.Networking;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using System;
+
+/**
+ * To Call Data from our API:
+ * From any file that need data: 
+ *  StartCoroutine(SPGAPI.<staticMethods>(data, callback));
+ * 
+ * It will be in the callback that we handle the result that we want.
+ * Define callBack like this: 
+ *  (string response, bool isSuccess) => { 
+ *      //code here 
+ *  }
+ * If isSuccess == false, it means that the request failed, and response will not shoot a stringify json but the web error.
+ * It need to be handle for each called request (for now, maybe it will change in the future).
+ */
+
 public class SPGApi
 {
-    private static string baseUrl = "";
+    private static string baseUrl = "http://localhost:3000";
     private string url;
     private System.Action<string, bool> callback;
     public static SPGApi instance;
 
+    /**
+     * When Defining the callback entry, theirs 2 required params, string result (define how to use it) and bool isSuccess (to define if it succeded)
+     */
     public SPGApi(string url, System.Action<string, bool> callback)
     {
         this.url = url;
@@ -18,13 +36,12 @@ public class SPGApi
 
 
     #region Request Route
-    private IEnumerator HandleRequest(UnityWebRequest req)
+    private void HandleResult(UnityWebRequest req)
     {
         // Request and wait for the desired page.
-        yield return req.SendWebRequest();
         if (req.result == UnityWebRequest.Result.Success)
         {
-            this.callback(req.downloadHandler.text, false);
+            this.callback(req.downloadHandler.text, true);
         } else
         {
             this.callback(req.error, false);
@@ -35,7 +52,8 @@ public class SPGApi
     {
         using (UnityWebRequest req = UnityWebRequest.Get(this.url))
         {
-            return HandleRequest(req);
+            yield return req.SendWebRequest();
+            HandleResult(req);
         }
     }
 
@@ -46,7 +64,8 @@ public class SPGApi
 
         using (UnityWebRequest req = UnityWebRequest.Post(url, body))
         {
-            return HandleRequest(req);
+            yield return req.SendWebRequest();
+            HandleResult(req);
         }
     }
 
@@ -56,7 +75,8 @@ public class SPGApi
 
         using (UnityWebRequest req = UnityWebRequest.Put(this.url, body))
         {
-            return HandleRequest(req);
+            yield return req.SendWebRequest();
+            HandleResult(req);
         }
     }
 
@@ -64,12 +84,13 @@ public class SPGApi
     {
         using (UnityWebRequest req = UnityWebRequest.Delete(this.url))
         {
-            return HandleRequest(req);
+            yield return req.SendWebRequest();
+            HandleResult(req);
         }
     }
     #endregion
 
-    static public IEnumerator CreateRoom(string roomName, System.Action<string, bool> callback)
+    static public IEnumerator CreateRoom(string roomName, System.Action<string, bool> callback) 
     {
         WWWForm body = new WWWForm();
         body.AddField("name", roomName);
@@ -108,5 +129,11 @@ public class SPGApi
     {
         SPGApi api = new SPGApi(SPGApi.baseUrl + "/room/" + idRoom + "/players/" + idPlayer + "/leave", callback);
         return api.Delete();
+    }
+
+    static public IEnumerator TestApi(System.Action<string, bool> callback)
+    {
+        SPGApi api = new SPGApi(SPGApi.baseUrl + "/games/random", callback);
+        return api.Get();
     }
 }
