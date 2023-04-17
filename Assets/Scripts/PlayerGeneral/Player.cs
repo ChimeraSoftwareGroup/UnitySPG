@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
 
         if (_ph.currentHealth == 0)
         {
-            
+
             _gameManager.GameOver();
         }
     }

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
-public class GameManager : MonoBehaviour
+public class GameManagerBR : MonoBehaviour
 {
     // GAME MANAGER MODE COOP
 
@@ -40,10 +40,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioClip looseSound;
     [SerializeField] AudioClip winSound;
 
-    [Header ("Coop Game - Manage Player List and Current Player")]
-    private List<string> _playerNameList = new List<string>();
-    private string _currentPlayerName;
-    private int _idOfCurrentPlayerPlaying = 0;
 
     public bool isMiniGameFinished;
     private bool _gameHasStarted = false;
@@ -52,13 +48,13 @@ public class GameManager : MonoBehaviour
 
     private int sceneIndex = 2; // 2 is the index of landing page (Coop)
     private int sceneActiveID;
-    private int[] _allScenesIndex;
+    private int[] indexList = new int[] { 6, 7, 8 };
     private int _miniGameFinished = 0;
     private int _hpPlayer = 3;
 
     private List<int> sceneIndexes = new List<int>();
 
-    public static GameManager instance;
+    public static GameManagerBR instance;
     private void Awake()
     {
         if (instance == null) // Singleton : pour pouvoir appeler l'instance de ce script n'importe où
@@ -67,35 +63,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this);
         }
 
-        #region ListeScene
-
-        //for (int i = 3; i < SceneManager.sceneCountInBuildSettings; i++) {
-        //    _allGamingScenesIndex[i] = i ;
-        //}
-
-        //Menus Scenes
-        /*
-        sceneIndexes.Add(0); // Menue
-        sceneIndexes.Add(1); // Potato
-        sceneIndexes.Add(2); // Landing
-        sceneIndexes.Add(3); // Credits
-        sceneIndexes.Add(4); // Ending
-        */ // TO REMOVE
-
-        //Gaming Scenes
-         sceneIndexes.Add(6); // Sneuk
-         sceneIndexes.Add(7); // Froggy
-         sceneIndexes.Add(8); // Bobee
-        sceneIndexes.Add(9); // Giraffe
-
-
-        //sceneIndexes.Add(7);
-        //sceneIndexes.Add(8);
-        //sceneIndexes.Add(9); // FUTUR GAMES.
-        //sceneIndexes.Add(10); 
     }
-
-    #endregion
 
     private void Start()
     {
@@ -136,33 +104,7 @@ public class GameManager : MonoBehaviour
             _gameHasStarted = true;
         }
     }
-    private void ShowNameForCurrentPlayer()
-    {
-      
-        if (_playerNameList.Count == _idOfCurrentPlayerPlaying) _idOfCurrentPlayerPlaying = 0;  // Boucle pour vérifier le nom du next player
-        _nextPlayerToPlayText.text = _playerNameList[_idOfCurrentPlayerPlaying];
-        _idOfCurrentPlayerPlaying++;
-
-        #region ShowPlayerOtherMethodes
-
-        //if (_currentPlayerName == "")
-        //{
-        //    _currentPlayerName = _playerNameList[0];
-        //} 
-        //_playerNameList.Remove(_currentPlayerName);                                          // METHOD B
-        //string tempName = _currentPlayerName;
-        //_currentPlayerName = _playerNameList[0]; // EW.
-        //_playerNameList.Add(tempName);
-
-        //if(ShufflePlayerOn)
-        //{
-        //    string nextPlayerName = _playerNameList[Random.Range(0, _playerNameList.Count)];
-        //    if (_currentPlayerName == nextPlayerName) ShowNameForCurrentPlayer();            // METHOD SHUFFLE A
-        //    _nextPlayerToPlayText.text = nextPlayerName;
-        //}
-
-        #endregion
-    }
+    
 
     /** 
     * Lancer le mode coop - les initialisations
@@ -188,7 +130,6 @@ public class GameManager : MonoBehaviour
        int numberOfMiniGamesChoosed
    )
     {
-        _playerNameList = playerList;
         timeOfEachGameChosenByPlayers = timerChoosed;
         numberOfGames = numberOfMiniGamesChoosed;
     }
@@ -216,7 +157,6 @@ public class GameManager : MonoBehaviour
         ShuffleGame();
         SceneManager.LoadScene(sceneIndex);
         GameObjectsActivationAtStartEatchGame();
-        ShowNameForCurrentPlayer();
         // Ne pas l'appeler si les utilisateurs ne veulent pas des tutos.
         if (_doWeShowTutorial) DialogManager.instance.StartTutorialDialog();
     }
@@ -263,8 +203,8 @@ public class GameManager : MonoBehaviour
         StopGame();
     }
 
-    [System.Obsolete]
-    public void WinPotato()
+ 
+    public void WinBR()
     {
         if (PlayerHealth.instance.currentHealth == 0)
         {
@@ -332,7 +272,7 @@ public class GameManager : MonoBehaviour
         _spawnerManager.DeactivateSpawners();
         if (_miniGameFinished == numberOfGames)
         {
-            WinPotato();
+            WinBR();
         }
         else
         {
@@ -358,7 +298,7 @@ public class GameManager : MonoBehaviour
         }
         else if (_miniGameFinished == numberOfGames)
         {
-            WinPotato();
+            WinBR();
         }
         else
         {
@@ -367,23 +307,7 @@ public class GameManager : MonoBehaviour
             _countdown.isCountdownFinish = false;
             _player.gameObject.SetActive(false);
             _isPlayerDead = true;
-            Invoke("NewGame", 3f);
+            
         }
     }
-
-    #region OLD - Flutter
-
-    /** 
-   * Methods used in Flutter
-   */
-
-
-    public void LoadScene(string sceneID)
-    {
-        int sceneLevel;
-        int.TryParse(sceneID, out sceneLevel);
-        SceneManager.LoadScene(sceneLevel);
-    }
-
-    #endregion
 }

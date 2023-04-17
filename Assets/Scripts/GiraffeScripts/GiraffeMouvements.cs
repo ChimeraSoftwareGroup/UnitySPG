@@ -32,11 +32,11 @@ public class GiraffeMouvements : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(AccelerationCoroutine());
+     //   StartCoroutine(AccelerationCoroutine());
     }
     private void OnDisable()
     {
-        StopCoroutine(AccelerationCoroutine());
+     //   StopCoroutine(AccelerationCoroutine());
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -45,11 +45,9 @@ public class GiraffeMouvements : MonoBehaviour
             if (collision.gameObject.tag == "Wall")
             {
                 _isCollided = true;
-                _girafe.SetActive(false);
-                print("Obstacle");
+                gameObject.SetActive(false);
             }
         }
-        
     }
     
     private void Start()
@@ -149,23 +147,23 @@ public class GiraffeMouvements : MonoBehaviour
         GetComponentInChildren<SpriteRenderer>().flipX = !GetComponentInChildren<SpriteRenderer>().flipX;
     }
 
-    private IEnumerator AccelerationCoroutine()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1f);
-            if (currentSpeed < maxMoveSpeed)
-            {
-                currentSpeed += 1;
-            }
+    //private IEnumerator AccelerationCoroutine()
+    //{
+    //    while (true)
+    //    {
+    //        yield return new WaitForSeconds(1f);
+    //        if (currentSpeed < maxMoveSpeed)
+    //        {
+    //            currentSpeed += 1;
+    //        }
 
-            if (currentSpeed < maxMoveSpeed)
-            {
-                yield return new WaitForSeconds(1f);
-                currentSpeed += 1;
-            }
-        }
+    //        if (currentSpeed < maxMoveSpeed)
+    //        {
+    //            yield return new WaitForSeconds(1f);
+    //            currentSpeed += 1;
+    //        }
+    //    }
 
-    }
+    //}
 
 }
