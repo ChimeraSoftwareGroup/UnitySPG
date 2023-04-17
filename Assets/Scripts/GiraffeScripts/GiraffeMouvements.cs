@@ -20,6 +20,8 @@ public class GiraffeMouvements : MonoBehaviour
     [Header("Sound")]
     public AudioSource audioSource;
 
+    [Header("Player")]
+    [SerializeField] GameObject _girafe;
 
 
 
@@ -36,14 +38,18 @@ public class GiraffeMouvements : MonoBehaviour
     {
         StopCoroutine(AccelerationCoroutine());
     }
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            _girafe.SetActive(false);
+            print("Obstacle");
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         // collision with a wall : just go back
-        if (other.gameObject.CompareTag("wall"))
-        {
-
-        }
+       
 
         if (other.gameObject.CompareTag("obstacle"))
         {
@@ -58,6 +64,8 @@ public class GiraffeMouvements : MonoBehaviour
     {
         VerifInput();
         MovePlayer();
+
+      
     }
     void VerifInput()
     {
@@ -99,8 +107,27 @@ public class GiraffeMouvements : MonoBehaviour
                 isGoingRight = false;
             }
         }
-
     }
+
+    public void GoingLeft()
+    {
+        isGoingUp = false;
+        isGoingRight = false;
+        isGoingLeft = true;
+    }
+    public void GoingUp()
+    {
+        isGoingUp = true;
+        isGoingRight = false;
+        isGoingLeft = false;
+    }
+    public void GoingRight()
+    {
+        isGoingUp = false;
+        isGoingRight = true;
+        isGoingLeft = false;
+    }
+
     void MovePlayer()
     {
        if(isGoingLeft)

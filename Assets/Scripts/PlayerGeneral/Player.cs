@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        // Commenter pour tester un jeu précis
+
         if (_ph.currentHealth == 0)
         {
             _gameManager.GameOver();

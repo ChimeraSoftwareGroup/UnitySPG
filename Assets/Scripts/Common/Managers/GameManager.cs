@@ -83,10 +83,12 @@ public class GameManager : MonoBehaviour
         */ // TO REMOVE
 
         // Gaming Scenes
-        sceneIndexes.Add(5); // Sneuk
-        sceneIndexes.Add(6); // Froggy
-        sceneIndexes.Add(7); // Bobee
-        //sceneIndexes.Add(8); // Giraffe
+        sceneIndexes.Add(6); // Sneuk
+       // sceneIndexes.Add(7); // Froggy
+       // sceneIndexes.Add(8); // Bobee
+        sceneIndexes.Add(9); // Giraffe
+
+
         //sceneIndexes.Add(7);
         //sceneIndexes.Add(8);
         //sceneIndexes.Add(9); // FUTUR GAMES.

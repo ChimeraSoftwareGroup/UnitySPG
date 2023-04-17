@@ -29,7 +29,15 @@ public class SpawnerManager : MonoBehaviour
         _elapsedTime += Time.deltaTime;
         if (_elapsedTime > _currentSpawnInterval && _spawners.Length != 0) 
              {
+            try
+            {
                 _spawners[SelectRandomSpawner()].Spawn();
+            }
+            catch
+            {
+                return;
+            }
+              
                 _elapsedTime = 0;
              }
     }
@@ -52,6 +60,7 @@ public class SpawnerManager : MonoBehaviour
 
     private int SelectRandomSpawner()
     {
+        
         _nowSpawn = Random.Range(0, _spawners.Length);
         if (_nowSpawn == _lastSpawn)
         {
@@ -60,5 +69,6 @@ public class SpawnerManager : MonoBehaviour
         _lastSpawn = _nowSpawn;
         _currentSpawnInterval = Random.Range(_minSpawnInterval, _maxSpawnInterval);
         return _lastSpawn;
+       
     }
 }

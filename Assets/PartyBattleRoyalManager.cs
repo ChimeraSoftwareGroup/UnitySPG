@@ -91,7 +91,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
                 audioSource.PlayOneShot(buttonSound);
                 print("FIGHT ! ");
                 // Ajoute le joueur à la liste des joueurs dans la room
-                // Envoyer un message depuis back : "Vous avez rejoint la room numéro + "id room" "
+                // Envoyer un message depuis back : "Vous avez rejoint la room numéro + id room "
             }
         }
     }
