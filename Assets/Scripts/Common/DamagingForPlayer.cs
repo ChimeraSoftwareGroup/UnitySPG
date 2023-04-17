@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DamagingForPlayer : MonoBehaviour
 {
+    private bool _isCollided = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -14,11 +15,23 @@ public class DamagingForPlayer : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (!_isCollided)
         {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+            print("Colision dans DFP");
             collision.gameObject.GetComponent<Player>().PlayerTakeDamage();
-            
+            _isCollided = true;
+            }
         }
+        StartCoroutine(CoroutineCollider());
     }
-   
+    IEnumerator CoroutineCollider()
+    {
+        yield return new WaitForSeconds(3);
+    }
+    public void ColliderIsActive()
+    {
+        _isCollided = false; 
+    }
 }

@@ -22,7 +22,7 @@ public class GiraffeMouvements : MonoBehaviour
 
     [Header("Player")]
     [SerializeField] GameObject _girafe;
-
+    private bool _isCollided = false;
 
 
     private void Awake()
@@ -40,22 +40,18 @@ public class GiraffeMouvements : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Wall")
+        if (!_isCollided)
         {
-            _girafe.SetActive(false);
-            print("Obstacle");
+            if (collision.gameObject.tag == "Wall")
+            {
+                _isCollided = true;
+                _girafe.SetActive(false);
+                print("Obstacle");
+            }
         }
+        
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        // collision with a wall : just go back
-       
-
-        if (other.gameObject.CompareTag("obstacle"))
-        {
-
-        }
-    }
+    
     private void Start()
     {
         isGoingUp = true;
