@@ -52,11 +52,9 @@ public class SpawnerManager : MonoBehaviour
         if(GameObject.FindObjectOfType<Player>().name == "Giraffe")
         {
             _isPlayerGiraffe = true;
-            Debug.Log("GIRAFFE TRUE");
         } else
         {
             _isPlayerGiraffe = false;
-            Debug.Log("GIRAFFE FALSE");
         }
 
     }

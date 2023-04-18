@@ -2533,7 +2533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog:
-    title: Bobee
+    title: Gerard
     sentences:
     - Evite les obstacles
 --- !u!4 &742299454

@@ -33,7 +33,6 @@ public class PlayersSettingsInput : MonoBehaviour
 
     [SerializeField] GameObject playerNameInput;
     [SerializeField] GameObject numberOfPlayerInput;
-    
     [SerializeField] GameObject secondsByGamesInput;
 
     List<string> nameOfPlayersList = new List<string>();
