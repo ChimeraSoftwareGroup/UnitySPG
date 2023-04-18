@@ -12,6 +12,7 @@ public class SpawnerManager : MonoBehaviour
     private int _lastSpawn;
     private int _nowSpawn;
     public SpawnerManager instance;
+    private bool _isPlayerGiraffe;
 
     private void Awake()
     {
@@ -26,12 +27,18 @@ public class SpawnerManager : MonoBehaviour
 
     void Update()
     {
-        _elapsedTime += Time.deltaTime;
-        if (_elapsedTime > _currentSpawnInterval && _spawners.Length != 0) 
-             {
+        if (_isPlayerGiraffe && _spawners.Length != 0)
+        {
+            _spawners[0].Spawn();
+        } else
+        {
+            _elapsedTime += Time.deltaTime;
+            if (_elapsedTime > _currentSpawnInterval && _spawners.Length != 0)
+            {
                 _spawners[SelectRandomSpawner()].Spawn();
                 _elapsedTime = 0;
-             }
+            }
+        }
     }
 
     public void ActivateSpawners()
@@ -42,6 +49,16 @@ public class SpawnerManager : MonoBehaviour
         Spawner[] spawnersTemp = GameObject.FindObjectsOfType<Spawner>();
         if (spawnersTemp.Length == 0) return;
         _spawners = spawnersTemp;
+        if(GameObject.FindObjectOfType<Player>().name == "Giraffe")
+        {
+            _isPlayerGiraffe = true;
+            Debug.Log("GIRAFFE TRUE");
+        } else
+        {
+            _isPlayerGiraffe = false;
+            Debug.Log("GIRAFFE FALSE");
+        }
+
     }
 
     public void DeactivateSpawners()
@@ -60,5 +77,6 @@ public class SpawnerManager : MonoBehaviour
         _lastSpawn = _nowSpawn;
         _currentSpawnInterval = Random.Range(_minSpawnInterval, _maxSpawnInterval);
         return _lastSpawn;
+       
     }
 }

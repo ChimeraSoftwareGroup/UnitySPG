@@ -33,13 +33,11 @@ public class FroggyJump : MonoBehaviour
         // verif jump : Keyboard
         if (Input.GetButtonDown("Jump") && groundCheck.isGrounded)
         {
-            print("JUMP");
           //  AudioManager.instance.PlayClipAt(jumpSound, transform.position);
             velocity = jumpForce;
         }
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && groundCheck.isGrounded)
         {
-            print("JUMP");
             //  AudioManager.instance.PlayClipAt(jumpSound, transform.position);
             velocity = jumpForce;
         }

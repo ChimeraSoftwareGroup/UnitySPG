@@ -108,7 +108,7 @@ public class PlayersSettingsInput : MonoBehaviour
     }
     public void AddNbMiniGameToGM()
     {
-        print("Je passe ici");
+       print("Je passe ici");
         if(int.Parse(numberOfGames) < nameOfPlayersList.Count)
         {
             _errorCanvasNumberOfGame.SetActive(true);
@@ -116,7 +116,6 @@ public class PlayersSettingsInput : MonoBehaviour
         }
         else if(numberOfGames == "")
         {
-            print("et là aussi");
 
             _errorCanvasNumberOfGame.SetActive(true);
             return;
