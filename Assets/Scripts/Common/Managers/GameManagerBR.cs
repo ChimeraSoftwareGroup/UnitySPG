@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class GameManagerBR : MonoBehaviour
 {
-    // GAME MANAGER MODE COOP
+    // GAME MANAGER MODE BATTLE ROYALE
 
     [Header("Player")]
     [SerializeField] private Player _player;
@@ -13,9 +13,8 @@ public class GameManagerBR : MonoBehaviour
     [SerializeField] public bool isPlayerHasWin;
 
     [Header("Game Parameters Set up by player")]
-    [SerializeField] private string[] _potatoesPlayers;
-    [SerializeField] public float timeOfEachGameChosenByPlayers;
-    [SerializeField] public int numberOfGames;
+    [SerializeField] public float timeOfEachGameChosenByPlayers = 10;
+    [SerializeField] public int numberOfGames = 3; //Donnée en dur tant que le back n'estpas connecté
 
     [Header("Canvas")]
     [SerializeField] private GameObject _startGameCanvas;
@@ -25,8 +24,6 @@ public class GameManagerBR : MonoBehaviour
     [SerializeField] private GameObject _timer;
     [SerializeField] private GameObject _healthBar;
     [SerializeField] private Countdown _countdown;
-    [SerializeField] private GameObject _nextPlayerUI;
-    [SerializeField] private Text _nextPlayerToPlayText;
 
     [Header("Ingame Managers")]
     [SerializeField] private SpawnerManager _spawnerManager;
@@ -114,8 +111,6 @@ public class GameManagerBR : MonoBehaviour
     {
         if(numberOfGames > 3) numberOfGames = 3;
         if(timeOfEachGameChosenByPlayers <= 0) timeOfEachGameChosenByPlayers = 20;
-
-       
     }
 
     public void InputSettingsByPlayer()
@@ -123,15 +118,10 @@ public class GameManagerBR : MonoBehaviour
         _settingsByPlayerCanvas.gameObject.SetActive(true);
     }
 
-    public void setParametersOfCoopGame(
-       List<string> playerList,
-       bool isTutoOn,
-       float timerChoosed,
-       int numberOfMiniGamesChoosed
-   )
+    public void setParametersOfBRGame(
+       int _nbMiniGames)
     {
-        timeOfEachGameChosenByPlayers = timerChoosed;
-        numberOfGames = numberOfMiniGamesChoosed;
+        numberOfGames = _nbMiniGames;
     }
 
     /** 

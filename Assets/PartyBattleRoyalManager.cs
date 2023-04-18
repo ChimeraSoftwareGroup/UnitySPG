@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class PartyBattleRoyalManager : MonoBehaviour
 {
+    [SerializeField] GameManagerBR _gameManager;
 
     public bool isHosting;
     [SerializeField] GameObject _hostCanvas;
@@ -137,6 +138,15 @@ public class PartyBattleRoyalManager : MonoBehaviour
             audioSource.PlayOneShot(buttonSound);
             _choiceNbMiniGame.SetActive(false);
         }
+    }
+
+    public void StartModeBRParty()
+    {
+        _gameManager.setParametersOfBRGame(
+            _nbMiniGames  // Number of Games
+            );
+        _gameManager.GameObjectsActivationAtStartEatchGame();
+        _gameManager.NewGame();
     }
     public void ShowError()
     {
