@@ -34,8 +34,8 @@ public class PlayerHealth : MonoBehaviour
     {
         
         currentHealth -= damage;
+        Debug.Log("IS DEBUG FUCKING LOG WORKING " + GameManager.instance);
         GameManager.instance.DisablePlayerAfterDamage(); 
-        Debug.Log(currentHealth);
         _healthBar.SetHealth(currentHealth);
     }
 }
