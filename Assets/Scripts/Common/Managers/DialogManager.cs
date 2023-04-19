@@ -29,8 +29,7 @@ public class DialogManager : MonoBehaviour
     private void Start()
     {
         sentences = new Queue<string>();
-       // StartTutorialDialog();
-
+        //StartTutorialDialog();
     }
 
     
@@ -43,7 +42,9 @@ public class DialogManager : MonoBehaviour
 
     private Dialog GetDialogFromScene()
     {
-       return GameObject.FindObjectOfType<DialogInScene>().dialog;
+        Dialog a = GameObject.FindObjectOfType<DialogInScene>().dialog;
+        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAA " + a);
+        return a;
     }
     private void StartDialog(Dialog dialog)
     {

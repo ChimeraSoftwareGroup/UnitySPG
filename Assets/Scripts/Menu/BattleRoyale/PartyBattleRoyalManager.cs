@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PartyBattleRoyalManager : MonoBehaviour
 {
     [SerializeField] GameManagerBR _gameManager;
+    [SerializeField] NetworkManager _networkManager;
 
     public bool isHosting;
     [SerializeField] GameObject _hostCanvas;
@@ -30,27 +31,10 @@ public class PartyBattleRoyalManager : MonoBehaviour
 
     private int _minIdGame = 6;
     private int _maxIdGame = 8;
-
-    public void EnterInBattleRoyaleModeInHost()
+    
+    public void EnterInBattleRoyalMode(bool isHost)
     {
-        isHosting = true;
-        ChoiceRoleBattleRoyale();
-    }
-    public void EnterInBattleRoyaleModeInPlayer()
-    {
-        isHosting = false;
-        ChoiceRoleBattleRoyale();
-    }
-
-
-    public void Update()
-    {
-       
-    }
-
-    #region Buttons Functions
-    public void ChoiceRoleBattleRoyale()
-    {
+        isHosting = isHost;
         if (isHosting)
         {
             _battleRoyaleChoice.SetActive(false);
@@ -144,6 +128,9 @@ public class PartyBattleRoyalManager : MonoBehaviour
         _nbMiniGames = int.Parse(numberOfGames);
         // Envoyer au back les paramètres choisis par l'host
         Debug.Log("Nombre de mini-jeux : " + _nbMiniGames);
+
+        // Ensuite, récupérer le retour du back end.*
+        // Envoyer la liste de jeu, ou la récupérer côté GameManager.
     }
     public void ShowError()
     {
@@ -159,7 +146,6 @@ public class PartyBattleRoyalManager : MonoBehaviour
         _errorNbGame.SetActive(false);
     }
 
-    #endregion
 
     public void ReadingNumberOfGames(string _numberOfGames)
     {
