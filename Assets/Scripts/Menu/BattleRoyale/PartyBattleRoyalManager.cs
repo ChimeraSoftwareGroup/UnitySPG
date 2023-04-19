@@ -120,7 +120,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
     public void ShowCodeForHosting()
     {
         
-        if(numberOfGames == null)
+        if(numberOfGames == null || numberOfGames == "0" || numberOfGames == "00" || numberOfGames == " ")
         {
             audioSource.PlayOneShot(errorSound);
             _errorNbGame.SetActive(true);

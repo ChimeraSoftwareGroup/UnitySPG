@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour
         sceneIndexes.Add(8); // Bobee
         sceneIndexes.Add(9); // Giraffe
         sceneIndexes.Add(10); // Brina
+        sceneIndexes.Add(11); // Sanic
 
 
         //sceneIndexes.Add(7);
@@ -197,17 +198,24 @@ public class GameManager : MonoBehaviour
     * Nouveau Mini jeu
     */
 
-    [System.Obsolete]
     public void NewGame()
     {
-        _gameHasStarted = false;
-        _isNewSceneReadyToPlay = false;
-        isMiniGameFinished = false;
-        PrepareNextGameAndResetTimer();
-        if(_spawnerManager) _spawnerManager.gameObject.SetActive(false);
-        _screenDeath.SetActive(false);
-        _countdown.StartCountDown();
-        _timer.GetComponent<Timer>().SetTimer(timeOfEachGameChosenByPlayers);
+        if (!isPlayerHasWin)
+        {
+            _gameHasStarted = false;
+            _isNewSceneReadyToPlay = false;
+            isMiniGameFinished = false;
+            PrepareNextGameAndResetTimer();
+            if (_spawnerManager) _spawnerManager.gameObject.SetActive(false);
+            _screenDeath.SetActive(false);
+            _countdown.StartCountDown();
+            _timer.GetComponent<Timer>().SetTimer(timeOfEachGameChosenByPlayers);
+        }
+        else
+        {
+            return;
+        }
+
     }
 
     private void PrepareNextGameAndResetTimer()
@@ -263,7 +271,6 @@ public class GameManager : MonoBehaviour
         StopGame();
     }
 
-    [System.Obsolete]
     public void WinPotato()
     {
         if (PlayerHealth.instance.currentHealth == 0)
@@ -276,7 +283,7 @@ public class GameManager : MonoBehaviour
         {
             _thePartyIsFinished = true;
             isPlayerHasWin = true;
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene("EndingScene");
             audioSource.PlayOneShot(winSound);
             StopGame();
         }

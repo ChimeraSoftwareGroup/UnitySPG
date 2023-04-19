@@ -109,6 +109,12 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("BattleRoyalMenu");
 
     }
+
+    public void TestNewGame()
+    {
+        SceneManager.LoadScene("SanicScene");
+
+    }
     public void CloseChoiceBattleRoyal()
     {
         audioSource.PlayOneShot(pageSound);

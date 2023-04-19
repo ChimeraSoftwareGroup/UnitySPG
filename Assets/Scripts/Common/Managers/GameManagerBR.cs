@@ -13,7 +13,7 @@ public class GameManagerBR : MonoBehaviour
     [SerializeField] public bool isPlayerHasWin;
 
     [Header("Game Parameters Set up by player")]
-    [SerializeField] public float timeOfEachGameChosenByPlayers = 10;
+    [SerializeField] public float timeOfEachGame = 10;
     [SerializeField] public int numberOfGames = 3; //Donnée en dur tant que le back n'estpas connecté
 
     [Header("Canvas")]
@@ -109,8 +109,8 @@ public class GameManagerBR : MonoBehaviour
 
     private void initGameManager()
     {
-        if(numberOfGames > 3) numberOfGames = 3;
-        if(timeOfEachGameChosenByPlayers <= 0) timeOfEachGameChosenByPlayers = 20;
+        // Obtenir la liste d'ID des mini-jeux depuis le back
+
     }
 
     public void InputSettingsByPlayer()
@@ -118,17 +118,12 @@ public class GameManagerBR : MonoBehaviour
         _settingsByPlayerCanvas.gameObject.SetActive(true);
     }
 
-    public void setParametersOfBRGame(
-       int _nbMiniGames)
-    {
-        numberOfGames = _nbMiniGames;
-    }
+    
 
     /** 
     * Nouveau Mini jeu
     */
 
-    [System.Obsolete]
     public void NewGame()
     {
         _gameHasStarted = false;
@@ -138,7 +133,7 @@ public class GameManagerBR : MonoBehaviour
         if(_spawnerManager) _spawnerManager.gameObject.SetActive(false);
         _screenDeath.SetActive(false);
         _countdown.StartCountDown();
-        _timer.GetComponent<Timer>().SetTimer(timeOfEachGameChosenByPlayers);
+        _timer.GetComponent<Timer>().SetTimer(timeOfEachGame);
     }
 
     private void PrepareNextGameAndResetTimer()
