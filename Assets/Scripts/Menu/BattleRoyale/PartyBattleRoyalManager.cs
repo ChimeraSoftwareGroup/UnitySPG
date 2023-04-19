@@ -133,7 +133,6 @@ public class PartyBattleRoyalManager : MonoBehaviour
             // Générer un code et le montrer à l'host (envoyer un int ça suffit + print)
             audioSource.PlayOneShot(buttonSound);
             _codeRoomHost.text = "1234567890"; // variable du code
-            _nbMiniGames = int.Parse(numberOfGames);
             _hostCanvas.SetActive(true);
             audioSource.PlayOneShot(buttonSound);
             _choiceNbMiniGame.SetActive(false);
@@ -142,11 +141,9 @@ public class PartyBattleRoyalManager : MonoBehaviour
 
     public void StartModeBRParty()
     {
-        _gameManager.setParametersOfBRGame(
-            _nbMiniGames  // Number of Games
-            );
-        _gameManager.GameObjectsActivationAtStartEatchGame();
-        _gameManager.NewGame();
+        _nbMiniGames = int.Parse(numberOfGames);
+        // Envoyer au back les paramètres choisis par l'host
+        Debug.Log("Nombre de mini-jeux : " + _nbMiniGames);
     }
     public void ShowError()
     {
