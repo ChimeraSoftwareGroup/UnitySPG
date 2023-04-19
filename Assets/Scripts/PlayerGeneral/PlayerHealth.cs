@@ -32,8 +32,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void UpdateHealthbar(int damage)
     {
+        
         currentHealth -= damage;
-        GameManager.instance.DisablePlayerAfterDamage();
+        GameManager.instance.DisablePlayerAfterDamage(); 
         Debug.Log(currentHealth);
         _healthBar.SetHealth(currentHealth);
     }

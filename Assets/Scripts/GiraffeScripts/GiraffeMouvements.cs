@@ -20,7 +20,9 @@ public class GiraffeMouvements : MonoBehaviour
     [Header("Sound")]
     public AudioSource audioSource;
 
-
+    [Header("Player")]
+    [SerializeField] GameObject _girafe;
+    private bool _isCollided = false;
 
 
     private void Awake()
@@ -30,26 +32,24 @@ public class GiraffeMouvements : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(AccelerationCoroutine());
+     //   StartCoroutine(AccelerationCoroutine());
     }
     private void OnDisable()
     {
-        StopCoroutine(AccelerationCoroutine());
+     //   StopCoroutine(AccelerationCoroutine());
     }
-
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        // collision with a wall : just go back
-        if (other.gameObject.CompareTag("wall"))
+        if (!_isCollided)
         {
-
-        }
-
-        if (other.gameObject.CompareTag("obstacle"))
-        {
-
+            if (collision.gameObject.tag == "Wall")
+            {
+                _isCollided = true;
+                gameObject.SetActive(false);
+            }
         }
     }
+    
     private void Start()
     {
         isGoingUp = true;
@@ -58,6 +58,8 @@ public class GiraffeMouvements : MonoBehaviour
     {
         VerifInput();
         MovePlayer();
+
+      
     }
     void VerifInput()
     {
@@ -99,8 +101,27 @@ public class GiraffeMouvements : MonoBehaviour
                 isGoingRight = false;
             }
         }
-
     }
+
+    public void GoingLeft()
+    {
+        isGoingUp = false;
+        isGoingRight = false;
+        isGoingLeft = true;
+    }
+    public void GoingUp()
+    {
+        isGoingUp = true;
+        isGoingRight = false;
+        isGoingLeft = false;
+    }
+    public void GoingRight()
+    {
+        isGoingUp = false;
+        isGoingRight = true;
+        isGoingLeft = false;
+    }
+
     void MovePlayer()
     {
        if(isGoingLeft)
@@ -126,23 +147,23 @@ public class GiraffeMouvements : MonoBehaviour
         GetComponentInChildren<SpriteRenderer>().flipX = !GetComponentInChildren<SpriteRenderer>().flipX;
     }
 
-    private IEnumerator AccelerationCoroutine()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1f);
-            if (currentSpeed < maxMoveSpeed)
-            {
-                currentSpeed += 1;
-            }
+    //private IEnumerator AccelerationCoroutine()
+    //{
+    //    while (true)
+    //    {
+    //        yield return new WaitForSeconds(1f);
+    //        if (currentSpeed < maxMoveSpeed)
+    //        {
+    //            currentSpeed += 1;
+    //        }
 
-            if (currentSpeed < maxMoveSpeed)
-            {
-                yield return new WaitForSeconds(1f);
-                currentSpeed += 1;
-            }
-        }
+    //        if (currentSpeed < maxMoveSpeed)
+    //        {
+    //            yield return new WaitForSeconds(1f);
+    //            currentSpeed += 1;
+    //        }
+    //    }
 
-    }
+    //}
 
 }

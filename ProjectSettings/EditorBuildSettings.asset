@@ -35,7 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BobeeScene.unity
     guid: b528552679c6fa946998323dde2b46e0
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/GiraffeScene.unity
     guid: 4545a26f86b3c1e4ebf5ae7d147c9534
+  - enabled: 1
+    path: Assets/Scenes/BrinaScene.unity
+    guid: 704756ae877b2ae43bf40fd2a16a5b15
   m_configObjects: {}
