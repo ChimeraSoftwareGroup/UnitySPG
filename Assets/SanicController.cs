@@ -26,18 +26,10 @@ public class SanicController : MonoBehaviour
 
         // Inclinaison de la sphère
         Vector3 tiltVector = new Vector3(moveVertical * tilt, 0f, -moveHorizontal * tilt);
-        Quaternion targetRotation = Quaternion.FromToRotation(transform.up, tiltVector);
+        Quaternion targetRotation = Quaternion.FromToRotation(transform.forward, tiltVector);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation * transform.rotation, Time.deltaTime * 10);
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Obstacle"))
-        {
-            gameObject.SetActive(false);
-            print("OBSTACLE !!!!!");
-        }
-
-    }
+   
 }
 
 
