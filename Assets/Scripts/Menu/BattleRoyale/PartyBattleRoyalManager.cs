@@ -16,6 +16,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
     [SerializeField] GameObject _errorPage;
     [SerializeField] GameObject _errorNbGame;
     [SerializeField] GameObject _errorCodeRoom;
+    [SerializeField] GameObject _waitingPage;
     [SerializeField] Text _codeRoomHost;
 
     public AudioSource audioSource;
@@ -74,6 +75,8 @@ public class PartyBattleRoyalManager : MonoBehaviour
             else
             {
                 audioSource.PlayOneShot(buttonSound);
+                _waitingPage.SetActive(true);
+                _joinCanvas.SetActive(false);
                 print("FIGHT ! ");
                 // Ajoute le joueur à la liste des joueurs dans la room
                 // Envoyer un message depuis back : "Vous avez rejoint la room numéro + id room "
