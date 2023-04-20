@@ -19,7 +19,6 @@ public class DamagingForPlayer : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-            print("Colision dans DFP");
             collision.gameObject.GetComponent<Player>().PlayerTakeDamage();
             _isCollided = true;
             }
