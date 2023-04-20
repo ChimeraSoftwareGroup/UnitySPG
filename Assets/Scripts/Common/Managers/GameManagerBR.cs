@@ -169,9 +169,8 @@ private void Update()
 
     public override void GameOver()
     {
-        Debug.Log("Game FINISHED");
-        //SceneManager.LoadScene(4);
-        audioSource.PlayOneShot(looseSound);
+        SceneManager.LoadScene(5);
+        // audioSource.PlayOneShot(looseSound);
 
         _thePartyIsFinished = true;
         isPlayerHasWin = false;
@@ -191,9 +190,8 @@ private void Update()
         {
             _thePartyIsFinished = true;
             isPlayerHasWin = true;
-            Debug.Log("GAME FINISHED");
-           // SceneManager.LoadScene(4);
-            audioSource.PlayOneShot(winSound);
+            SceneManager.LoadScene(5);
+           // audioSource.PlayOneShot(winSound);
             StopGame();
         }
 

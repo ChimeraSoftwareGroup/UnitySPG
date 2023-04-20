@@ -207,6 +207,7 @@ public class GameManagerCoop : GameManager
         }
         else
         {
+            _screenDeath.SetActive(false);
             return;
         }
 
