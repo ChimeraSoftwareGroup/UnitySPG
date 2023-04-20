@@ -85,6 +85,7 @@ private void Update()
         if (isMiniGameFinished)
         {
             WinMiniGame();
+
         }
 
         if (
@@ -171,6 +172,7 @@ private void Update()
     {
         SceneManager.LoadScene(5);
         // audioSource.PlayOneShot(looseSound);
+        _screenDeath.SetActive(false);
 
         _thePartyIsFinished = true;
         isPlayerHasWin = false;
@@ -241,6 +243,7 @@ private void Update()
     private void WinMiniGame()
     {
         _miniGameFinished++;
+        isMiniGameFinished = false;
         _spawnerManager.DeactivateSpawners();
         if (_miniGameFinished == numberOfGames)
         {

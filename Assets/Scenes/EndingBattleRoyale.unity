@@ -252,6 +252,80 @@ RectTransform:
   m_AnchoredPosition: {x: -0.1, y: 1.4}
   m_SizeDelta: {x: 3.75, y: 8.12}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &187784142
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7887596794022428097, guid: 5ad901d4b70cc1a4a9569f5d2b282340, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887596794022428097, guid: 5ad901d4b70cc1a4a9569f5d2b282340, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.5865998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887596794022428097, guid: 5ad901d4b70cc1a4a9569f5d2b282340, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887596794022428097, guid: 5ad901d4b70cc1a4a9569f5d2b282340, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.7949998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887596794022428097, guid: 5ad901d4b70cc1a4a9569f5d2b282340, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887596794022428097, guid: 5ad901d4b70cc1a4a9569f5d2b282340, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887596794022428097, guid: 5ad901d4b70cc1a4a9569f5d2b282340, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887596794022428097, guid: 5ad901d4b70cc1a4a9569f5d2b282340, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887596794022428097, guid: 5ad901d4b70cc1a4a9569f5d2b282340, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887596794022428097, guid: 5ad901d4b70cc1a4a9569f5d2b282340, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887596794022428097, guid: 5ad901d4b70cc1a4a9569f5d2b282340, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887596794022428098, guid: 5ad901d4b70cc1a4a9569f5d2b282340, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 187784143}
+    - target: {fileID: 7887596794022428098, guid: 5ad901d4b70cc1a4a9569f5d2b282340, type: 3}
+      propertyPath: playlist.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7887596794022428098, guid: 5ad901d4b70cc1a4a9569f5d2b282340, type: 3}
+      propertyPath: playlist.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: cfddbe65e81d8cd468b6126bdcf31249, type: 3}
+    - target: {fileID: 7887596794022428108, guid: 5ad901d4b70cc1a4a9569f5d2b282340, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ad901d4b70cc1a4a9569f5d2b282340, type: 3}
+--- !u!82 &187784143 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7887596794022428099, guid: 5ad901d4b70cc1a4a9569f5d2b282340, type: 3}
+  m_PrefabInstance: {fileID: 187784142}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &261604524
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +569,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881589500}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &881589502
 Camera:
   m_ObjectHideFlags: 0
@@ -759,7 +833,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MAIN MENU
+  m_Text: MAIN      MENU
 --- !u!222 &1688710332
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -846,7 +920,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &1956725846
 RectTransform:

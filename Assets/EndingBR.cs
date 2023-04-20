@@ -7,7 +7,7 @@ public class EndingBR : MonoBehaviour
 {
     void Start()
     {
-        
+        Invoke("ReturnMainMenu", 7f);
     }
 
     void Update()
@@ -16,6 +16,7 @@ public class EndingBR : MonoBehaviour
     }
     public void ReturnMainMenu()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(0);
+        print("BACK TO THE MAIN MENU");
     }
 }
