@@ -43,7 +43,6 @@ public class DialogManager : MonoBehaviour
     private Dialog GetDialogFromScene()
     {
         Dialog a = GameObject.FindObjectOfType<DialogInScene>().dialog;
-        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAA " + a);
         return a;
     }
     private void StartDialog(Dialog dialog)
