@@ -116,6 +116,14 @@ public class SPGApi
         return api.Get();
     }
 
+    static public IEnumerator CheckPassword(string password, System.Action<string, bool> callback)
+    {
+        WWWForm body = new WWWForm();
+        body.AddField("password", password);
+        SPGApi api = new SPGApi(SPGApi.baseUrl + "/room/password", callback);
+        return api.Post(body);
+    }
+
     static public IEnumerator JoinRoom(string password, int idPlayer, System.Action<string, bool> callback)
     {
         WWWForm body = new WWWForm();

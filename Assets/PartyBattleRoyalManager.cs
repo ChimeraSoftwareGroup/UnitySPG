@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
 public class PartyBattleRoyalManager : MonoBehaviour
 {
-
-    public bool isHosting;
+    public bool isHosting = false;
     [SerializeField] GameObject _hostCanvas;
     [SerializeField] GameObject _choiceNbMiniGame;
     [SerializeField] GameObject _joinCanvas;
@@ -30,6 +30,8 @@ public class PartyBattleRoyalManager : MonoBehaviour
     private int _minIdGame = 6;
     private int _maxIdGame = 8;
 
+    private SocketManager socket;
+
     public void EnterInBattleRoyaleModeInHost()
     {
         isHosting = true;
@@ -41,59 +43,55 @@ public class PartyBattleRoyalManager : MonoBehaviour
         ChoiceRoleBattleRoyale();
     }
 
-
-    public void Update()
-    {
-       
-    }
-
     #region Buttons Functions
     public void ChoiceRoleBattleRoyale()
     {
+        _battleRoyaleChoice.SetActive(false);
+        audioSource.PlayOneShot(buttonSound);
+        _joinCanvas.SetActive(!isHosting);
+
         if (isHosting)
         {
-            _battleRoyaleChoice.SetActive(false);
-            _joinCanvas.SetActive(false);
-            audioSource.PlayOneShot(buttonSound);
             _choiceNbMiniGame.SetActive(true);
         }
         else
         {
-            _battleRoyaleChoice.SetActive(false);
-            _joinCanvas.SetActive(true);
-            audioSource.PlayOneShot(buttonSound);
             _hostCanvas.SetActive(false);
         }
     }
     public void joinRoom()
     {
-        // Envoyer un code au back 
-        // Back renvoie à unity 
         if(codeRoom == null)
         {
             audioSource.PlayOneShot(errorSound);
 
             _errorCodeRoom.SetActive(true);
+            return;
         }
-        else
-        {
-            codeToJoin = int.Parse(codeRoom);
-            // Envoie au back du code pour savoir s'il existe : isCodeExiste == true si le code est bon
-            print("codeToJoin : " + codeToJoin);
 
-            if (isCodeExist == false)
+        // Envoie au back du code pour savoir s'il existe : isCodeExiste == true si le code est bon
+        print("codeToJoin : " + codeRoom);
+
+        StartCoroutine(SPGApi.CheckPassword(codeRoom, (response, isSuccess) => {
+            if (!isSuccess)
             {
-            audioSource.PlayOneShot(errorSound);
+                audioSource.PlayOneShot(errorSound);
                 _errorCodeRoom.SetActive(true);
+                return;
             }
-            else
-            {
-                audioSource.PlayOneShot(buttonSound);
-                print("FIGHT ! ");
-                // Ajoute le joueur à la liste des joueurs dans la room
-                // Envoyer un message depuis back : "Vous avez rejoint la room numéro + "id room" "
-            }
-        }
+            startSocket();
+
+            audioSource.PlayOneShot(buttonSound);
+            print("FIGHT ! ");
+            // Ajoute le joueur à la liste des joueurs dans la room
+            // Envoyer un message depuis back : "Vous avez rejoint la room numéro + "id room" "
+        }));
+    }
+
+    private void startSocket()
+    {
+        socket = new SocketManager();
+        //socket.EmitTest();
     }
 
     public void CloseCodeError()
