@@ -59,9 +59,9 @@ public class GameManagerBR : GameManager
     }
 
     public void StartBattleRoyale() {
-        sceneIndexes.Add(7);
-        sceneIndexes.Add(9);
+        sceneIndexes.Add(6);
         sceneIndexes.Add(10);
+        sceneIndexes.Add(9);
         NewGame();
     }
 
@@ -169,7 +169,8 @@ private void Update()
 
     public override void GameOver()
     {
-        SceneManager.LoadScene(4);
+        Debug.Log("Game FINISHED");
+        //SceneManager.LoadScene(4);
         audioSource.PlayOneShot(looseSound);
 
         _thePartyIsFinished = true;
@@ -190,7 +191,8 @@ private void Update()
         {
             _thePartyIsFinished = true;
             isPlayerHasWin = true;
-            SceneManager.LoadScene(4);
+            Debug.Log("GAME FINISHED");
+           // SceneManager.LoadScene(4);
             audioSource.PlayOneShot(winSound);
             StopGame();
         }

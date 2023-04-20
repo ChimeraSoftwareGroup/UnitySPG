@@ -900,8 +900,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawners: []
-  _minSpawnInterval: 0
-  _maxSpawnInterval: 0
+  _minSpawnInterval: 0.4
+  _maxSpawnInterval: 1.5
   instance: {fileID: 0}
 --- !u!4 &280990153
 Transform:
