@@ -31,7 +31,6 @@ public class SocketManager
         socket.OnConnected += (sender, e) =>
         {
             Debug.Log("Connected !");
-            EmitTest();
         };
         /*
         socket.OnPing += (sender, e) =>
@@ -64,17 +63,9 @@ public class SocketManager
 
         socket.OnUnityThread("start game", (data) =>
         {
-            var d = data.GetValue().GetRawText();
+            var d = data; //.GetValue().GetRawText();
             //Debug.Log();
         });
-    }
-
-    public void EmitTest()
-    {
-        //string eventName = EventNameTxt.text.Trim().Length < 1 ? "hello" : EventNameTxt.text;
-        string txt = "sample text";
-
-        socket.Emit("start game", txt);
     }
 
     public static bool IsJSON(string str)
@@ -106,33 +97,11 @@ public class SocketManager
         socket.Emit("spin");
     }
 
-    public void EmitClass()
+    public void EmitTest()
     {
-        TestClass testClass = new TestClass(new string[] { "foo", "bar", "baz", "qux" });
-        TestClass2 testClass2 = new TestClass2("lorem ipsum");
-        socket.Emit("class", testClass2);
-    }
+        //string eventName = EventNameTxt.text.Trim().Length < 1 ? "hello" : EventNameTxt.text;
+        string txt = "sample text";
 
-    // our test class
-    [System.Serializable]
-    class TestClass
-    {
-        public string[] arr;
-
-        public TestClass(string[] arr)
-        {
-            this.arr = arr;
-        }
-    }
-
-    [System.Serializable]
-    class TestClass2
-    {
-        public string text;
-
-        public TestClass2(string text)
-        {
-            this.text = text;
-        }
+        socket.Emit("start game", txt);
     }
 }
