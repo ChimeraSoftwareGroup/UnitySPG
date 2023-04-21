@@ -126,7 +126,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
                 _errorCodeRoom.SetActive(true);
                 return;
             }
-            startSocket();
+            StartSocket();
 
             audioSource.PlayOneShot(buttonSound);
             print("FIGHT ! ");
@@ -168,9 +168,10 @@ public class PartyBattleRoyalManager : MonoBehaviour
     }
     
     #region Socket
-    private void startSocket()
+    private void StartSocket()
     {
-        socket = new SocketManager();
+        //Need to add all the callback
+        //socket = new SocketManager();
         //socket.EmitTest();
     }
     #endregion

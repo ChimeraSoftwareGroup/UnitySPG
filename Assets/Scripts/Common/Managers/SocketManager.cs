@@ -10,7 +10,13 @@ public class SocketManager
 {
     public SocketIOUnity socket;
 
-    public SocketManager()
+    public SocketManager(
+        Action onConnect, 
+        Action onStart,
+        Action onEnd,
+        Action onPlayerJoin,
+        Action onPlayerQuit,
+        Action onDeleteRoom)
     {
         //TODO: check the Uri if Valid.
         var uri = new Uri("http://localhost:3000");
@@ -33,7 +39,7 @@ public class SocketManager
             Debug.Log("Connected !");
             Debug.Log(sender);
             Debug.Log(e);
-            //callback
+            onConnect();
         };
         socket.OnDisconnected += (sender, e) =>
         {
@@ -50,27 +56,27 @@ public class SocketManager
 
         socket.OnUnityThread("start game", (data) =>
         {
-            //Need callback
+            onStart();
         });
 
         socket.OnUnityThread("end game", (data) =>
         {
-            //Need callback
+            onEnd();
         });
 
         socket.OnUnityThread("player join", (data) =>
         {
-            //Need callback
+            onPlayerJoin();
         });
 
         socket.OnUnityThread("player quit", (data) =>
         {
-            //Need callback
+            onPlayerQuit();
         });
 
         socket.OnUnityThread("delete room", (data) =>
         {
-            //Need callback
+            onDeleteRoom();
         });
     }
 
