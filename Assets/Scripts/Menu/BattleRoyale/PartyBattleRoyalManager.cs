@@ -44,6 +44,9 @@ public class PartyBattleRoyalManager : MonoBehaviour
      * Quand on écrit un fichier/variable, c'est qu'on veut la stocker, l'enregistrer pour l'utiliser plus tard
      * donc une fonction void qui ne return rien, juste qui affilit une variable en argument à une variable physique
      * 
+     * Si tu le sais my bad '--
+     * C'est que je vois juste le résultat actuel dans le code
+     * 
      * On pourrait dire que je chipote, mais c'est important d'avoir une manière de nommer similaire quand on travaille en groupe
      * et donc d'avoir une même base quand on cherche à nommer un truc
      */

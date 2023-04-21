@@ -31,17 +31,10 @@ public class SocketManager
         socket.OnConnected += (sender, e) =>
         {
             Debug.Log("Connected !");
+            Debug.Log(sender);
+            Debug.Log(e);
+            //callback
         };
-        /*
-        socket.OnPing += (sender, e) =>
-        {
-            Debug.Log("Ping");
-        };
-        socket.OnPong += (sender, e) =>
-        {
-            Debug.Log("Pong: " + e.TotalMilliseconds);
-        };
-        */
         socket.OnDisconnected += (sender, e) =>
         {
             Debug.Log("disconnect: " + e);
@@ -55,16 +48,29 @@ public class SocketManager
         Debug.Log("Connecting...");
         socket.Connect();
 
-        socket.OnUnityThread("spin", (data) =>
-        {
-            Debug.Log("rotate = 0");
-            //rotateAngle = 0;
-        });
-
         socket.OnUnityThread("start game", (data) =>
         {
-            var d = data; //.GetValue().GetRawText();
-            //Debug.Log();
+            //Need callback
+        });
+
+        socket.OnUnityThread("end game", (data) =>
+        {
+            //Need callback
+        });
+
+        socket.OnUnityThread("player join", (data) =>
+        {
+            //Need callback
+        });
+
+        socket.OnUnityThread("player quit", (data) =>
+        {
+            //Need callback
+        });
+
+        socket.OnUnityThread("delete room", (data) =>
+        {
+            //Need callback
         });
     }
 
@@ -92,16 +98,23 @@ public class SocketManager
         }
     }
 
-    public void EmitSpin()
-    {
-        socket.Emit("spin");
-    }
-
     public void EmitTest()
     {
-        //string eventName = EventNameTxt.text.Trim().Length < 1 ? "hello" : EventNameTxt.text;
         string txt = "sample text";
 
         socket.Emit("start game", txt);
+    }
+
+    public void EmitQuittingRoom()
+    {
+        socket.Emit("quit room", socket.Id);
+    }
+
+    /**
+     * Used when no mini-games left and when the players loses
+     */
+    public void EmitEndGame(string data)
+    {
+        socket.Emit("ending game", data);
     }
 }
