@@ -18,7 +18,7 @@ public class PlayerMovements : MonoBehaviour
         _isTutoStart = true;
         if (_isTutoStart)
         {
-            Invoke("StartTuto", 3.5f);
+            StartTuto();
         }
         screenWidth = Screen.width;
        
