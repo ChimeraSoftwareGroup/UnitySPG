@@ -61,7 +61,6 @@ public class EndingManager : MonoBehaviour
 
     }
 
-    [System.Obsolete]
     public void ReturnMainMenu()
     {
         SceneManager.LoadScene(0);

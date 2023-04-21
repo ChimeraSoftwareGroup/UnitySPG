@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PartyBattleRoyalManager : MonoBehaviour
 {
     [SerializeField] GameManagerBR _gameManager;
+    [SerializeField] NetworkManager _networkManager;
 
     public bool isHosting = false;
     [SerializeField] GameObject _hostCanvas;
@@ -31,27 +32,10 @@ public class PartyBattleRoyalManager : MonoBehaviour
 
     private int _minIdGame = 6;
     private int _maxIdGame = 8;
-
-    private SocketManager socket;
-
-    public void EnterInBattleRoyaleModeInHost()
+    
+    public void EnterInBattleRoyalMode(bool isHost)
     {
-        isHosting = true;
-        ChoiceRoleBattleRoyale();
-    }
-    public void EnterInBattleRoyaleModeInPlayer()
-    {
-        isHosting = false;
-        ChoiceRoleBattleRoyale();
-    }
-
-    #region Buttons Functions
-    public void ChoiceRoleBattleRoyale()
-    {
-        _battleRoyaleChoice.SetActive(false);
-        audioSource.PlayOneShot(buttonSound);
-        _joinCanvas.SetActive(!isHosting);
-
+        isHosting = isHost;
         if (isHosting)
         {
             _choiceNbMiniGame.SetActive(true);
@@ -119,7 +103,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
     public void ShowCodeForHosting()
     {
         
-        if(numberOfGames == null)
+        if(numberOfGames == null || numberOfGames == "0" || numberOfGames == "00" || numberOfGames == " ")
         {
             audioSource.PlayOneShot(errorSound);
             _errorNbGame.SetActive(true);
@@ -143,6 +127,9 @@ public class PartyBattleRoyalManager : MonoBehaviour
         _nbMiniGames = int.Parse(numberOfGames);
         // Envoyer au back les param�tres choisis par l'host
         Debug.Log("Nombre de mini-jeux : " + _nbMiniGames);
+
+        // Ensuite, r�cup�rer le retour du back end.*
+        // Envoyer la liste de jeu, ou la r�cup�rer c�t� GameManager.
     }
     public void ShowError()
     {
@@ -158,7 +145,6 @@ public class PartyBattleRoyalManager : MonoBehaviour
         _errorNbGame.SetActive(false);
     }
 
-    #endregion
 
     public void ReadingNumberOfGames(string _numberOfGames)
     {
