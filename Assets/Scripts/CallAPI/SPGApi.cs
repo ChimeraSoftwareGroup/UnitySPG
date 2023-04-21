@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
-using UnityEngine.SceneManagement;
 using System;
 
 /**
@@ -20,20 +19,18 @@ using System;
 
 public class SPGApi
 {
-    private static string baseUrl = "http://localhost:3000";
-    private string url;
-    private System.Action<string, bool> callback;
-    public static SPGApi instance;
+    private static readonly string baseUrl = "http://localhost:3000";
+    private readonly string url;
+    private readonly Action<string, bool> callback;
 
     /**
      * When Defining the callback entry, theirs 2 required params, string result (define how to use it) and bool isSuccess (to define if it succeded)
      */
-    public SPGApi(string url, System.Action<string, bool> callback)
+    public SPGApi(string url, Action<string, bool> callback)
     {
         this.url = url;
         this.callback = callback;
     }
-
 
     #region Request Route
     private void HandleResult(UnityWebRequest req)
@@ -50,11 +47,9 @@ public class SPGApi
 
     public IEnumerator Get()
     {
-        using (UnityWebRequest req = UnityWebRequest.Get(this.url))
-        {
-            yield return req.SendWebRequest();
-            HandleResult(req);
-        }
+        using UnityWebRequest req = UnityWebRequest.Get(this.url);
+        yield return req.SendWebRequest();
+        HandleResult(req);
     }
 
     public IEnumerator Post(WWWForm body)
@@ -62,86 +57,80 @@ public class SPGApi
         // WWWForm form = new WWWForm();
         // form.AddField("myField", "myData");
 
-        using (UnityWebRequest req = UnityWebRequest.Post(url, body))
-        {
-            yield return req.SendWebRequest();
-            HandleResult(req);
-        }
+        using UnityWebRequest req = UnityWebRequest.Post(url, body);
+        yield return req.SendWebRequest();
+        HandleResult(req);
     }
 
     public IEnumerator Put(byte[] body)
     {
         //byte[] body = System.Text.Encoding.UTF8.GetBytes("{\"name\":\"user_01\",\"address\":{\"raw\":\"MountFiji\"}}");
 
-        using (UnityWebRequest req = UnityWebRequest.Put(this.url, body))
-        {
-            yield return req.SendWebRequest();
-            HandleResult(req);
-        }
+        using UnityWebRequest req = UnityWebRequest.Put(this.url, body);
+        yield return req.SendWebRequest();
+        HandleResult(req);
     }
 
     public IEnumerator Delete()
     {
-        using (UnityWebRequest req = UnityWebRequest.Delete(this.url))
-        {
-            yield return req.SendWebRequest();
-            HandleResult(req);
-        }
+        using UnityWebRequest req = UnityWebRequest.Delete(this.url);
+        yield return req.SendWebRequest();
+        HandleResult(req);
     }
     #endregion
 
-    static public IEnumerator CreateRoom(string roomName, System.Action<string, bool> callback) 
+    static public IEnumerator CreateRoom(string roomName, Action<string, bool> callback) 
     {
-        WWWForm body = new WWWForm();
+        WWWForm body = new();
         body.AddField("name", roomName);
-        SPGApi api = new SPGApi(SPGApi.baseUrl + "/room", callback);
+        SPGApi api = new(baseUrl + "/room", callback);
         return api.Post(body);
     }
 
-    static public IEnumerator ModifyRoom(int idRoom, byte[] body, System.Action<string, bool> callback)
+    static public IEnumerator ModifyRoom(int idRoom, byte[] body, Action<string, bool> callback)
     {
-        SPGApi api = new SPGApi(SPGApi.baseUrl + "/room/" + idRoom, callback);
+        SPGApi api = new(baseUrl + "/room/" + idRoom, callback);
         return api.Put(body);
     } 
 
-    static public IEnumerator DeleteRoom(int idRoom, System.Action<string, bool> callback)
+    static public IEnumerator DeleteRoom(int idRoom, Action<string, bool> callback)
     {
-        SPGApi api = new SPGApi(SPGApi.baseUrl + "/room/" + idRoom, callback);
+        SPGApi api = new(baseUrl + "/room/" + idRoom, callback);
         return api.Delete();
     }
 
-    static public IEnumerator GetPlayerList(int idRoom, System.Action<string, bool> callback)
+    static public IEnumerator GetPlayerList(int idRoom, Action<string, bool> callback)
     {
-        SPGApi api = new SPGApi(SPGApi.baseUrl + "/room/" + idRoom + "/player", callback);
+        SPGApi api = new(baseUrl + "/room/" + idRoom + "/player", callback);
         return api.Get();
     }
 
-    static public IEnumerator CheckPassword(string password, System.Action<string, bool> callback)
+    static public IEnumerator CheckPassword(string password, Action<string, bool> callback)
     {
-        WWWForm body = new WWWForm();
+        WWWForm body = new();
         body.AddField("password", password);
-        SPGApi api = new SPGApi(SPGApi.baseUrl + "/room/password", callback);
+        SPGApi api = new(baseUrl + "/room/password", callback);
         return api.Post(body);
     }
 
-    static public IEnumerator JoinRoom(string password, int idPlayer, System.Action<string, bool> callback)
+    static public IEnumerator JoinRoom(string password, int idPlayer, Action<string, bool> callback)
     {
-        WWWForm body = new WWWForm();
+        WWWForm body = new();
         body.AddField("password", password);
         body.AddField("id_player", idPlayer);
-        SPGApi api = new SPGApi(SPGApi.baseUrl + "/room/join", callback);
+        SPGApi api = new(baseUrl + "/room/join", callback);
         return api.Post(body);
     }
 
-    static public IEnumerator QuitRoom(int idRoom, int idPlayer, System.Action<string, bool> callback)
+    static public IEnumerator QuitRoom(int idRoom, int idPlayer, Action<string, bool> callback)
     {
-        SPGApi api = new SPGApi(SPGApi.baseUrl + "/room/" + idRoom + "/players/" + idPlayer + "/leave", callback);
+        SPGApi api = new(baseUrl + "/room/" + idRoom + "/players/" + idPlayer + "/leave", callback);
         return api.Delete();
     }
 
-    static public IEnumerator TestApi(System.Action<string, bool> callback)
+    static public IEnumerator TestApi(Action<string, bool> callback)
     {
-        SPGApi api = new SPGApi(SPGApi.baseUrl + "/games/random", callback);
+        SPGApi api = new(baseUrl + "/games/random", callback);
         return api.Get();
     }
 }
