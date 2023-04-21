@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7474f49ccc0757047b7f83a217478c88
+guid: 3cb505af702a1b941b2925e4ceb7609b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: back_0
+      name: arrowWhite_0
       rect:
         serializedVersion: 2
-        x: 662
-        y: 499
-        width: 319
-        height: 228
+        x: 57
+        y: 152
+        width: 391
+        height: 240
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d6be89d8f5d7be40b337eafc6cfa56a
-      internalID: -752278087
+      spriteID: 0de8560b9e6124e4eadff27e7f82b733
+      internalID: 12183032
       vertices: []
       indices: 
       edges: []
@@ -140,7 +140,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: f9a9dce3f4ddcda44ba2233dfb2b26b0
+    spriteID: 9b3606492eeb7ac4dbaa80fc546f5d52
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      back_0: -752278087
+      arrowWhite_0: 12183032
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

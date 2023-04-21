@@ -17,11 +17,11 @@ public class Player : MonoBehaviour
     {
         // Commenter pour tester un jeu précis
 
-        //if (_ph.currentHealth == 0)
-        //{
+        if (_ph.currentHealth == 0)
+        {
 
-        //    _gameManager.GameOver();
-        //}
+            _gameManager.GameOver();
+        }
     }
 
     private void NotifyGameManager()

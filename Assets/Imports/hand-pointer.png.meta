@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7474f49ccc0757047b7f83a217478c88
+guid: 1c97c6c424b862c4e8dad6c23e0d1a21
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: back_0
+      name: hand-pointer_0
       rect:
         serializedVersion: 2
-        x: 662
-        y: 499
-        width: 319
-        height: 228
+        x: 0
+        y: 176
+        width: 562
+        height: 608
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,8 +131,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d6be89d8f5d7be40b337eafc6cfa56a
-      internalID: -752278087
+      spriteID: daacfb7d2a0e15546a4a418002202838
+      internalID: -332732523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hand-pointer_1
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 176
+        width: 563
+        height: 608
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e6c5d404c5f897408699d87199da089
+      internalID: -1337418582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hand-pointer_2
+      rect:
+        serializedVersion: 2
+        x: 1358
+        y: 176
+        width: 562
+        height: 608
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94484751bfa825343a8e01d5ba599e25
+      internalID: 128358906
       vertices: []
       indices: 
       edges: []
@@ -140,7 +182,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: f9a9dce3f4ddcda44ba2233dfb2b26b0
+    spriteID: 572c76537b3401e45b4f0e2ae99fdd3b
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +190,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      back_0: -752278087
+      hand-pointer_1: -1337418582
+      hand-pointer_0: -332732523
+      hand-pointer_2: 128358906
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
