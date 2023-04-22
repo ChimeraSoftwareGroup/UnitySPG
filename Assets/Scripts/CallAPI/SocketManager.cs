@@ -11,8 +11,8 @@ public class SocketManager
 
     public SocketManager(
         Action onConnect, 
-        Action<SocketIOResponse> onStart,
-        Action<SocketIOResponse> onEnd,
+        Action<StartGameResponse> onStart,
+        Action<EndingScoreResponse> onEnd,
         Action onPlayerJoin,
         Action onPlayerQuit,
         Action onDeleteRoom)
@@ -55,12 +55,12 @@ public class SocketManager
 
         socket.OnUnityThread("start game", (data) =>
         {
-            onStart(data);
+            onStart(data.GetValue<StartGameResponse>());
         });
 
         socket.OnUnityThread("end game", (data) =>
         {
-            onEnd(data);
+            onEnd(data.GetValue<EndingScoreResponse>());
         });
 
         socket.OnUnityThread("player join", (data) =>

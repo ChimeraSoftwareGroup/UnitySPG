@@ -1,8 +1,8 @@
-using SocketIOClient;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using System.Collections;
 
 public class PartyBattleRoyalManager : MonoBehaviour
 {
@@ -193,17 +193,19 @@ public class PartyBattleRoyalManager : MonoBehaviour
     /**
      * Triggered when the game is about to start
      */
-    private void OnStart(SocketIOResponse data)
+    private void OnStart(StartGameResponse data)
     {
-
+        ArrayList array = data.gameIdList; // Array of mini games
     }
 
     /**
      * Triggered when the game ends
      */
-    private void OnEnd(SocketIOResponse data)
+    private void OnEnd(EndingScoreResponse data)
     {
-
+        Score userScore = data.userScore;
+        Score bestScore = data.bestScore;
+        int userPosition = data.userPosition;
     }
 
     /**
