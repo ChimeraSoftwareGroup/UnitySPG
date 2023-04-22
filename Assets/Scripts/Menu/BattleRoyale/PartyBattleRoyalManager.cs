@@ -1,15 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+using SocketIOClient;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PartyBattleRoyalManager : MonoBehaviour
 {
     [SerializeField] GameManagerBR _gameManager;
     [SerializeField] NetworkManager _networkManager;
 
-    public bool isHosting = false;
+    public bool isHosting;
     [SerializeField] GameObject _hostCanvas;
     [SerializeField] GameObject _choiceNbMiniGame;
     [SerializeField] GameObject _joinCanvas;
@@ -35,6 +35,8 @@ public class PartyBattleRoyalManager : MonoBehaviour
 
     private SocketManager socket;
 
+    private int nbPlayerRoom;
+
     #region Setters
 
     /**
@@ -59,19 +61,17 @@ public class PartyBattleRoyalManager : MonoBehaviour
         codeRoom = _codeRoom;
     }
     #endregion
-    
+
     #region show/hide canvas
     public void EnterInBattleRoyalMode(bool isHost)
     {
         isHosting = isHost;
-        if (isHosting)
-        {
-            _choiceNbMiniGame.SetActive(true);
-        }
-        else
-        {
-            _hostCanvas.SetActive(false);
-        }
+
+        _battleRoyaleChoice.SetActive(false);
+        audioSource.PlayOneShot(buttonSound);
+
+        _joinCanvas.SetActive(!isHosting);
+        _choiceNbMiniGame.SetActive(isHosting);
     }
     public void CloseCodeError()
     {
@@ -170,9 +170,65 @@ public class PartyBattleRoyalManager : MonoBehaviour
     #region Socket
     private void StartSocket()
     {
-        //Need to add all the callback
-        //socket = new SocketManager();
-        //socket.EmitTest();
+        socket = new SocketManager(
+            OnConnect,
+            OnStart,
+            OnEnd,
+            OnPlayerJoin,
+            OnPlayerQuit,
+            OnDeleteRoom
+        );
     }
+
+    #region listenerers
+    /**
+     * Triggered when the connexion is completed
+     */
+    private void OnConnect()
+    {
+        nbPlayerRoom = 0;
+        socket.EmitTest();
+    }
+
+    /**
+     * Triggered when the game is about to start
+     */
+    private void OnStart(SocketIOResponse data)
+    {
+
+    }
+
+    /**
+     * Triggered when the game ends
+     */
+    private void OnEnd(SocketIOResponse data)
+    {
+
+    }
+
+    /**
+     * Triggered when a player join
+     */
+    private void OnPlayerJoin()
+    {
+        nbPlayerRoom++;
+    }
+
+    /**
+     * Triggered when a player quit
+     */
+    private void OnPlayerQuit()
+    {
+        nbPlayerRoom--;
+    }
+
+    /**
+     * Triggered when the room the player is in, is deleted from the server
+     */
+    private void OnDeleteRoom()
+    {
+        //Return to main menu
+    }
+    #endregion
     #endregion
 }

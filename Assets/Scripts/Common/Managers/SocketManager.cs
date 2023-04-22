@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using SocketIOClient;
 using SocketIOClient.Newtonsoft.Json;
 using UnityEngine;
-using UnityEngine.UI;
 using Newtonsoft.Json.Linq;
 
 public class SocketManager
@@ -12,8 +11,8 @@ public class SocketManager
 
     public SocketManager(
         Action onConnect, 
-        Action onStart,
-        Action onEnd,
+        Action<SocketIOResponse> onStart,
+        Action<SocketIOResponse> onEnd,
         Action onPlayerJoin,
         Action onPlayerQuit,
         Action onDeleteRoom)
@@ -56,12 +55,12 @@ public class SocketManager
 
         socket.OnUnityThread("start game", (data) =>
         {
-            onStart();
+            onStart(data);
         });
 
         socket.OnUnityThread("end game", (data) =>
         {
-            onEnd();
+            onEnd(data);
         });
 
         socket.OnUnityThread("player join", (data) =>
