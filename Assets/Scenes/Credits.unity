@@ -421,7 +421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -3.1286618e-10, y: 954}
+  m_AnchoredPosition: {x: -3.1286618e-10, y: 1012}
   m_SizeDelta: {x: 450, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &611766451
@@ -666,7 +666,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -3.1286618e-10, y: 271.00146}
+  m_AnchoredPosition: {x: -3.1286618e-10, y: 494}
   m_SizeDelta: {x: 450, y: 253.141}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1442794890
@@ -744,8 +744,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -100.34912}
+  m_SizeDelta: {x: 0, y: 200.699}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1503043508
 MonoBehaviour:
@@ -881,8 +881,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -0.00024414062, y: -2447.911}
-  m_SizeDelta: {x: 0, y: 4895.718}
+  m_AnchoredPosition: {x: -0.00024414062, y: -2608}
+  m_SizeDelta: {x: 0, y: 5190.864}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1707547291
 Animator:
@@ -974,7 +974,7 @@ PrefabInstance:
     - target: {fileID: 7887596794022428099, guid: 5ad901d4b70cc1a4a9569f5d2b282340, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 0de0ce7f76d7cd546ae0329ff6b58d2d, type: 3}
+      objectReference: {fileID: 8300000, guid: e923ef04de326e74799d504ad17a03a2, type: 3}
     - target: {fileID: 7887596794022428108, guid: 5ad901d4b70cc1a4a9569f5d2b282340, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -1016,8 +1016,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.877, y: -1883.9993}
-  m_SizeDelta: {x: 493.539, y: 3764.276}
+  m_AnchoredPosition: {x: 0.877, y: -1954.8}
+  m_SizeDelta: {x: 493.539, y: 3905.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1796575801
 MonoBehaviour:
@@ -1065,28 +1065,24 @@ MonoBehaviour:
     -  BUCH</I>\r\n<I>FROGGY  -  NICOLE  MARIE  T</I>\r\n<I>BOBEE  -  JXY25</I>\r\n<I>SPIDER 
     -  DON'T  STARVE</I>\r\n<I>FOREST  (BACKGROUND)  -  MEMOANGELES</I>\r\n<I>BOXE 
     -  STOCK  VECTOR</I>\r\n<I>GERARD  -  JADE BOUIGES</I>\r\n<I>BRANCHES  -  JADE
-    BOUIGES</I>\r\n<I>SANIC  - ANTON PAIVIN </I></SIZE>\r\n\r\n<SIZE=30><B>TUTORIELS 
+    BOUIGES</I>\r\n<I>SANIC  - ANTON PAIVIN </I>\r\n<I>FALLEINE  - WHO  LIKES DRAWING
+    </I>\r\n<I>HELICOPTER  - JADE  BOUIGES </I></SIZE>\r\n\r\n<SIZE=30><B>TUTORIELS 
     IN  GAME</B>\r\n\r\n<I>HAND  - HADIAALTAF </I>\r\n<I>SMARTPHONE  ICON  - ICONFINDER
     </I>\r\n<I>WARNING  ICON  - PIXELMAKER</I></SIZE>\r\n\r\n<SIZE=30><B>OTHER</B>\r\n\r\n<I>ICON 
     -  JADE  BOUIGES</I>\r\n<I>BUTTONS  -  JADE BOUIGES</I>\r\n<I>BOXEFIRE  -  JESSMOSLEY129</I>\r\n</SIZE>\r\n\r\n<SIZE=60>-
     AUDIO -</SIZE>\r\n\r\n<SIZE=30>SOUND  MANAGER\r\n<I>JADE  BOUIGES</I></SIZE>\r\n\r\n<SIZE=30>MUSIC\r\n<I>MENU
-    : THAT  ON  DRAGON  BALL  NES  MUSIC  -  TOSE</I>\r\n<I>SNEUK : HEAT  OF  THE 
-    WORLD  -  KENLITEN</I>\r\n<I>FROGGY : DADDY'S  JOURNEY  MUSIC  -  KEVIN  DOBROTA</I>\r\n<I>BOBEE
-    : STRANGER  OF  YOU  -  KENLITEN</I>\r\n<I>GERARD : BIT  MAN  TITLE  THEME  - 
-    QUILLENIK</I>\r\n<I>BRINA : BOB'S  ADVENTURES  AND  I  MUST  IF  A  CAN -  TOM 
-    PETER</I>\r\n<I>SANIC : BOB'S  ADVENTURES  -  TOM  PETER</I></SIZE>\r\n\r\n\r\n<SIZE=30>SOUNDS\r\n<I>8-BIT
-    SOUNDS  LIBRARY  -  LITTLE  ROBOT  SOUND\r\nFACTORY</I>\r\n<I>NES 8-BIT  SOUND 
-    EFFECTS - SHIRU8BIT</I>\r\n<I>BOOK FLIPS - STAR NINJAS</I>\r\n</SIZE>\r\n\r\n\r\n<SIZE=60>-
-    FONT -</SIZE>\r\n\r\n<SIZE=30>PIXELATED\r\n<I>BY SKYLAR  PARK</I></SIZE>\r\n\r\n<SIZE=60>-
-    SPECIAL  THANKS -</SIZE>\r\n\r\n<SIZE=30>CODING  FACTORY\r\n\r\n<I>ROBIN  PENEA,\r\nCOLOMBE 
-    VAN  MASTRISH,\r\nVALERIE  ECAILLE,\r\nTHOMAS  LEBRUN,\r\nKEVIN  FAGOT,\r\nMELANIE 
-    VAUBIEN,\r\nMAXIME  JOULIN,\r\nCHATGPT</I></SIZE>\r\n\r\n\r\n<SIZE=30>SOUNDS\r\n<I>8-BIT
-    SOUNDS  LIBRARY  -  LITTLE  ROBOT  SOUND\r\nFACTORY</I>\r\n<I>NES 8-BIT  SOUND 
-    EFFECTS - SHIRU8BIT</I>\r\n<I>BOOK FLIPS - STAR NINJAS</I>\r\n</SIZE>\r\n\r\n\r\n<SIZE=60>-
-    FONT -</SIZE>\r\n\r\n<SIZE=30>PIXELATED\r\n<I>BY SKYLAR  PARK</I></SIZE>\r\n\r\n<SIZE=60>-
-    SPECIAL  THANKS -</SIZE>\r\n\r\n<SIZE=30>CODING  FACTORY\r\n\r\n<I>ROBIN  PENEA,\r\nCOLOMBE 
-    VAN  MASTRISH,\r\nVALERIE  ECAILLE,\r\nTHOMAS  LEBRUN,\r\nKEVIN  FAGOT,\r\nMELANIE 
-    VAUBIEN,\r\nMAXIME  JOULIN,\r\nCHATGPT</I></SIZE>"
+    : THAT  ON  DRAGON  BALL  NES  MUSIC  -  TOSE</I>\r\n<I>CREDITS : RICANE THEME 
+    -  THOMAS  CHAPEAU</I>\r\n<I>SNEUK : HEAT  OF  THE  WORLD  -  KENLITEN</I>\r\n<I>FROGGY
+    : DADDY'S  JOURNEY  MUSIC  -  KEVIN  DOBROTA</I>\r\n<I>BOBEE : STRANGER  OF 
+    YOU  -  KENLITEN</I>\r\n<I>GERARD : BIT  MAN  TITLE  THEME  -  QUILLENIK</I>\r\n<I>BRINA
+    : BOB'S  ADVENTURES  AND  I  MUST  IF  A  CAN -  TOM  PETER</I>\r\n<I>SANIC :
+    BOB'S  ADVENTURES  -  TOM  PETER</I>\r\n<I>FALLEINE : HERO  IMMORTAL  -  TREVOR 
+    LENTZ</I></SIZE>\r\n\r\n\r\n<SIZE=30>SOUNDS\r\n<I>8-BIT SOUNDS  LIBRARY  -  LITTLE 
+    ROBOT  SOUND\r\nFACTORY</I>\r\n<I>NES 8-BIT  SOUND  EFFECTS - SHIRU8BIT</I>\r\n<I>BOOK
+    FLIPS - STAR NINJAS</I>\r\n</SIZE>\r\n\r\n\r\n<SIZE=60>- FONT -</SIZE>\r\n\r\n<SIZE=30>PIXELATED\r\n<I>BY
+    SKYLAR  PARK</I></SIZE>\r\n\r\n<SIZE=60>- SPECIAL  THANKS -</SIZE>\r\n\r\n<SIZE=30>CODING 
+    FACTORY\r\n\r\n<I>ROBIN  PENEA,\r\nCOLOMBE  VAN  MASTRISH,\r\nVALERIE  ECAILLE,\r\nTHOMAS 
+    LEBRUN,\r\nKEVIN  FAGOT,\r\nMELANIE  VAUBIEN,\r\nMAXIME  JOULIN,\r\nCHATGPT</I></SIZE>\r\n"
 --- !u!222 &1796575802
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1130,7 +1126,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -3.1286618e-10, y: 612.00037}
+  m_AnchoredPosition: {x: -3.1286618e-10, y: 764.0005}
   m_SizeDelta: {x: 450, y: 194.177}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2004489639

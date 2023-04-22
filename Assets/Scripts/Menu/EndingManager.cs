@@ -9,6 +9,7 @@ public class EndingManager : MonoBehaviour
     [SerializeField] GameObject _fireworks;
     [SerializeField] GameObject _rain;
     [SerializeField] GameObject bg;
+    [SerializeField] GameObject _gameCanvas;
 
     [Header("Destroy")]
     [SerializeField] GameObject _generalGameCanvas;
@@ -30,11 +31,13 @@ public class EndingManager : MonoBehaviour
         instance = this;
         
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        _gameCanvas = GameObject.Find("GeneralGameCanvas");
 
     }
     private void Start()
     {
-        if(_gameManager.isPlayerHasWin == true)
+        _gameCanvas.SetActive(false);
+        if (_gameManager.isPlayerHasWin == true)
         {
             Wining();
         }
