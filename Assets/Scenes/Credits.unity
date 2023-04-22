@@ -421,7 +421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -3.1286618e-10, y: 1170}
+  m_AnchoredPosition: {x: -3.1286618e-10, y: 954}
   m_SizeDelta: {x: 450, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &611766451
@@ -666,7 +666,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -3.1286618e-10, y: 487.00122}
+  m_AnchoredPosition: {x: -3.1286618e-10, y: 271.00146}
   m_SizeDelta: {x: 450, y: 253.141}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1442794890
@@ -1016,8 +1016,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000001905195, y: -1883.9993}
-  m_SizeDelta: {x: 450, y: 3764.276}
+  m_AnchoredPosition: {x: 0.877, y: -1883.9993}
+  m_SizeDelta: {x: 493.539, y: 3764.276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1796575801
 MonoBehaviour:
@@ -1064,12 +1064,23 @@ MonoBehaviour:
     -  JADE BOUIGES</I>\r\n<I>PAPER  -  JADE BOUIGES</I></SIZE>\r\n\r\n<SIZE=30><B>GAMES</B>\r\n\r\n<I>SNEUK 
     -  BUCH</I>\r\n<I>FROGGY  -  NICOLE  MARIE  T</I>\r\n<I>BOBEE  -  JXY25</I>\r\n<I>SPIDER 
     -  DON'T  STARVE</I>\r\n<I>FOREST  (BACKGROUND)  -  MEMOANGELES</I>\r\n<I>BOXE 
-    -  STOCK  VECTOR</I></SIZE>\r\n\r\n<SIZE=30><B>OTHER</B>\r\n\r\n<I>ICON  -  JADE 
-    BOUIGES</I>\r\n<I>BUTTON FIGHT  -  JADE BOUIGES</I>\r\n<I>BOXEFIRE  -  JESSMOSLEY129</I>\r\n</SIZE>\r\n\r\n<SIZE=60>-
+    -  STOCK  VECTOR</I>\r\n<I>GERARD  -  JADE BOUIGES</I>\r\n<I>BRANCHES  -  JADE
+    BOUIGES</I>\r\n<I>SANIC  - ANTON PAIVIN </I></SIZE>\r\n\r\n<SIZE=30><B>TUTORIELS 
+    IN  GAME</B>\r\n\r\n<I>HAND  - HADIAALTAF </I>\r\n<I>SMARTPHONE  ICON  - ICONFINDER
+    </I>\r\n<I>WARNING  ICON  - PIXELMAKER</I></SIZE>\r\n\r\n<SIZE=30><B>OTHER</B>\r\n\r\n<I>ICON 
+    -  JADE  BOUIGES</I>\r\n<I>BUTTONS  -  JADE BOUIGES</I>\r\n<I>BOXEFIRE  -  JESSMOSLEY129</I>\r\n</SIZE>\r\n\r\n<SIZE=60>-
     AUDIO -</SIZE>\r\n\r\n<SIZE=30>SOUND  MANAGER\r\n<I>JADE  BOUIGES</I></SIZE>\r\n\r\n<SIZE=30>MUSIC\r\n<I>MENU
     : THAT  ON  DRAGON  BALL  NES  MUSIC  -  TOSE</I>\r\n<I>SNEUK : HEAT  OF  THE 
     WORLD  -  KENLITEN</I>\r\n<I>FROGGY : DADDY'S  JOURNEY  MUSIC  -  KEVIN  DOBROTA</I>\r\n<I>BOBEE
-    : STRANGER  OF  YOU  -  KENLITEN</I></SIZE>\r\n\r\n\r\n<SIZE=30>SOUNDS\r\n<I>8-BIT
+    : STRANGER  OF  YOU  -  KENLITEN</I>\r\n<I>GERARD : BIT  MAN  TITLE  THEME  - 
+    QUILLENIK</I>\r\n<I>BRINA : BOB'S  ADVENTURES  AND  I  MUST  IF  A  CAN -  TOM 
+    PETER</I>\r\n<I>SANIC : BOB'S  ADVENTURES  -  TOM  PETER</I></SIZE>\r\n\r\n\r\n<SIZE=30>SOUNDS\r\n<I>8-BIT
+    SOUNDS  LIBRARY  -  LITTLE  ROBOT  SOUND\r\nFACTORY</I>\r\n<I>NES 8-BIT  SOUND 
+    EFFECTS - SHIRU8BIT</I>\r\n<I>BOOK FLIPS - STAR NINJAS</I>\r\n</SIZE>\r\n\r\n\r\n<SIZE=60>-
+    FONT -</SIZE>\r\n\r\n<SIZE=30>PIXELATED\r\n<I>BY SKYLAR  PARK</I></SIZE>\r\n\r\n<SIZE=60>-
+    SPECIAL  THANKS -</SIZE>\r\n\r\n<SIZE=30>CODING  FACTORY\r\n\r\n<I>ROBIN  PENEA,\r\nCOLOMBE 
+    VAN  MASTRISH,\r\nVALERIE  ECAILLE,\r\nTHOMAS  LEBRUN,\r\nKEVIN  FAGOT,\r\nMELANIE 
+    VAUBIEN,\r\nMAXIME  JOULIN,\r\nCHATGPT</I></SIZE>\r\n\r\n\r\n<SIZE=30>SOUNDS\r\n<I>8-BIT
     SOUNDS  LIBRARY  -  LITTLE  ROBOT  SOUND\r\nFACTORY</I>\r\n<I>NES 8-BIT  SOUND 
     EFFECTS - SHIRU8BIT</I>\r\n<I>BOOK FLIPS - STAR NINJAS</I>\r\n</SIZE>\r\n\r\n\r\n<SIZE=60>-
     FONT -</SIZE>\r\n\r\n<SIZE=30>PIXELATED\r\n<I>BY SKYLAR  PARK</I></SIZE>\r\n\r\n<SIZE=60>-
@@ -1119,7 +1130,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -3.1286618e-10, y: 828.00024}
+  m_AnchoredPosition: {x: -3.1286618e-10, y: 612.00037}
   m_SizeDelta: {x: 450, y: 194.177}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2004489639

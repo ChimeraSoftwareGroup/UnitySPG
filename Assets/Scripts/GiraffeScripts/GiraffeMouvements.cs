@@ -22,6 +22,7 @@ public class GiraffeMouvements : MonoBehaviour
 
     [Header("Player")]
     [SerializeField] GameObject _girafe;
+    [SerializeField] GameObject _girafeCanvas;
     private bool _isCollided = false;
 
 
@@ -59,6 +60,10 @@ public class GiraffeMouvements : MonoBehaviour
         VerifInput();
         MovePlayer();
 
+        if (isGoingUp)
+        {
+            _girafeCanvas.SetActive(true);
+        }
       
     }
     void VerifInput()

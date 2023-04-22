@@ -8,15 +8,24 @@ public class SanicController : MonoBehaviour
 
     private Rigidbody rb; // référence au Rigidbody de la sphère
 
+    [SerializeField] GameObject _tutoCanvas;
+    private bool _isTutoStart = false;
     void Start()
     {
-      
-
         rb = GetComponent<Rigidbody>();
+        _isTutoStart = true;
+
     }
 
     void FixedUpdate()
     {
+
+        if (_isTutoStart)
+        {
+            _tutoCanvas.SetActive(true);
+            Invoke("StopTutoCanvas", 3f);
+            _isTutoStart = false;
+        }
         float moveHorizontal = Input.acceleration.x; // récupère l'inclinaison horizontale
         float moveVertical = Input.acceleration.y; // récupère l'inclinaison verticale
 
@@ -29,7 +38,13 @@ public class SanicController : MonoBehaviour
         Quaternion targetRotation = Quaternion.FromToRotation(transform.forward, tiltVector);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation * transform.rotation, Time.deltaTime * 10);
     }
-   
+
+    private void StopTutoCanvas()
+    {
+        _tutoCanvas.SetActive(false);
+
+    }
+
 }
 
 
