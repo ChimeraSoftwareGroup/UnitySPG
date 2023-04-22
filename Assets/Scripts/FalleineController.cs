@@ -10,10 +10,13 @@ public class FalleineController : MonoBehaviour
 
     private Rigidbody rb; // référence au Rigidbody de la sphère
 
+    [SerializeField] GameObject _tutoCanvas;
+    private bool _isTutoStart = false;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        _isTutoStart = true;
 
     }
 
@@ -26,12 +29,12 @@ public class FalleineController : MonoBehaviour
     void FixedUpdate()
     {
 
-        //if (_isTutoStart)
-        //{
-        //    _tutoCanvas.SetActive(true);
-        //    Invoke("StopTutoCanvas", 3f);
-        //    _isTutoStart = false;
-        //}
+        if (_isTutoStart)
+        {
+            _tutoCanvas.SetActive(true);
+            Invoke("StopTutoCanvas", 3f);
+            _isTutoStart = false;
+        }
 
 
         float moveHorizontal = Input.acceleration.x; // récupère l'inclinaison horizontale
@@ -43,7 +46,13 @@ public class FalleineController : MonoBehaviour
 
         // Inclinaison de la sphère
         Vector3 tiltVector = new Vector3(moveVertical * tilt, 0f, -moveHorizontal * tilt);
-        Quaternion targetRotation = Quaternion.FromToRotation(transform.forward, tiltVector);
+        Quaternion targetRotation = Quaternion.FromToRotation(transform.right, tiltVector);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation * transform.rotation, Time.deltaTime * 10);
+    }
+
+    private void StopTutoCanvas()
+    {
+        _tutoCanvas.SetActive(false);
+
     }
 }

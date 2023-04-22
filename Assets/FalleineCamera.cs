@@ -7,7 +7,7 @@ public class FalleineCamera : MonoBehaviour
     public Transform target; // L'objet que la caméra doit suivre
     public float smoothSpeed = 0.140f; // Vitesse de suivi de la caméra
     public Vector3 offset; // Offset de la caméra par rapport à l'objet
-    public float distance = 10f; // Distance de la caméra à la cible
+    public float distance = 5f; // Distance de la caméra à la cible
 
     void LateUpdate()
     {

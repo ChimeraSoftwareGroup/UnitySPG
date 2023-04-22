@@ -8,20 +8,20 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        _ph = GameObject.Find("GameManager").GetComponent<PlayerHealth>();
-        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        NotifyGameManager();
+        //_ph = GameObject.Find("GameManager").GetComponent<PlayerHealth>();
+        //_gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        //NotifyGameManager();
     }
 
     private void Update()
     {
         // Commenter pour tester un jeu précis
 
-        if (_ph.currentHealth == 0)
-        {
+        //if (_ph.currentHealth == 0)
+        //{
 
-            _gameManager.GameOver();
-        }
+        //    _gameManager.GameOver();
+        //}
     }
 
     private void NotifyGameManager()
