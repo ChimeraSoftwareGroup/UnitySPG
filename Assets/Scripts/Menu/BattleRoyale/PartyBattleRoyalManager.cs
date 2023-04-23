@@ -17,6 +17,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
     [SerializeField] GameObject _errorPage;
     [SerializeField] GameObject _errorNbGame;
     [SerializeField] GameObject _errorCodeRoom;
+    [SerializeField] GameObject _waitingPage;
     [SerializeField] Text _codeRoomHost;
 
     public AudioSource audioSource;

@@ -8,13 +8,25 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] SpriteRenderer spriteRenderer;
     public float screenWidth;
+    private bool _isTutoStart = false;
+
+    [SerializeField] GameObject _tutoCanvas;
 
     private void Start()
     {
+        _tutoCanvas.SetActive(false);
+        _isTutoStart = true;
+        if (_isTutoStart)
+        {
+            StartTuto();
+        }
         screenWidth = Screen.width;
+       
     }
     private void Update()
     {
+
+       
         int i = 0;
         while (i < Input.touchCount)
         {
@@ -35,16 +47,30 @@ public class PlayerMovements : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-         float horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+       
+        float horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
         MovePlayer(horizontalMovement);
         Flip(rb.velocity.x);
         // float characterVelocity = Mathf.Abs(rb.velocity.x);
         // animator.SetFloat("Speed", rb.velocity.x);
 
-
-       
     }
+
+    public void StopTuto()
+    {
+        _tutoCanvas.SetActive(false);
+        _isTutoStart = false;
+
+    }
+    public void StartTuto()
+    {
+        _isTutoStart = false;
+        print("Tuto Canvas");
+        _tutoCanvas.SetActive(true);
+        Invoke("StopTuto", 3f);
+
+    }
+
     void MovePlayer(float _horizontalMovement)
     {
         Vector3 targetVelocity = new Vector3(_horizontalMovement, rb.velocity.y, 0);

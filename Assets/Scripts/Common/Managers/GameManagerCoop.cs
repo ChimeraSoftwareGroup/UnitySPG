@@ -83,6 +83,7 @@ public class GameManagerCoop : GameManager
         sceneIndexes.Add(9); // Giraffe
         sceneIndexes.Add(10); // Brina
         sceneIndexes.Add(11); // Sanic
+        sceneIndexes.Add(12); // Falleine
 
 
         //sceneIndexes.Add(7);
