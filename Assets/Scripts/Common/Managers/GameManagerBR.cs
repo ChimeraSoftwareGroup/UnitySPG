@@ -68,7 +68,7 @@ public class GameManagerBR : GameManager
         //sceneIndexes.Add(12); // Falleine
 
     public void StartBattleRoyale() {
-        sceneIndexes.Add(12);
+        sceneIndexes.Add(6);
         sceneIndexes.Add(12);
         sceneIndexes.Add(10);
         NewGame();
