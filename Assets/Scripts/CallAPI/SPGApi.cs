@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
 using System;
+using Newtonsoft.Json.Linq;
 
 /**
  * To Call Data from our API:
@@ -79,10 +80,13 @@ public class SPGApi
     }
     #endregion
 
-    static public IEnumerator CreateRoom(string roomName, Action<string, bool> callback) 
+    static public IEnumerator CreateRoom(string roomName, int nbGame, int minIDGame, int maxIDGame, Action<string, bool> callback) 
     {
         WWWForm body = new();
         body.AddField("name", roomName);
+        body.AddField("nbGame", nbGame);
+        body.AddField("minIDGame", minIDGame);
+        body.AddField("maxIDGame", maxIDGame);
         SPGApi api = new(baseUrl + "/room", callback);
         return api.Post(body);
     }
@@ -99,6 +103,7 @@ public class SPGApi
         return api.Delete();
     }
 
+    //--Deprecated
     static public IEnumerator GetPlayerList(int idRoom, Action<string, bool> callback)
     {
         SPGApi api = new(baseUrl + "/room/" + idRoom + "/player", callback);
@@ -113,6 +118,7 @@ public class SPGApi
         return api.Post(body);
     }
 
+    //--Deprecated
     static public IEnumerator JoinRoom(string password, int idPlayer, Action<string, bool> callback)
     {
         WWWForm body = new();
@@ -122,12 +128,14 @@ public class SPGApi
         return api.Post(body);
     }
 
+    //--Deprecated
     static public IEnumerator QuitRoom(int idRoom, int idPlayer, Action<string, bool> callback)
     {
         SPGApi api = new(baseUrl + "/room/" + idRoom + "/players/" + idPlayer + "/leave", callback);
         return api.Delete();
     }
 
+    //TEST
     static public IEnumerator TestApi(Action<string, bool> callback)
     {
         SPGApi api = new(baseUrl + "/games/random", callback);

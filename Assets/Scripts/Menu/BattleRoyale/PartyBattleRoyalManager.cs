@@ -146,15 +146,20 @@ public class PartyBattleRoyalManager : MonoBehaviour
         }
         else
         {
+            SPGApi.CreateRoom("Room", int.Parse(numberOfGames), _minIdGame, _maxIdGame, (response, isSuccess) => {
+
+                if (!isSuccess) throw new Exception("Can't create Room");
+
+                audioSource.PlayOneShot(buttonSound);
+                _codeRoomHost.text = "1234567890"; // variable du code --> See to uses response JSON from string
+                _hostCanvas.SetActive(true);
+                audioSource.PlayOneShot(buttonSound);
+                _choiceNbMiniGame.SetActive(false);
+            });
             // Envoyer "_nbMiniGames" au back avec en plus min et max des ID des mini-jeu (cf variables)
             // Moulinette dans le back pour faire une liste entre id min et id max de la longueure de _nbMiniGames
-            // Renvoie la liste � unity (print la liste)
+            // --- Renvoie la liste � unity (print la liste) --- Via Socket
             // G�n�rer un code et le montrer � l'host (envoyer un int �a suffit + print)
-            audioSource.PlayOneShot(buttonSound);
-            _codeRoomHost.text = "1234567890"; // variable du code
-            _hostCanvas.SetActive(true);
-            audioSource.PlayOneShot(buttonSound);
-            _choiceNbMiniGame.SetActive(false);
         }
     }
 
@@ -188,7 +193,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
     private void OnConnect()
     {
         nbPlayerRoom = 0;
-        socket.EmitTest();
+        //socket.EmitTest();
     }
 
     /**
@@ -206,7 +211,6 @@ public class PartyBattleRoyalManager : MonoBehaviour
     {
         Score userScore = data.userScore;
         Score bestScore = data.bestScore;
-        int userPosition = data.userPosition;
     }
 
     /**
@@ -233,5 +237,16 @@ public class PartyBattleRoyalManager : MonoBehaviour
         //Return to main menu
     }
     #endregion
+
+    private void SendDataEndGame()
+    {
+        Score sc = new Score();
+        socket.EmitEndGame(sc.ToString()); //Pass a json stringify
+    }
+
+    private void SendQuittingRoom()
+    {
+        socket.EmitQuittingRoom();
+    }
     #endregion
 }
