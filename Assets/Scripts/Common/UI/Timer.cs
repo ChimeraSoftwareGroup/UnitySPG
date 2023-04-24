@@ -21,7 +21,6 @@ public class Timer : MonoBehaviour
         }
         else if (_secondsLeft <= 1 && _isRunning) {
             GameManager.instance.isMiniGameFinished = true;
-            print("TIMER FINI " + isFinish);
         }
 
         //if (_isrunning && _isgamefinished == false)

@@ -77,13 +77,13 @@ public class GameManagerCoop : GameManager
         */ // TO REMOVE
 
         //Gaming Scenes
-        sceneIndexes.Add(6); // Sneuk
-        sceneIndexes.Add(7); // Froggy
-        sceneIndexes.Add(8); // Bobee
-        sceneIndexes.Add(9); // Giraffe
-        sceneIndexes.Add(10); // Brina
-        sceneIndexes.Add(11); // Sanic
-        sceneIndexes.Add(12); // Falleine
+        sceneIndexes.Add(7); // Sneuk
+        sceneIndexes.Add(8); // Froggy
+        sceneIndexes.Add(9); // Bobee
+        sceneIndexes.Add(10); // Giraffe
+        sceneIndexes.Add(11); // Brina
+        sceneIndexes.Add(12); // Sanic
+        sceneIndexes.Add(13); // Falleine
 
 
         //sceneIndexes.Add(7);
@@ -259,7 +259,7 @@ public class GameManagerCoop : GameManager
 
     public override void GameOver()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene("EndingScene");
         audioSource.PlayOneShot(looseSound);
 
         _thePartyIsFinished = true;
