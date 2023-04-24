@@ -53,6 +53,11 @@ public class MainMenu : MonoBehaviour
         audioSource.PlayOneShot(sound);
         SceneManager.LoadScene("Credits");
     }
+    public void GoToTraining()
+    {
+        audioSource.PlayOneShot(sound);
+        SceneManager.LoadScene(3);
+    }
     public void GoToSettings()
     {
         audioSource.PlayOneShot(pageSound);
