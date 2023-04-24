@@ -33,6 +33,8 @@ public class GameManagerTraining : GameManager
     [SerializeField] AudioClip looseSound;
     [SerializeField] AudioClip winSound;
 
+    [SerializeField] ChoiceGameTraining _gameTraining;
+
     private bool _gameHasStarted = false;
     private bool _thePartyIsFinished = false;
 
@@ -100,7 +102,9 @@ public class GameManagerTraining : GameManager
         _gameHasStarted = false;
         isMiniGameFinished = false;
         GameObjectsActivationAtStartEatchGame();
-        SceneManager.LoadScene(10);
+        print(_gameTraining._gameChoose);
+        SceneManager.LoadScene(_gameTraining._gameChoose);
+
         if (_spawnerManager) _spawnerManager.gameObject.SetActive(false);
         _screenDeath.SetActive(false);
         _countdown.StartCountDown();

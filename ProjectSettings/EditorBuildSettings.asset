@@ -42,12 +42,12 @@ EditorBuildSettings:
     path: Assets/Scenes/GiraffeScene.unity
     guid: 4545a26f86b3c1e4ebf5ae7d147c9534
   - enabled: 1
-    path: Assets/Scenes/BrinaScene.unity
-    guid: 704756ae877b2ae43bf40fd2a16a5b15
-  - enabled: 1
     path: Assets/Scenes/SanicScene.unity
     guid: 2898b381d993ad447977daf904bb1d4c
   - enabled: 1
     path: Assets/Scenes/FalleineScene.unity
     guid: a2809d8c107b98e449396efa8bf9a1e1
+  - enabled: 1
+    path: Assets/Scenes/BrinaScene.unity
+    guid: 704756ae877b2ae43bf40fd2a16a5b15
   m_configObjects: {}
