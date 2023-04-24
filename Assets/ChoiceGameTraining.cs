@@ -11,7 +11,12 @@ public class ChoiceGameTraining : MonoBehaviour
     public void ChoiceGameId(int gameID)
     {
         _gameChoose = gameID;
-        print(_gameChoose);
         _gameManagerTraining.NewGame();
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
+
     }
 }

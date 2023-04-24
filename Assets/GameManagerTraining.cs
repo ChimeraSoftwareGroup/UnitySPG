@@ -37,6 +37,7 @@ public class GameManagerTraining : GameManager
 
     private bool _gameHasStarted = false;
     private bool _thePartyIsFinished = false;
+    private bool _isWining = true;
 
     private int sceneActiveID;
     private int _miniGameFinished = 0;
@@ -79,7 +80,7 @@ public class GameManagerTraining : GameManager
 
         #endregion
 
-        if (isMiniGameFinished)
+        if (isMiniGameFinished && _isWining)
         {
             WinBR();
         }
@@ -102,7 +103,6 @@ public class GameManagerTraining : GameManager
         _gameHasStarted = false;
         isMiniGameFinished = false;
         GameObjectsActivationAtStartEatchGame();
-        print(_gameTraining._gameChoose);
         SceneManager.LoadScene(_gameTraining._gameChoose);
 
         if (_spawnerManager) _spawnerManager.gameObject.SetActive(false);
@@ -153,19 +153,24 @@ public class GameManagerTraining : GameManager
 
     public void WinBR()
     {
-        isMiniGameFinished = false;
-        _player.gameObject.SetActive(false);
+        if (_isWining)
+        {
+            isMiniGameFinished = false;
+            _player.gameObject.SetActive(false);
 
-        _winScreen.SetActive(true);
+            _winScreen.SetActive(true);
             _thePartyIsFinished = true;
             isPlayerHasWin = true;
 
-        Invoke("StopGame", 3f);
+            Invoke("StopGame", 3f);
+        }
+      
     }
    
 
     private void StopGame() // Pour ne pas avoir 2 fois les DDOL (Don't destroy on Load)
     {
+        _isWining = false;
         _screenDeath.SetActive(false);
         _winScreen.SetActive(false);
         SceneManager.LoadScene(0);
