@@ -7,25 +7,29 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+
+
+    [Header("Menu Elements")]
     [SerializeField] GameObject _firstPage;
     [SerializeField] GameObject _buttonsMainMenu;
     [SerializeField] GameObject _textSPG;
-
     [SerializeField] GameObject _buttonGameMode;
     [SerializeField] GameObject _buttonOther;
     [SerializeField] GameObject _buttonCredits;
     [SerializeField] GameObject _buttonHead;
-
-
-
     [SerializeField] GameObject _settingsWindow;
     [SerializeField] GameObject _textClickToStart;
     [SerializeField] GameObject _errorPage;
     [SerializeField] GameObject _legalPage;
     [SerializeField] GameObject _contactPage;
     //[SerializeField] GameObject _choiceBattleRoyale;
-    [SerializeField] Animator _animator;
 
+    [Header("Animations")]
+    [SerializeField] Animator _animator;
+    [SerializeField] GameObject _brAnimation;
+    [SerializeField] GameObject _explosionBr;
+
+    [Header("Sounds")]
     public AudioSource audioSource;
     public AudioClip sound;
     public AudioClip pageSound;
@@ -142,8 +146,16 @@ public class MainMenu : MonoBehaviour
 
     public void ShowChoiceBattleRoyal()
     {
-        SceneManager.LoadScene("BattleRoyalMenu");
+        _brAnimation.SetActive(true);
+        _explosionBr.SetActive(true);
+        Invoke("SceneBR", 1f);
 
+    }
+
+    public void SceneBR()
+    {
+        SceneManager.LoadScene("BattleRoyalMenu");
+       
     }
 
     public void TestNewGame()

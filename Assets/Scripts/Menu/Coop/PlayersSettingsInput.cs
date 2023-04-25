@@ -154,7 +154,7 @@ public class PlayersSettingsInput : MonoBehaviour
             secondsPerGames = "20";
         }
 
-        if(int.Parse(secondsPerGames) < 10)
+        if(int.Parse(secondsPerGames) < 20)
         {
             _errorCanvasSeconds.SetActive(true);
             return;
