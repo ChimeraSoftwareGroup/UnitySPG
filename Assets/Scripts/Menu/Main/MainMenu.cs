@@ -8,14 +8,22 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] GameObject _firstPage;
-    [SerializeField] GameObject _mainMenuPlacard;
     [SerializeField] GameObject _buttonsMainMenu;
+    [SerializeField] GameObject _textSPG;
+
+    [SerializeField] GameObject _buttonGameMode;
+    [SerializeField] GameObject _buttonOther;
+    [SerializeField] GameObject _buttonCredits;
+    [SerializeField] GameObject _buttonHead;
+
+
+
     [SerializeField] GameObject _settingsWindow;
     [SerializeField] GameObject _textClickToStart;
     [SerializeField] GameObject _errorPage;
     [SerializeField] GameObject _legalPage;
     [SerializeField] GameObject _contactPage;
-    [SerializeField] GameObject _choiceBattleRoyale;
+    //[SerializeField] GameObject _choiceBattleRoyale;
     [SerializeField] Animator _animator;
 
     public AudioSource audioSource;
@@ -33,9 +41,26 @@ public class MainMenu : MonoBehaviour
     public void ChangeFirstPageByMainMenue()
     {
         audioSource.PlayOneShot(sound);
+        _textSPG.SetActive(false);
         _firstPage.SetActive(false);
-        _mainMenuPlacard.SetActive(true);
-        Invoke("ShowButtonsMainMenu", 1.5f);
+        _buttonCredits.SetActive(true);
+        Invoke("ShowGameButtons", 1.5f);
+        Invoke("ShowOtherButtons", 1.5f);
+        Invoke("ShowHeadButton", 1.5f);
+
+    }
+
+    public void ShowGameButtons()
+    {
+        _buttonGameMode.SetActive(true);
+    }
+    public void ShowOtherButtons()
+    {
+        _buttonOther.SetActive(true);
+    }
+    public void ShowHeadButton()
+    {
+        _buttonHead.SetActive(true);
     }
 
     public void ShowButtonsMainMenu()
@@ -121,11 +146,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("SanicScene");
 
     }
-    public void CloseChoiceBattleRoyal()
-    {
-        audioSource.PlayOneShot(pageSound);
-        _choiceBattleRoyale.SetActive(false);
-    }
+    //public void CloseChoiceBattleRoyal()
+    //{
+    //    audioSource.PlayOneShot(pageSound);
+    //    _choiceBattleRoyale.SetActive(false);
+    //}
 
     public void EnterInBattleRoyaleMode()
     {
