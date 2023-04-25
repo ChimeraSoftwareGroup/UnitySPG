@@ -44,12 +44,16 @@ public class MainMenu : MonoBehaviour
         _textSPG.SetActive(false);
         _firstPage.SetActive(false);
         _buttonCredits.SetActive(true);
-        Invoke("ShowGameButtons", 1.5f);
-        Invoke("ShowOtherButtons", 1.5f);
-        Invoke("ShowHeadButton", 1.5f);
+        Invoke("ShowGameButtons", 0.5f);
+        Invoke("ShowOtherButtons", 1.8f);
+        Invoke("ShowHeadButton", 1.8f);
 
     }
-
+    public void OnClick()
+    {
+        // Change la taille du bouton
+        transform.localScale += new Vector3(1f, 1f, 1f);
+    }
     public void ShowGameButtons()
     {
         _buttonGameMode.SetActive(true);
@@ -108,6 +112,7 @@ public class MainMenu : MonoBehaviour
     {
         audioSource.PlayOneShot(errorSound);
         _errorPage.SetActive(true);
+        OnClick();
     }
 
     public void ShowLegalPage()

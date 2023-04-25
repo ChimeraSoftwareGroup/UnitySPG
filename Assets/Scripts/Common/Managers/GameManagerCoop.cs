@@ -61,7 +61,6 @@ public class GameManagerCoop : GameManager
         DontDestroyOnLoad(this);
         instance = this;
 
-        Debug.Log("INSTANCE AWAKE COOP", instance);
         #region ListeScene
         //for (int i = 3; i < SceneManager.sceneCountInBuildSettings; i++) {
         //    _allGamingScenesIndex[i] = i ;
