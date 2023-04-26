@@ -883,7 +883,7 @@ MonoBehaviour:
   _legalPage: {fileID: 756244334}
   _contactPage: {fileID: 1741959}
   _animator: {fileID: 555570096}
-  _brAnimation: {fileID: 1378102951}
+  _brAnimation: {fileID: 472896900}
   _coopAnimation: {fileID: 1378102951}
   _explosionBr: {fileID: 2004079634}
   _explosionCoop: {fileID: 765229898}
@@ -1511,7 +1511,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -14.7737, y: -18.1829}
+  m_AnchoredPosition: {x: -33, y: -18.1829}
   m_SizeDelta: {x: 602.3058, y: 268.193}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1378102953

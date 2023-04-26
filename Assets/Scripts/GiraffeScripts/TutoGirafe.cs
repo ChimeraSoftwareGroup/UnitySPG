@@ -13,7 +13,6 @@ public class TutoGirafe : MonoBehaviour
     private void StartTutoAnimation()
     {
         _animator.Play("GirafeTuto");
-        print("ANIMATION TUTO GIRAFE");
 
     }
 }

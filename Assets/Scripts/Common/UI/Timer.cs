@@ -21,14 +21,16 @@ public class Timer : MonoBehaviour
         }
         else if (_secondsLeft <= 1 && _isRunning) {
             GameManager.instance.isMiniGameFinished = true;
+            _gameTimer = 0;
+            _scoreText.text = "0:00";
         }
-
+      
         //if (_isrunning && _isgamefinished == false)
         //{
         //    increasetimer();
         //}
 
-       
+
     }
 
     public void StartTimer()
