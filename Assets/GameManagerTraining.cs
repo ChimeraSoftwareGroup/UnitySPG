@@ -65,6 +65,10 @@ public class GameManagerTraining : GameManager
 
     private void Update()
     {
+        if (!_isWining)
+        {
+            _winScreen.SetActive(false);
+        }
         #region ForTestGames
 
         if (Input.GetKeyDown(KeyCode.H) && _gameHasStarted)
@@ -192,6 +196,7 @@ public class GameManagerTraining : GameManager
     public override void LoseMiniGame()
     {
         isPlayerHasWin = false;
+        _isWining = false;
         GameOver();
     }
     #region Classes GM Useless

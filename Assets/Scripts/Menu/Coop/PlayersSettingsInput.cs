@@ -14,15 +14,20 @@ public class PlayersSettingsInput : MonoBehaviour
     [SerializeField] GameObject _listOfPlayersCanvas;
     [SerializeField] GameObject _numberOfPlayerCanvas;
     [SerializeField] GameObject _secondsByGamesCanvas;
-    [SerializeField] GameObject _errorCanvasPlayerList;
-    [SerializeField] GameObject _errorCanvasNumberOfGame;
-    [SerializeField] GameObject _errorCanvasSeconds;
+
     [SerializeField] Button _buttonAddPlayer;
     [SerializeField] LayoutGroup _listPlayerLayoutGroup;
     [SerializeField] InputField _playerNameIF;
     [SerializeField] PlayerName _playerNameInUI;
     [SerializeField] GameObject _buttonCloseModeCoop;
     [SerializeField] GameObject _playerList;
+    [SerializeField] GameObject _allSettings;
+    [SerializeField] GameObject _closeButton;
+
+    [Header("Errors")]
+    [SerializeField] GameObject _errorCanvasPlayerList;
+    [SerializeField] GameObject _errorCanvasNumberOfGame;
+    [SerializeField] GameObject _errorCanvasSeconds;
 
     [Header("Settings")]
     public string playerName;
@@ -48,14 +53,7 @@ public class PlayersSettingsInput : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Wall")
-        {
-            print("travers wall");
-            transform.position = lastValidPosition;
-        }
-    }
+   
     private void Update()
     {
         lastValidPosition = transform.position;
@@ -92,8 +90,15 @@ public class PlayersSettingsInput : MonoBehaviour
             return;
         }
         _playerList.SetActive(false);
-        _listOfPlayersCanvas.gameObject.SetActive(false);
+
+
+        Invoke("HideInputPlayerList", 3f);
         _numberOfPlayerCanvas.gameObject.SetActive(true);
+    }
+
+    public void HideInputPlayerList()
+    {
+        _listOfPlayersCanvas.SetActive(false);
     }
     public void CloseErrorPage()
     {
@@ -107,7 +112,6 @@ public class PlayersSettingsInput : MonoBehaviour
     }
     public void AddNbMiniGameToGM()
     {
-       print("Je passe ici");
         if(int.Parse(numberOfGames) < nameOfPlayersList.Count)
         {
             _errorCanvasNumberOfGame.SetActive(true);
@@ -115,15 +119,21 @@ public class PlayersSettingsInput : MonoBehaviour
         }
         else if(numberOfGames == "")
         {
-
             _errorCanvasNumberOfGame.SetActive(true);
             return;
         }
         print(numberOfGames);
-        _numberOfPlayerCanvas.gameObject.SetActive(false);
+        Invoke("CloseNbGames", 3f);
         _secondsByGamesCanvas.gameObject.SetActive(true);
         
        
+    }
+
+    private void CloseNbGames()
+    {
+        
+        _numberOfPlayerCanvas.gameObject.SetActive(false);
+
     }
     public void CloseErrorGamesPage()
     {
@@ -144,33 +154,42 @@ public class PlayersSettingsInput : MonoBehaviour
     {
         _errorCanvasSeconds.SetActive(false);
     }
+
+  
     public void AddSecondsByGameToGMAndStartCoopGame()
     {
-        PlayerHealth.instance.SetHP(3);
-        int numberOfMiniGamesSelected = int.Parse(numberOfGames);
+        bool _allGood = true;
+            int numberOfMiniGamesSelected = int.Parse(numberOfGames);
+        float timeSelectedinSeconds = float.Parse(secondsPerGames);
 
-        if (secondsPerGames == "")
-        {
-            secondsPerGames = "20";
-        }
 
-        if(int.Parse(secondsPerGames) < 10)
-        {
+        if (secondsPerGames == "" || secondsPerGames == " " || timeSelectedinSeconds < 20)
+            {
+            print("Error");
             _errorCanvasSeconds.SetActive(true);
             return;
         }
-        float timeSelectedinSeconds = float.Parse(secondsPerGames);
-        _gameManager.setParametersOfCoopGame(
-            nameOfPlayersList,
-            true, // Is Shuffle On
-            timeSelectedinSeconds, // Timer Choosed
-            numberOfMiniGamesSelected  // Number of Games
-            );
+        _allSettings.SetActive(false);
+        _closeButton.SetActive(false);
         _buttonCloseModeCoop.SetActive(false);
-        _dialogManager.StartTutorialDialog();
         _secondsByGamesCanvas.SetActive(false);
-        _gameManager.GameObjectsActivationAtStartEatchGame();
-        _gameManager.NewGame();
+        PlayerHealth.instance.SetHP(3);
+
+        _gameManager.setParametersOfCoopGame(
+                nameOfPlayersList,
+                true, // Is Shuffle On
+                timeSelectedinSeconds, // Timer Choosed
+                numberOfMiniGamesSelected  // Number of Games
+                );
+            if (_allGood)
+            {
+                _dialogManager.StartTutorialDialog();
+                _gameManager.GameObjectsActivationAtStartEatchGame();
+                _gameManager.NewGame();
+            }
+        
+       
+
     }
 
     public void QuitButton()

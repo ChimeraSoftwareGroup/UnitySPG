@@ -6,12 +6,13 @@ public abstract class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public bool isMiniGameFinished;
+    public bool isMiniGameFinished = false; 
     public bool isPlayerHasWin;
 
     public virtual void Awake()
     {
-        instance = this;
+        Debug.Log("AWAKE GAME MANAGER");
+        if(instance == null) instance = this;
     }
     public abstract void NewGame();
     public abstract void GameObjectsActivationAtStartEatchGame();
