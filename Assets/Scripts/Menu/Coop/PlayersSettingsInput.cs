@@ -14,15 +14,20 @@ public class PlayersSettingsInput : MonoBehaviour
     [SerializeField] GameObject _listOfPlayersCanvas;
     [SerializeField] GameObject _numberOfPlayerCanvas;
     [SerializeField] GameObject _secondsByGamesCanvas;
-    [SerializeField] GameObject _errorCanvasPlayerList;
-    [SerializeField] GameObject _errorCanvasNumberOfGame;
-    [SerializeField] GameObject _errorCanvasSeconds;
+
     [SerializeField] Button _buttonAddPlayer;
     [SerializeField] LayoutGroup _listPlayerLayoutGroup;
     [SerializeField] InputField _playerNameIF;
     [SerializeField] PlayerName _playerNameInUI;
     [SerializeField] GameObject _buttonCloseModeCoop;
     [SerializeField] GameObject _playerList;
+    [SerializeField] GameObject _allSettings;
+    [SerializeField] GameObject _closeButton;
+
+    [Header("Errors")]
+    [SerializeField] GameObject _errorCanvasPlayerList;
+    [SerializeField] GameObject _errorCanvasNumberOfGame;
+    [SerializeField] GameObject _errorCanvasSeconds;
 
     [Header("Settings")]
     public string playerName;
@@ -92,8 +97,15 @@ public class PlayersSettingsInput : MonoBehaviour
             return;
         }
         _playerList.SetActive(false);
-        _listOfPlayersCanvas.gameObject.SetActive(false);
+
+
+        Invoke("HideInputPlayerList", 3f);
         _numberOfPlayerCanvas.gameObject.SetActive(true);
+    }
+
+    public void HideInputPlayerList()
+    {
+        _listOfPlayersCanvas.SetActive(false);
     }
     public void CloseErrorPage()
     {
@@ -107,7 +119,6 @@ public class PlayersSettingsInput : MonoBehaviour
     }
     public void AddNbMiniGameToGM()
     {
-       print("Je passe ici");
         if(int.Parse(numberOfGames) < nameOfPlayersList.Count)
         {
             _errorCanvasNumberOfGame.SetActive(true);
@@ -120,10 +131,16 @@ public class PlayersSettingsInput : MonoBehaviour
             return;
         }
         print(numberOfGames);
-        _numberOfPlayerCanvas.gameObject.SetActive(false);
+        Invoke("CloseNbGames", 3f);
         _secondsByGamesCanvas.gameObject.SetActive(true);
         
        
+    }
+
+    private void CloseNbGames()
+    {
+        _numberOfPlayerCanvas.gameObject.SetActive(false);
+
     }
     public void CloseErrorGamesPage()
     {
@@ -146,6 +163,10 @@ public class PlayersSettingsInput : MonoBehaviour
     }
     public void AddSecondsByGameToGMAndStartCoopGame()
     {
+        _allSettings.SetActive(false);
+        _closeButton.SetActive(false);
+        _buttonCloseModeCoop.SetActive(false);
+        _secondsByGamesCanvas.SetActive(false);
         PlayerHealth.instance.SetHP(3);
         int numberOfMiniGamesSelected = int.Parse(numberOfGames);
 
@@ -166,9 +187,8 @@ public class PlayersSettingsInput : MonoBehaviour
             timeSelectedinSeconds, // Timer Choosed
             numberOfMiniGamesSelected  // Number of Games
             );
-        _buttonCloseModeCoop.SetActive(false);
+
         _dialogManager.StartTutorialDialog();
-        _secondsByGamesCanvas.SetActive(false);
         _gameManager.GameObjectsActivationAtStartEatchGame();
         _gameManager.NewGame();
     }
