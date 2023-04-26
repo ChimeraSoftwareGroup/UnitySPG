@@ -27,7 +27,9 @@ public class MainMenu : MonoBehaviour
     [Header("Animations")]
     [SerializeField] Animator _animator;
     [SerializeField] GameObject _brAnimation;
+    [SerializeField] GameObject _coopAnimation;
     [SerializeField] GameObject _explosionBr;
+    [SerializeField] GameObject _explosionCoop;
 
     [Header("Sounds")]
     public AudioSource audioSource;
@@ -79,7 +81,16 @@ public class MainMenu : MonoBehaviour
     public void GoToCoopMenu()
     {
         audioSource.PlayOneShot(sound);
-        Invoke("CallCoopMenu", 0.2f);
+        _coopAnimation.SetActive(true);
+        Invoke("CoopExplosion", 0.4f);
+
+        Invoke("CallCoopMenu", 1f);
+    }
+
+    public void CoopExplosion()
+    {
+        _explosionCoop.SetActive(true);
+
     }
     public void GoToCredits()
     {
@@ -146,6 +157,7 @@ public class MainMenu : MonoBehaviour
 
     public void ShowChoiceBattleRoyal()
     {
+        audioSource.PlayOneShot(sound);
         _brAnimation.SetActive(true);
         _explosionBr.SetActive(true);
         Invoke("SceneBR", 1f);
