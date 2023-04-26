@@ -119,7 +119,6 @@ public class PlayersSettingsInput : MonoBehaviour
         }
         else if(numberOfGames == "")
         {
-
             _errorCanvasNumberOfGame.SetActive(true);
             return;
         }
@@ -155,36 +154,41 @@ public class PlayersSettingsInput : MonoBehaviour
     {
         _errorCanvasSeconds.SetActive(false);
     }
+
+  
     public void AddSecondsByGameToGMAndStartCoopGame()
     {
+        bool _allGood = true;
+            PlayerHealth.instance.SetHP(3);
+            int numberOfMiniGamesSelected = int.Parse(numberOfGames);
+        float timeSelectedinSeconds = float.Parse(secondsPerGames);
+
+
+        if (secondsPerGames == "" || secondsPerGames == " " || timeSelectedinSeconds < 20)
+            {
+            print("Error");
+            _errorCanvasSeconds.SetActive(true);
+            return;
+        }
         _allSettings.SetActive(false);
         _closeButton.SetActive(false);
         _buttonCloseModeCoop.SetActive(false);
         _secondsByGamesCanvas.SetActive(false);
-        PlayerHealth.instance.SetHP(3);
-        int numberOfMiniGamesSelected = int.Parse(numberOfGames);
-
-        if (secondsPerGames == "")
-        {
-            secondsPerGames = "20";
-        }
-
-        if(int.Parse(secondsPerGames) < 20)
-        {
-            _errorCanvasSeconds.SetActive(true);
-            return;
-        }
-        float timeSelectedinSeconds = float.Parse(secondsPerGames);
         _gameManager.setParametersOfCoopGame(
-            nameOfPlayersList,
-            true, // Is Shuffle On
-            timeSelectedinSeconds, // Timer Choosed
-            numberOfMiniGamesSelected  // Number of Games
-            );
+                nameOfPlayersList,
+                true, // Is Shuffle On
+                timeSelectedinSeconds, // Timer Choosed
+                numberOfMiniGamesSelected  // Number of Games
+                );
+            if (_allGood)
+            {
+                _dialogManager.StartTutorialDialog();
+                _gameManager.GameObjectsActivationAtStartEatchGame();
+                _gameManager.NewGame();
+            }
+        
+       
 
-        _dialogManager.StartTutorialDialog();
-        _gameManager.GameObjectsActivationAtStartEatchGame();
-        _gameManager.NewGame();
     }
 
     public void QuitButton()
