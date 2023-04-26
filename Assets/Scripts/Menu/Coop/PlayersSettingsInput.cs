@@ -159,7 +159,6 @@ public class PlayersSettingsInput : MonoBehaviour
     public void AddSecondsByGameToGMAndStartCoopGame()
     {
         bool _allGood = true;
-            PlayerHealth.instance.SetHP(3);
             int numberOfMiniGamesSelected = int.Parse(numberOfGames);
         float timeSelectedinSeconds = float.Parse(secondsPerGames);
 
@@ -174,6 +173,8 @@ public class PlayersSettingsInput : MonoBehaviour
         _closeButton.SetActive(false);
         _buttonCloseModeCoop.SetActive(false);
         _secondsByGamesCanvas.SetActive(false);
+        PlayerHealth.instance.SetHP(3);
+
         _gameManager.setParametersOfCoopGame(
                 nameOfPlayersList,
                 true, // Is Shuffle On

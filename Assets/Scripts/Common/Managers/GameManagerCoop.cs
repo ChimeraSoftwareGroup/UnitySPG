@@ -59,7 +59,7 @@ public class GameManagerCoop : GameManager
     public override void Awake()
     {
         DontDestroyOnLoad(this);
-        instance = this;
+        if(instance == null) instance = this;
 
         #region ListeScene
         //for (int i = 3; i < SceneManager.sceneCountInBuildSettings; i++) {
@@ -77,12 +77,12 @@ public class GameManagerCoop : GameManager
 
         //Gaming Scenes
         sceneIndexes.Add(7); // Sneuk
-        sceneIndexes.Add(8); // Froggy
+       // sceneIndexes.Add(8); // Froggy
         sceneIndexes.Add(9); // Bobee
         sceneIndexes.Add(10); // Giraffe
-        sceneIndexes.Add(11); // Brina
-        sceneIndexes.Add(12); // Sanic
-        sceneIndexes.Add(13); // Falleine
+        //sceneIndexes.Add(11); // Brina
+        //sceneIndexes.Add(12); // Sanic
+        //sceneIndexes.Add(13); // Falleine
 
 
         //sceneIndexes.Add(7);
@@ -113,9 +113,9 @@ public class GameManagerCoop : GameManager
         }
 
         #endregion
-
         if (isMiniGameFinished)
         {
+            isMiniGameFinished = false;
             WinMiniGame();
         }
 
@@ -194,11 +194,12 @@ public class GameManagerCoop : GameManager
 
     public override void NewGame()
     {
-        if (!isPlayerHasWin)
+        print("NEW GAME CALLED");
+
+        if (!isPlayerHasWin) 
         {
             _gameHasStarted = false;
             _isNewSceneReadyToPlay = false;
-            isMiniGameFinished = false;
             PrepareNextGameAndResetTimer();
             if (_spawnerManager) _spawnerManager.gameObject.SetActive(false);
             _screenDeath.SetActive(false);
@@ -368,6 +369,7 @@ public class GameManagerCoop : GameManager
             _countdown.isCountdownFinish = false;
             _player.gameObject.SetActive(false);
             _isPlayerDead = true;
+            print("CALLED FROM LOOSE");
             Invoke("NewGame", 3f);
         }
     }

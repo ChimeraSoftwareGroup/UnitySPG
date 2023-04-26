@@ -19,13 +19,14 @@ public class Timer : MonoBehaviour
         {
             IncreaseTimer();
         }
-        else if (_secondsLeft <= 1 && _isRunning) {
+        else if (_secondsLeft <= 0 && _isRunning) {
+            Debug.Log("REACHED 0");
             GameManager.instance.isMiniGameFinished = true;
-            _gameTimer = 0;
             _scoreText.text = "0:00";
+            _secondsLeft = 20;
         }
       
-        //if (_isrunning && _isgamefinished == false)
+        //if (_isrunning && !_isgamefinished)
         //{
         //    increasetimer();
         //}
