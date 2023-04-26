@@ -53,14 +53,7 @@ public class PlayersSettingsInput : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Wall")
-        {
-            print("travers wall");
-            transform.position = lastValidPosition;
-        }
-    }
+   
     private void Update()
     {
         lastValidPosition = transform.position;
@@ -139,6 +132,7 @@ public class PlayersSettingsInput : MonoBehaviour
 
     private void CloseNbGames()
     {
+        
         _numberOfPlayerCanvas.gameObject.SetActive(false);
 
     }
