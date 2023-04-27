@@ -89,6 +89,8 @@ public class SPGApi
         body.AddField("maxIDGame", maxIDGame);
         SPGApi api = new(baseUrl + "/room", callback);
         return api.Post(body);
+
+        //Return the array of random games here
     }
 
     static public IEnumerator ModifyRoom(int idRoom, byte[] body, Action<string, bool> callback)
