@@ -28,14 +28,17 @@ public class MainMenu : MonoBehaviour
     [SerializeField] Animator _animator;
     [SerializeField] GameObject _brAnimation;
     [SerializeField] GameObject _coopAnimation;
+    [SerializeField] GameObject _TrainingAnimation;
     [SerializeField] GameObject _explosionBr;
     [SerializeField] GameObject _explosionCoop;
+    [SerializeField] GameObject _explosionTraining;
 
     [Header("Sounds")]
     public AudioSource audioSource;
     public AudioClip sound;
     public AudioClip pageSound;
     public AudioClip errorSound;
+    public AudioClip explosionBrSound;
 
     private void Start()
     {
@@ -83,7 +86,6 @@ public class MainMenu : MonoBehaviour
         audioSource.PlayOneShot(sound);
         _coopAnimation.SetActive(true);
         Invoke("CoopExplosion", 0.4f);
-
         Invoke("CallCoopMenu", 1f);
     }
 
@@ -100,7 +102,19 @@ public class MainMenu : MonoBehaviour
     public void GoToTraining()
     {
         audioSource.PlayOneShot(sound);
+        _TrainingAnimation.SetActive(true);
+        Invoke("TrainingExplosion", 0.5f);
+        Invoke("CallTrainingMenu", 1.2f);
+    }
+
+    public void TrainingExplosion()
+    {
+        _explosionTraining.SetActive(true);
+    }
+    public void CallTrainingMenu()
+    {
         SceneManager.LoadScene(3);
+
     }
     public void GoToSettings()
     {
@@ -149,15 +163,15 @@ public class MainMenu : MonoBehaviour
     }
     public void CloseContactPage()
     {
-        _animator.SetBool("isOpenContact", true);
         audioSource.PlayOneShot(sound);
-        _animator.Play("ContactClose");
         _contactPage.SetActive(false);
     }
 
     public void ShowChoiceBattleRoyal()
     {
-        audioSource.PlayOneShot(sound);
+        //audioSource.PlayOneShot(sound);
+        audioSource.PlayOneShot(explosionBrSound);
+
         _brAnimation.SetActive(true);
         _explosionBr.SetActive(true);
         Invoke("SceneBR", 1f);
