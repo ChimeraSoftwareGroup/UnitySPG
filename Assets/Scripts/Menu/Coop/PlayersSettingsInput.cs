@@ -72,7 +72,7 @@ public class PlayersSettingsInput : MonoBehaviour
         nameOfPlayersList.Add(playerName);
         AddPlayerInListPlayerUI();
         _countPlayer++;
-        _playerNameIF.text = "";
+        _playerNameIF.text = "Nobody";
     }
 
     private void AddPlayerInListPlayerUI()
@@ -117,11 +117,12 @@ public class PlayersSettingsInput : MonoBehaviour
             _errorCanvasNumberOfGame.SetActive(true);
             return;
         }
-        else if(numberOfGames == "")
+        else if(numberOfGames == "" || numberOfGames == " ")
         {
             _errorCanvasNumberOfGame.SetActive(true);
             return;
         }
+
         print(numberOfGames);
         Invoke("CloseNbGames", 3f);
         _secondsByGamesCanvas.gameObject.SetActive(true);
