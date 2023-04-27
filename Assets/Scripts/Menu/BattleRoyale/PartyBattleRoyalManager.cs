@@ -194,6 +194,8 @@ public class PartyBattleRoyalManager : MonoBehaviour
     private void OnConnect()
     {
         nbPlayerRoom = 0;
+        //Get the actual ID of the room
+        socket.InitJoinRoom(1);
     }
 
     /**

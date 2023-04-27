@@ -101,6 +101,11 @@ public class SocketManager
         socket.Emit("ending game", data);
     }
 
+    public void InitJoinRoom(int idRoom)
+    {
+        socket.Emit("init join", idRoom);
+    }
+
     public static bool IsJSON(string str)
     {
         if (string.IsNullOrWhiteSpace(str)) { return false; }
