@@ -12,6 +12,7 @@ TagManager:
   - SpawnerManager
   - Spawn
   - Wall
+  - Panel
   layers:
   - Default
   - TransparentFX

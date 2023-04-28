@@ -363,22 +363,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 521635736074050518, guid: 72f93302135ea534cadb7bf23196cef4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 521635736333507668, guid: 72f93302135ea534cadb7bf23196cef4, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 521635736333507668, guid: 72f93302135ea534cadb7bf23196cef4, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5937041172709054679, guid: 72f93302135ea534cadb7bf23196cef4, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72f93302135ea534cadb7bf23196cef4, type: 3}
 --- !u!1 &1076142140
