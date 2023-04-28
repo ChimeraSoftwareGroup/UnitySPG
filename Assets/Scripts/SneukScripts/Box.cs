@@ -8,16 +8,20 @@ public class Box : ObjectsToSpawn
     [SerializeField] GameObject _hitBox;
     [SerializeField] GameObject _boxSprite;
     [SerializeField] GameObject _boxDestructionAnimation;
+    [SerializeField] GameObject _boxExplosion;
 
     private void OnCollisionEnter(Collision collision)
     {
-        // We remove the hitbox on contact with floor / player
+        _boxExplosion.SetActive(true);
         _hitBox.gameObject.SetActive(false);
-        
+        // We remove the hitbox on contact with floor / player
+
         Destroy(gameObject, .5f);
         // To avoid box falling into void
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
         gameObject.GetComponent<Rigidbody>().useGravity = false;
 
     }
+
+
 }

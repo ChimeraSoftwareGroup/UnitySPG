@@ -38,7 +38,9 @@ public class MainMenu : MonoBehaviour
     public AudioClip sound;
     public AudioClip pageSound;
     public AudioClip errorSound;
-    public AudioClip explosionBrSound;
+    public AudioClip explosionBrSound; 
+    public AudioClip slapSound;
+    public AudioClip metalSound;
 
     private void Start()
     {
@@ -85,6 +87,8 @@ public class MainMenu : MonoBehaviour
     {
         audioSource.PlayOneShot(sound);
         _coopAnimation.SetActive(true);
+        audioSource.PlayOneShot(slapSound);
+
         Invoke("CoopExplosion", 0.4f);
         Invoke("CallCoopMenu", 1f);
     }
@@ -110,6 +114,7 @@ public class MainMenu : MonoBehaviour
     public void TrainingExplosion()
     {
         _explosionTraining.SetActive(true);
+        audioSource.PlayOneShot(metalSound);
     }
     public void CallTrainingMenu()
     {
