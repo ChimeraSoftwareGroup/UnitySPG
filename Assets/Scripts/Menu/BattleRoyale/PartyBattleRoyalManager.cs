@@ -68,7 +68,6 @@ public class PartyBattleRoyalManager : MonoBehaviour
     {
         isHosting = isHost;
 
-        _battleRoyaleChoice.SetActive(false);
         audioSource.PlayOneShot(buttonSound);
 
         _joinCanvas.SetActive(!isHosting);
@@ -158,7 +157,6 @@ public class PartyBattleRoyalManager : MonoBehaviour
                 _codeRoomHost.text = "1234567890"; // variable du code --> See to uses response JSON from string
                 _hostCanvas.SetActive(true);
                 audioSource.PlayOneShot(buttonSound);
-                _choiceNbMiniGame.SetActive(false);
             //}));
            
 
