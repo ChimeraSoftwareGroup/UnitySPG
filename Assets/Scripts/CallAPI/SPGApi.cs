@@ -87,7 +87,7 @@ public class SPGApi
         body.AddField("nbGame", nbGame);
         body.AddField("minIDGame", minIDGame);
         body.AddField("maxIDGame", maxIDGame);
-        SPGApi api = new(baseUrl + "/room", callback);
+        SPGApi api = new(baseUrl + "/rooms", callback);
         return api.Post(body);
 
         //Return the array of random games here
@@ -95,20 +95,20 @@ public class SPGApi
 
     static public IEnumerator ModifyRoom(int idRoom, byte[] body, Action<string, bool> callback)
     {
-        SPGApi api = new(baseUrl + "/room/" + idRoom, callback);
+        SPGApi api = new(baseUrl + "/rooms/" + idRoom, callback);
         return api.Put(body);
     } 
 
     static public IEnumerator DeleteRoom(int idRoom, Action<string, bool> callback)
     {
-        SPGApi api = new(baseUrl + "/room/" + idRoom, callback);
+        SPGApi api = new(baseUrl + "/rooms/" + idRoom, callback);
         return api.Delete();
     }
 
     //--Deprecated
     static public IEnumerator GetPlayerList(int idRoom, Action<string, bool> callback)
     {
-        SPGApi api = new(baseUrl + "/room/" + idRoom + "/player", callback);
+        SPGApi api = new(baseUrl + "/rooms/" + idRoom + "/player", callback);
         return api.Get();
     }
 
@@ -116,7 +116,7 @@ public class SPGApi
     {
         WWWForm body = new();
         body.AddField("password", password);
-        SPGApi api = new(baseUrl + "/room/password", callback);
+        SPGApi api = new(baseUrl + "/rooms/password", callback);
         return api.Post(body);
     }
 
@@ -126,14 +126,14 @@ public class SPGApi
         WWWForm body = new();
         body.AddField("password", password);
         body.AddField("id_player", idPlayer);
-        SPGApi api = new(baseUrl + "/room/join", callback);
+        SPGApi api = new(baseUrl + "/rooms/join", callback);
         return api.Post(body);
     }
 
     //--Deprecated
     static public IEnumerator QuitRoom(int idRoom, int idPlayer, Action<string, bool> callback)
     {
-        SPGApi api = new(baseUrl + "/room/" + idRoom + "/players/" + idPlayer + "/leave", callback);
+        SPGApi api = new(baseUrl + "/rooms/" + idRoom + "/players/" + idPlayer + "/leave", callback);
         return api.Delete();
     }
 
