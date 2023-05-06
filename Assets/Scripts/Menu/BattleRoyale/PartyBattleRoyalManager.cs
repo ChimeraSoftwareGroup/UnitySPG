@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PartyBattleRoyalManager : MonoBehaviour
 {
@@ -37,9 +38,10 @@ public class PartyBattleRoyalManager : MonoBehaviour
     private int _minIdGame = 6;
     private int _maxIdGame = 8;
 
-    private SocketManager socket;
+    private int nbPlayerRoom = 0;
 
-    private int nbPlayerRoom;
+    private List<int> gameIdList;
+    private Room currentRoom;
 
     #region Setters
 
@@ -66,6 +68,13 @@ public class PartyBattleRoyalManager : MonoBehaviour
     }
     #endregion
 
+    #region
+    public Room getRoom()
+    {
+        return currentRoom;
+    }
+    #endregion
+
     #region show/hide canvas
     public void EnterInBattleRoyalMode(bool isHost)
     {
@@ -86,6 +95,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
     {
         audioSource.PlayOneShot(pageSound);
         SceneManager.LoadScene("MenueScene");
+        if (_networkManager.IsSocketStart()) _networkManager.SendQuittingRoom();
     }
     public void GoBackChoiceBattleRoyaleRole()
     {
@@ -129,12 +139,15 @@ public class PartyBattleRoyalManager : MonoBehaviour
                 _errorCodeRoom.SetActive(true);
                 return;
             }
-            StartSocket();
+            currentRoom = JsonUtility.FromJson<Room>(response);
+            _networkManager.StartSocket();
 
             audioSource.PlayOneShot(buttonSound);
+            //Need to define what's displaying
+            //_waitingPage.SetActive(true);
             print("FIGHT ! ");
+
             // Ajoute le joueur � la liste des joueurs dans la room
-            // Envoyer un message depuis back : "Vous avez rejoint la room num�ro + "id room" "
         }));
     }
 
@@ -148,22 +161,23 @@ public class PartyBattleRoyalManager : MonoBehaviour
         }
         else
         {
-            
-            //à décommenter quand ça marchera avec le back
+            StartCoroutine(SPGApi.CreateRoom("Room", int.Parse(numberOfGames), _minIdGame, _maxIdGame, (response, isSuccess) => {
 
-            //    Debug.Log("IN THE COROUTINE");
-            //StartCoroutine(SPGApi.CreateRoom("Room", int.Parse(numberOfGames), _minIdGame, _maxIdGame, (response, isSuccess) => {
+                if (!isSuccess) throw new Exception("Can't create Room");
 
-            //    if (!isSuccess) throw new Exception("Can't create Room");
+                CreateRoomResponse json = JsonUtility.FromJson<CreateRoomResponse>(response);
+
+                currentRoom = json.room;
+                gameIdList = json.gameIdList;
+                _networkManager.StartSocket();
+
+                _codeRoomHost.text = currentRoom.password.ToString();
 
                 audioSource.PlayOneShot(buttonSound);
-                _codeRoomHost.text = "1234567890"; // variable du code --> See to uses response JSON from string
                 _hostCanvas.SetActive(true);
                 audioSource.PlayOneShot(buttonSound);
-            //}));
-           
+            }));
 
-            
             // Envoyer "_nbMiniGames" au back avec en plus min et max des ID des mini-jeu (cf variables)
             // Moulinette dans le back pour faire une liste entre id min et id max de la longueure de _nbMiniGames
             // --- Renvoie la liste � unity (print la liste) --- Via Socket
@@ -177,105 +191,19 @@ public class PartyBattleRoyalManager : MonoBehaviour
         // Envoyer au back les param�tres choisis par l'host
         Debug.Log("Nombre de mini-jeux : " + _nbMiniGames);
 
+        _networkManager.GetSocket().StartGame(gameIdList);
+
         // Ensuite, r�cup�rer le retour du back end.*
         // Envoyer la liste de jeu, ou la r�cup�rer c�t� GameManager.
     }
-    
-    #region Socket
-    private void StartSocket()
-    {
-        socket = new SocketManager(
-            OnConnect,
-            OnStart,
-            OnEnd,
-            OnPlayerJoin,
-            OnPlayerQuit,
-            OnDeleteRoom,
-            OnSendingData
-        );
-    }
 
-    #region listenerers
-    /**
-     * Triggered when the connexion is completed
-     */
-    private void OnConnect()
-    {
-        nbPlayerRoom = 0;
-        //Get the actual ID of the room
-        socket.InitJoinRoom(1);
-    }
-
-    /**
-     * Triggered when the game is about to start
-     */
-    private void OnStart(StartGameResponse data)
-    {
-        ArrayList array = data.gameIdList; // Array of mini games
-
-        //Start the Game
-    }
-
-    /**
-     * Triggered when the game ends
-     */
-    private void OnEnd(EndingScoreResponse data)
-    {
-        Score userScore = data.userScore;
-        Score bestScore = data.bestScore;
-
-        //Need to display the score of player in Unity
-    }
-
-    /**
-     * Triggered when a player join
-     */
-    private void OnPlayerJoin()
+    public void AddOnePlayer()
     {
         nbPlayerRoom++;
     }
 
-    /**
-     * Triggered when a player quit
-     */
-    private void OnPlayerQuit()
+    public void RemoveOnePlayer()
     {
         nbPlayerRoom--;
     }
-
-    /**
-     * Triggered when the room the player is in, is deleted from the server
-     */
-    private void OnDeleteRoom()
-    {
-        //Return to main menu
-    }
-
-    //If the current player didn't send his data yet
-    private void OnSendingData()
-    {
-        //Need to test if the player has lost the party/already send the data
-        // if not -> sendData()
-        if (false)
-        {
-            SendDataEndGame();
-        }
-    }
-    #endregion
-
-    private void SendDataEndGame()
-    {
-        //Need to get the number of Played game + PV Left
-        Score sc = new();
-        socket.EmitEndGame(sc); //Pass a json stringify
-    }
-
-    /*
-     * Need to be executed when the player want to quit the current view (which is the inside a room one)
-     */
-    private void SendQuittingRoom()
-    {
-        socket.EmitQuittingRoom();
-    }
-    #endregion
 }
