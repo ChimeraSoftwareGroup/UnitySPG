@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleRoyalMenu.unity
     guid: 1e16ea15570a5664c81ba9418cc1f354
+  - enabled: 1
+    path: Assets/Scenes/TrainingScene.unity
+    guid: 7abf0b71f9f38e144b66528ad3295ef8
   - enabled: 0
     path: Assets/Scenes/LandingScene.unity
     guid: f2d53c05142d80140bc968024ed56d5a
@@ -39,12 +42,15 @@ EditorBuildSettings:
     path: Assets/Scenes/GiraffeScene.unity
     guid: 4545a26f86b3c1e4ebf5ae7d147c9534
   - enabled: 1
-    path: Assets/Scenes/BrinaScene.unity
-    guid: 704756ae877b2ae43bf40fd2a16a5b15
-  - enabled: 1
     path: Assets/Scenes/SanicScene.unity
     guid: 2898b381d993ad447977daf904bb1d4c
   - enabled: 1
     path: Assets/Scenes/FalleineScene.unity
     guid: a2809d8c107b98e449396efa8bf9a1e1
+  - enabled: 1
+    path: Assets/Scenes/BrinaScene.unity
+    guid: 704756ae877b2ae43bf40fd2a16a5b15
+  - enabled: 1
+    path: Assets/Scenes/LadybugScene.unity
+    guid: 85a68b3faaf67594eb97253c996be100
   m_configObjects: {}

@@ -9,6 +9,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
     [SerializeField] GameManagerBR _gameManager;
     [SerializeField] NetworkManager _networkManager;
 
+    [Header("Page GO")]
     public bool isHosting;
     [SerializeField] GameObject _hostCanvas;
     [SerializeField] GameObject _choiceNbMiniGame;
@@ -20,11 +21,13 @@ public class PartyBattleRoyalManager : MonoBehaviour
     [SerializeField] GameObject _waitingPage;
     [SerializeField] Text _codeRoomHost;
 
+    [Header("Audio")]
     public AudioSource audioSource;
     public AudioClip buttonSound;
     public AudioClip errorSound;
     public AudioClip pageSound;
 
+    [Header("Settings")]
     private string numberOfGames;
     private int _nbMiniGames;
     private string codeRoom;
@@ -71,7 +74,6 @@ public class PartyBattleRoyalManager : MonoBehaviour
     {
         isHosting = isHost;
 
-        _battleRoyaleChoice.SetActive(false);
         audioSource.PlayOneShot(buttonSound);
 
         _joinCanvas.SetActive(!isHosting);
@@ -149,9 +151,13 @@ public class PartyBattleRoyalManager : MonoBehaviour
         }
         else
         {
-            SPGApi.CreateRoom("Room", int.Parse(numberOfGames), _minIdGame, _maxIdGame, (response, isSuccess) => {
+            
+            //à décommenter quand ça marchera avec le back
 
-                if (!isSuccess) throw new Exception("Can't create Room");
+            //    Debug.Log("IN THE COROUTINE");
+            //StartCoroutine(SPGApi.CreateRoom("Room", int.Parse(numberOfGames), _minIdGame, _maxIdGame, (response, isSuccess) => {
+
+            //    if (!isSuccess) throw new Exception("Can't create Room");
 
                 CreateRoomResponse json = JsonUtility.FromJson<CreateRoomResponse>(response);
 
@@ -163,10 +169,10 @@ public class PartyBattleRoyalManager : MonoBehaviour
                 audioSource.PlayOneShot(buttonSound);
                 _hostCanvas.SetActive(true);
                 audioSource.PlayOneShot(buttonSound);
-                _choiceNbMiniGame.SetActive(false);
+            //}));
+           
 
-                StartSocket();
-            });
+            
             // Envoyer "_nbMiniGames" au back avec en plus min et max des ID des mini-jeu (cf variables)
             // Moulinette dans le back pour faire une liste entre id min et id max de la longueure de _nbMiniGames
             // --- Renvoie la liste � unity (print la liste) --- Via Socket

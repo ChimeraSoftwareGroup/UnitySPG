@@ -12,7 +12,7 @@ public class GameManagerBR : GameManager
     [SerializeField] private bool _isPlayerDead = false;
 
     [Header("Game Parameters Set up by player")]
-    [SerializeField] public float timeOfEachGame = 10;
+    [SerializeField] public float timeOfEachGame = 20;
     [SerializeField] public int numberOfGames = 3; //Donnée en dur tant que le back n'estpas connecté
 
     [Header("Canvas")]
@@ -59,16 +59,16 @@ public class GameManagerBR : GameManager
     }
 
     //Gaming Scenes
-        //sceneIndexes.Add(6); // Sneuk
-        //sceneIndexes.Add(7); // Froggy
-        //sceneIndexes.Add(8); // Bobee
-        //sceneIndexes.Add(9); // Giraffe
-        //sceneIndexes.Add(10); // Brina
-        //sceneIndexes.Add(11); // Sanic
-        //sceneIndexes.Add(12); // Falleine
+        //sceneIndexes.Add(7); // Sneuk
+        //sceneIndexes.Add(8); // Froggy
+        //sceneIndexes.Add(9); // Bobee
+        //sceneIndexes.Add(10); // Giraffe
+        //sceneIndexes.Add(11); // Brina
+        //sceneIndexes.Add(12); // Sanic
+        //sceneIndexes.Add(13); // Falleine
 
     public void StartBattleRoyale() {
-        sceneIndexes.Add(6);
+        sceneIndexes.Add(10);
         sceneIndexes.Add(12);
         sceneIndexes.Add(10);
         NewGame();
@@ -139,6 +139,7 @@ private void Update()
         }
         _gameHasStarted = false;
         isMiniGameFinished = false;
+
         PrepareNextGameAndResetTimer();
         if(_spawnerManager) _spawnerManager.gameObject.SetActive(false);
         _screenDeath.SetActive(false);
@@ -179,7 +180,7 @@ private void Update()
 
     public override void GameOver()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(6);
         // audioSource.PlayOneShot(looseSound);
         _screenDeath.SetActive(false);
 
@@ -201,7 +202,7 @@ private void Update()
         {
             _thePartyIsFinished = true;
             isPlayerHasWin = true;
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene(6);
            // audioSource.PlayOneShot(winSound);
             StopGame();
         }

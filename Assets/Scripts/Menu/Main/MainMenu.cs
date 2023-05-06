@@ -7,21 +7,40 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+
+
+    [Header("Menu Elements")]
     [SerializeField] GameObject _firstPage;
-    [SerializeField] GameObject _mainMenuPlacard;
     [SerializeField] GameObject _buttonsMainMenu;
+    [SerializeField] GameObject _textSPG;
+    [SerializeField] GameObject _buttonGameMode;
+    [SerializeField] GameObject _buttonOther;
+    [SerializeField] GameObject _buttonCredits;
+    [SerializeField] GameObject _buttonHead;
     [SerializeField] GameObject _settingsWindow;
     [SerializeField] GameObject _textClickToStart;
     [SerializeField] GameObject _errorPage;
     [SerializeField] GameObject _legalPage;
     [SerializeField] GameObject _contactPage;
-    [SerializeField] GameObject _choiceBattleRoyale;
-    [SerializeField] Animator _animator;
+    //[SerializeField] GameObject _choiceBattleRoyale;
 
+    [Header("Animations")]
+    [SerializeField] Animator _animator;
+    [SerializeField] GameObject _brAnimation;
+    [SerializeField] GameObject _coopAnimation;
+    [SerializeField] GameObject _TrainingAnimation;
+    [SerializeField] GameObject _explosionBr;
+    [SerializeField] GameObject _explosionCoop;
+    [SerializeField] GameObject _explosionTraining;
+
+    [Header("Sounds")]
     public AudioSource audioSource;
     public AudioClip sound;
     public AudioClip pageSound;
     public AudioClip errorSound;
+    public AudioClip explosionBrSound; 
+    public AudioClip slapSound;
+    public AudioClip metalSound;
 
     private void Start()
     {
@@ -33,9 +52,30 @@ public class MainMenu : MonoBehaviour
     public void ChangeFirstPageByMainMenue()
     {
         audioSource.PlayOneShot(sound);
+        _textSPG.SetActive(false);
         _firstPage.SetActive(false);
-        _mainMenuPlacard.SetActive(true);
-        Invoke("ShowButtonsMainMenu", 1.5f);
+        _buttonCredits.SetActive(true);
+        Invoke("ShowGameButtons", 0.5f);
+        Invoke("ShowOtherButtons", 1.8f);
+        Invoke("ShowHeadButton", 1.8f);
+
+    }
+    public void OnClick()
+    {
+        // Change la taille du bouton
+        transform.localScale += new Vector3(1f, 1f, 1f);
+    }
+    public void ShowGameButtons()
+    {
+        _buttonGameMode.SetActive(true);
+    }
+    public void ShowOtherButtons()
+    {
+        _buttonOther.SetActive(true);
+    }
+    public void ShowHeadButton()
+    {
+        _buttonHead.SetActive(true);
     }
 
     public void ShowButtonsMainMenu()
@@ -46,12 +86,40 @@ public class MainMenu : MonoBehaviour
     public void GoToCoopMenu()
     {
         audioSource.PlayOneShot(sound);
-        Invoke("CallCoopMenu", 0.2f);
+        _coopAnimation.SetActive(true);
+        audioSource.PlayOneShot(slapSound);
+
+        Invoke("CoopExplosion", 0.4f);
+        Invoke("CallCoopMenu", 1f);
+    }
+
+    public void CoopExplosion()
+    {
+        _explosionCoop.SetActive(true);
+
     }
     public void GoToCredits()
     {
         audioSource.PlayOneShot(sound);
         SceneManager.LoadScene("Credits");
+    }
+    public void GoToTraining()
+    {
+        audioSource.PlayOneShot(sound);
+        _TrainingAnimation.SetActive(true);
+        Invoke("TrainingExplosion", 0.5f);
+        Invoke("CallTrainingMenu", 1.2f);
+    }
+
+    public void TrainingExplosion()
+    {
+        _explosionTraining.SetActive(true);
+        audioSource.PlayOneShot(metalSound);
+    }
+    public void CallTrainingMenu()
+    {
+        SceneManager.LoadScene(3);
+
     }
     public void GoToSettings()
     {
@@ -78,6 +146,7 @@ public class MainMenu : MonoBehaviour
     {
         audioSource.PlayOneShot(errorSound);
         _errorPage.SetActive(true);
+        OnClick();
     }
 
     public void ShowLegalPage()
@@ -99,16 +168,25 @@ public class MainMenu : MonoBehaviour
     }
     public void CloseContactPage()
     {
-        _animator.SetBool("isOpenContact", true);
         audioSource.PlayOneShot(sound);
-        _animator.Play("ContactClose");
         _contactPage.SetActive(false);
     }
 
     public void ShowChoiceBattleRoyal()
     {
-        SceneManager.LoadScene("BattleRoyalMenu");
+        //audioSource.PlayOneShot(sound);
+        audioSource.PlayOneShot(explosionBrSound);
 
+        _brAnimation.SetActive(true);
+        _explosionBr.SetActive(true);
+        Invoke("SceneBR", 1f);
+
+    }
+
+    public void SceneBR()
+    {
+        SceneManager.LoadScene("BattleRoyalMenu");
+       
     }
 
     public void TestNewGame()
@@ -116,11 +194,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("SanicScene");
 
     }
-    public void CloseChoiceBattleRoyal()
-    {
-        audioSource.PlayOneShot(pageSound);
-        _choiceBattleRoyale.SetActive(false);
-    }
+    //public void CloseChoiceBattleRoyal()
+    //{
+    //    audioSource.PlayOneShot(pageSound);
+    //    _choiceBattleRoyale.SetActive(false);
+    //}
 
     public void EnterInBattleRoyaleMode()
     {

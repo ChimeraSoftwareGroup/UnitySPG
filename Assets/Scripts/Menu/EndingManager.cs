@@ -4,12 +4,17 @@ using UnityEngine.SceneManagement;
 
 public class EndingManager : MonoBehaviour
 {
-    [SerializeField] private Text textEnd;
+    [SerializeField] private Text textEndLoose;
+    [SerializeField] private Text textEndWin;
     public GameManager _gameManager;
     [SerializeField] GameObject _fireworks;
     [SerializeField] GameObject _rain;
     [SerializeField] GameObject bg;
     [SerializeField] GameObject _gameCanvas;
+    [SerializeField] GameObject _animWin;
+    [SerializeField] GameObject _animLoose;
+    [SerializeField] GameObject _animWinFireworks;
+
 
     [Header("Destroy")]
     [SerializeField] GameObject _generalGameCanvas;
@@ -17,6 +22,7 @@ public class EndingManager : MonoBehaviour
     [SerializeField] GameObject _spawnerManager;
     [SerializeField] GameObject _settingsByPlayer;
 
+    public bool win = true;
 
     public static EndingManager instance;
 
@@ -41,24 +47,44 @@ public class EndingManager : MonoBehaviour
         {
             Wining();
         }
-        else  
+        else
         {
             Losing();
         }
+
+        //if (win)
+        //{
+        //    Wining();
+        //}else
+        //{
+        //    Losing();
+        //}
     }
 
     private void Wining() 
     {
-        textEnd.text = "YOU WIN";
+        textEndLoose.text = "YOU WIN";
+        textEndWin.text = "YOU WIN";
         _fireworks.SetActive(true);
         _rain.SetActive(false);
+        _animLoose.SetActive(false);
+        _animWin.SetActive(true);
+        Invoke("AnimWinFireworks", 1f);
+
+    }
+    private void AnimWinFireworks()
+    {
+        _animWinFireworks.SetActive(true);
 
     }
     private void Losing() 
     {
-        textEnd.text = "YOU LOSE";
+        textEndLoose.text = "YOU LOSE";
+        textEndWin.text = "YOU LOSE";
         _rain.SetActive(true);
         _fireworks.SetActive(false);
+        _animLoose.SetActive(true);
+        _animWin.SetActive(false);
 
         bg.GetComponent<SpriteRenderer>().color = new Color32(114, 114, 114, 225);
 
