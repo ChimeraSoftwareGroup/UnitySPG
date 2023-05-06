@@ -18,5 +18,7 @@ public class EndingBR : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         print("BACK TO THE MAIN MENU");
+
+        //Quit room
     }
 }

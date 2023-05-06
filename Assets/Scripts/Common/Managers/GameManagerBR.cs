@@ -58,6 +58,19 @@ public class GameManagerBR : GameManager
 
     }
 
+    #region Getters
+
+    public int GetGameFinished()
+    {
+        return _miniGameFinished;
+    }
+    public int GetCurrentHp()
+    {
+        return _hpPlayer;
+    }
+
+    #endregion
+
     //Gaming Scenes
         //sceneIndexes.Add(7); // Sneuk
         //sceneIndexes.Add(8); // Froggy
@@ -74,7 +87,7 @@ public class GameManagerBR : GameManager
         NewGame();
     }
 
-private void Update()
+    private void Update()
     {
         #region ForTestGames
 
@@ -121,9 +134,8 @@ private void Update()
        bool isTutoOn,
        float timerChoosed,
        int numberOfMiniGamesChoosed
-   )
-    {
-    }
+    )
+    {}
 
 
     /** 
@@ -294,5 +306,10 @@ private void Update()
             _isPlayerDead = true;
             
         }
+    }
+
+    public bool hasLost()
+    {
+        return _hpPlayer < 1;
     }
 }

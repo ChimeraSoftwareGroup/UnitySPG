@@ -19,6 +19,12 @@ public class Score
 {
     public int nbGamesPlayed;
     public int nbLifeLeft;
+
+    public Score(int _nbGamesPlayed, int _nbLifeLeft)
+    {
+        nbGamesPlayed = _nbGamesPlayed;
+        nbLifeLeft = _nbLifeLeft;
+    }
 }
 
 public class Room
