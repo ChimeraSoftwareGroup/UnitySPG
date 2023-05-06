@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,7 +21,14 @@ public class Score
     public int nbLifeLeft;
 }
 
+public class Room
+{
+    public int id;
+    public int password;
+}
+
 public class CreateRoomResponse
 {
-    public int password;
+    public Room room;
+    public Array gameIdList;
 }

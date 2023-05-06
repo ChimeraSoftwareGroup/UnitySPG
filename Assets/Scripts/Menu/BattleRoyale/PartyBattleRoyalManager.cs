@@ -38,6 +38,9 @@ public class PartyBattleRoyalManager : MonoBehaviour
 
     private int nbPlayerRoom;
 
+    private Array gameIdList;
+    private Room currentRoom;
+
     #region Setters
 
     /**
@@ -150,11 +153,19 @@ public class PartyBattleRoyalManager : MonoBehaviour
 
                 if (!isSuccess) throw new Exception("Can't create Room");
 
+                CreateRoomResponse json = JsonUtility.FromJson<CreateRoomResponse>(response);
+
+                currentRoom = json.room;
+
+                gameIdList = json.gameIdList;
+                _codeRoomHost.text = currentRoom.password.ToString();
+
                 audioSource.PlayOneShot(buttonSound);
-                _codeRoomHost.text = "1234567890"; // variable du code --> See to uses response JSON from string
                 _hostCanvas.SetActive(true);
                 audioSource.PlayOneShot(buttonSound);
                 _choiceNbMiniGame.SetActive(false);
+
+                StartSocket();
             });
             // Envoyer "_nbMiniGames" au back avec en plus min et max des ID des mini-jeu (cf variables)
             // Moulinette dans le back pour faire une liste entre id min et id max de la longueure de _nbMiniGames
@@ -168,6 +179,8 @@ public class PartyBattleRoyalManager : MonoBehaviour
         _nbMiniGames = int.Parse(numberOfGames);
         // Envoyer au back les param�tres choisis par l'host
         Debug.Log("Nombre de mini-jeux : " + _nbMiniGames);
+
+        socket.StartGame(gameIdList);
 
         // Ensuite, r�cup�rer le retour du back end.*
         // Envoyer la liste de jeu, ou la r�cup�rer c�t� GameManager.
@@ -195,7 +208,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
     {
         nbPlayerRoom = 0;
         //Get the actual ID of the room
-        socket.InitJoinRoom(1);
+        socket.InitJoinRoom(currentRoom.id);
     }
 
     /**
