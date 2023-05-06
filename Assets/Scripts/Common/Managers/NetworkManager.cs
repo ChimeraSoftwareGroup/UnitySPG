@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NetworkManager : MonoBehaviour
 {
     [SerializeField] PartyBattleRoyalManager _PBRM;
     [SerializeField] GameManagerBR _gameManagerBR;
+
+    private SocketManager socket;
+    private EndingScoreResponse endingScore;
 
     // Start is called before the first frame update
     void Awake()
@@ -16,13 +20,13 @@ public class NetworkManager : MonoBehaviour
         // If backend not ok then not connected to net or server out => Get out from BR MODE.
     }
 
-    // Update is called once per frame
-    void Update()
+    //To be called only once by the endingBR script
+    public EndingScoreResponse getFinalScore()
     {
-        // Listening to Backend.   
+        return endingScore;
     }
 
-    private void ReadDataFromBackend()
+    /*private void ReadDataFromBackend()
     {
         //data = {
         //    message: "PlayerDead",
@@ -91,5 +95,111 @@ public class NetworkManager : MonoBehaviour
     {
         JsonUtility.ToJson(json);
         // Send the Json to the backend
+    }*/
+
+    #region Socket
+    public bool IsSocketStart()
+    {
+        return socket != null;
     }
+    public void StartSocket()
+    {
+        socket = new SocketManager(
+            OnConnect,
+            OnStart,
+            OnEnd,
+            OnPlayerJoin,
+            OnPlayerQuit,
+            OnDeleteRoom,
+            OnSendingData
+        );
+    }
+
+    public SocketManager GetSocket()
+    {
+        return socket;
+    }
+
+    #region listenerers
+    /**
+     * Triggered when the connexion is completed
+     */
+    private void OnConnect()
+    {
+        //Get the actual ID of the room
+        socket.InitJoinRoom(_PBRM.getRoom().id);
+    }
+
+    /**
+     * Triggered when the game is about to start
+     */
+    private void OnStart(StartGameResponse data)
+    {
+        _gameManagerBR.StartBattleRoyale(data.gameIdList);
+    }
+
+    /**
+     * Triggered when the game ends
+     */
+    private void OnEnd(EndingScoreResponse data)
+    {
+        endingScore = data;
+
+        //Need to display the score of player in Unity
+
+        //Load EndingBR scene
+        SceneManager.LoadScene(6);
+    }
+
+    /**
+     * Triggered when a player join
+     */
+    private void OnPlayerJoin()
+    {
+        _PBRM.AddOnePlayer();
+    }
+
+    /**
+     * Triggered when a player quit
+     */
+    private void OnPlayerQuit()
+    {
+        _PBRM.RemoveOnePlayer();
+    }
+
+    /**
+     * Triggered when the room the player is in, is deleted from the server
+     */
+    private void OnDeleteRoom()
+    {
+        _PBRM.CloseBattleRoyale();
+    }
+
+    //If the current player didn't send his data yet
+    private void OnSendingData()
+    {
+        //Need to test if the player has lost the party/already send the data
+        // if not -> sendData()
+        if (!_gameManagerBR.hasLost())
+        {
+            SendDataEndGame();
+        }
+    }
+    #endregion
+
+    public void SendDataEndGame()
+    {
+        //Need to get the number of Played game + PV Left
+        Score sc = new(_gameManagerBR.GetGameFinished() , _gameManagerBR.GetCurrentHp());
+        socket.EmitEndGame(sc); //Pass a json stringify
+    }
+
+    /*
+     * Need to be executed when the player want to quit the current view (which is the inside a room one)
+     */
+    public void SendQuittingRoom()
+    {
+        socket.EmitQuittingRoom();
+    }
+    #endregion
 }

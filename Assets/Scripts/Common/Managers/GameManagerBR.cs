@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System;
 
 public class GameManagerBR : GameManager 
 {
@@ -43,7 +44,7 @@ public class GameManagerBR : GameManager
     private int _miniGameFinished = 0;
     private int _hpPlayer = 3;
 
-    private List<int> sceneIndexes = new List<int>();
+    private List<int> sceneIndexes;
 
     public override void Awake()
     {
@@ -58,6 +59,19 @@ public class GameManagerBR : GameManager
 
     }
 
+    #region Getters
+
+    public int GetGameFinished()
+    {
+        return _miniGameFinished;
+    }
+    public int GetCurrentHp()
+    {
+        return _hpPlayer;
+    }
+
+    #endregion
+
     //Gaming Scenes
         //sceneIndexes.Add(7); // Sneuk
         //sceneIndexes.Add(8); // Froggy
@@ -67,14 +81,12 @@ public class GameManagerBR : GameManager
         //sceneIndexes.Add(12); // Sanic
         //sceneIndexes.Add(13); // Falleine
 
-    public void StartBattleRoyale() {
-        sceneIndexes.Add(10);
-        sceneIndexes.Add(12);
-        sceneIndexes.Add(10);
+    public void StartBattleRoyale(List<int> gameIdList) {
+        sceneIndexes = gameIdList;
         NewGame();
     }
 
-private void Update()
+    private void Update()
     {
         #region ForTestGames
 
@@ -121,9 +133,8 @@ private void Update()
        bool isTutoOn,
        float timerChoosed,
        int numberOfMiniGamesChoosed
-   )
-    {
-    }
+    )
+    {}
 
 
     /** 
@@ -294,5 +305,10 @@ private void Update()
             _isPlayerDead = true;
             
         }
+    }
+
+    public bool hasLost()
+    {
+        return _hpPlayer < 1;
     }
 }

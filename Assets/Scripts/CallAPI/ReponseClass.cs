@@ -1,10 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class StartGameResponse
 {
-    public ArrayList gameIdList;
+    public List<int> gameIdList;
 }
 
 public class EndingScoreResponse
@@ -18,9 +18,22 @@ public class Score
 {
     public int nbGamesPlayed;
     public int nbLifeLeft;
+
+    public Score(int _nbGamesPlayed, int _nbLifeLeft)
+    {
+        nbGamesPlayed = _nbGamesPlayed;
+        nbLifeLeft = _nbLifeLeft;
+    }
+}
+
+public class Room
+{
+    public int id;
+    public int password;
 }
 
 public class CreateRoomResponse
 {
-    public int password;
+    public Room room;
+    public List<int> gameIdList;
 }
