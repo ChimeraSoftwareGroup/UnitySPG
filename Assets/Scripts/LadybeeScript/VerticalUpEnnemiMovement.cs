@@ -18,7 +18,7 @@ public class VerticalUpEnnemiMovement : ObjectsToSpawn
         float t = Mathf.Clamp01(currentTime / duration);
         if (t >= 0.5f)
         {
-            this.gameObject.transform.position = new Vector3(transform.position.x , transform.position.y , transform.position.z + 20);
+            this.gameObject.transform.position = new Vector3(transform.position.x , transform.position.y , transform.position.z + 2);
             currentTime = 0.0f;
         }
 
