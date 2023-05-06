@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2905735161843478376}
   - component: {fileID: 2905735161843478373}
-  - component: {fileID: 2905735161843478372}
   - component: {fileID: 246397502684167332}
+  - component: {fileID: 1378944708661216097}
   m_Layer: 0
-  m_Name: HorizontalEnnemi
+  m_Name: HorizontalRightEnnemi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,18 +48,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.47886813
   m_Center: {x: -0.00496614, y: 0, z: 0}
---- !u!114 &2905735161843478372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2905735161843478375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1218be839061dc648873368e49b85183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &246397502684167332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +58,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3009e66b71f7f824f981e037f3a18dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1378944708661216097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2905735161843478375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48de1501d9ee6954f8465aa1551d9a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5373243313724828223

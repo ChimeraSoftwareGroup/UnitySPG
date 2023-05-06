@@ -106,11 +106,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2266000112266859700}
-  - component: {fileID: 5699830607441788519}
   - component: {fileID: 1253991726988549987}
   - component: {fileID: -6224872574002990816}
+  - component: {fileID: 3756935522685533371}
   m_Layer: 0
-  m_Name: VerticalEnnemi
+  m_Name: VerticalDownEnnemi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,18 +132,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5699830607441788519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 598401882118186798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4369d93dab4cdee4dbc5d00748a1e50c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &1253991726988549987
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -167,5 +155,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3009e66b71f7f824f981e037f3a18dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3756935522685533371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598401882118186798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb32f5459c80c654daf39970822e2c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

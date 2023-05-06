@@ -95,7 +95,7 @@ public class GameManagerCoop : GameManager
 
     private void Start()
     {
-       initGameManager();
+     //  initGameManager();
     }
 
     private void Update()
@@ -164,13 +164,13 @@ public class GameManagerCoop : GameManager
     * Lancer le mode coop - les initialisations
     */
 
-    private void initGameManager()
-    {
-        if(numberOfGames > 3) numberOfGames = 3;
-        if(timeOfEachGameChosenByPlayers <= 0) timeOfEachGameChosenByPlayers = 20;
+    //private void initGameManager()
+    //{
+    //    if(numberOfGames > 3) numberOfGames = 3;
+    //    if(timeOfEachGameChosenByPlayers <= 0) timeOfEachGameChosenByPlayers = 20;
 
        
-    }
+    //}
 
     public void InputSettingsByPlayer()
     {

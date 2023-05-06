@@ -9,6 +9,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
     [SerializeField] GameManagerBR _gameManager;
     [SerializeField] NetworkManager _networkManager;
 
+    [Header("Page GO")]
     public bool isHosting;
     [SerializeField] GameObject _hostCanvas;
     [SerializeField] GameObject _choiceNbMiniGame;
@@ -20,11 +21,13 @@ public class PartyBattleRoyalManager : MonoBehaviour
     [SerializeField] GameObject _waitingPage;
     [SerializeField] Text _codeRoomHost;
 
+    [Header("Audio")]
     public AudioSource audioSource;
     public AudioClip buttonSound;
     public AudioClip errorSound;
     public AudioClip pageSound;
 
+    [Header("Settings")]
     private string numberOfGames;
     private int _nbMiniGames;
     private string codeRoom;
