@@ -187,7 +187,8 @@ public class PartyBattleRoyalManager : MonoBehaviour
             OnEnd,
             OnPlayerJoin,
             OnPlayerQuit,
-            OnDeleteRoom
+            OnDeleteRoom,
+            OnSendingData
         );
     }
 
@@ -198,7 +199,8 @@ public class PartyBattleRoyalManager : MonoBehaviour
     private void OnConnect()
     {
         nbPlayerRoom = 0;
-        //socket.EmitTest();
+        //Get the actual ID of the room
+        socket.InitJoinRoom(1);
     }
 
     /**
@@ -207,6 +209,8 @@ public class PartyBattleRoyalManager : MonoBehaviour
     private void OnStart(StartGameResponse data)
     {
         ArrayList array = data.gameIdList; // Array of mini games
+
+        //Start the Game
     }
 
     /**
@@ -216,6 +220,8 @@ public class PartyBattleRoyalManager : MonoBehaviour
     {
         Score userScore = data.userScore;
         Score bestScore = data.bestScore;
+
+        //Need to display the score of player in Unity
     }
 
     /**
@@ -241,14 +247,29 @@ public class PartyBattleRoyalManager : MonoBehaviour
     {
         //Return to main menu
     }
+
+    //If the current player didn't send his data yet
+    private void OnSendingData()
+    {
+        //Need to test if the player has lost the party/already send the data
+        // if not -> sendData()
+        if (false)
+        {
+            SendDataEndGame();
+        }
+    }
     #endregion
 
     private void SendDataEndGame()
     {
-        Score sc = new Score();
-        socket.EmitEndGame(sc.ToString()); //Pass a json stringify
+        //Need to get the number of Played game + PV Left
+        Score sc = new();
+        socket.EmitEndGame(sc); //Pass a json stringify
     }
 
+    /*
+     * Need to be executed when the player want to quit the current view (which is the inside a room one)
+     */
     private void SendQuittingRoom()
     {
         socket.EmitQuittingRoom();

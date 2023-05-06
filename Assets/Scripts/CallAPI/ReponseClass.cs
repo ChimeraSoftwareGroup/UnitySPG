@@ -9,13 +9,13 @@ public class StartGameResponse
 
 public class EndingScoreResponse
 {
+    public int position;
     public Score userScore;
     public Score bestScore;
 }
 
 public class Score
 {
-    public int position;
     public int nbGamesPlayed;
     public int nbLifeLeft;
 }

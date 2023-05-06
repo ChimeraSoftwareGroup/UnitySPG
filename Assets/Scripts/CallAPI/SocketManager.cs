@@ -15,7 +15,8 @@ public class SocketManager
         Action<EndingScoreResponse> onEnd,
         Action onPlayerJoin,
         Action onPlayerQuit,
-        Action onDeleteRoom)
+        Action onDeleteRoom,
+        Action onSendingData)
     {
         //TODO: check the Uri if Valid.
         var uri = new Uri("http://localhost:3000");
@@ -32,12 +33,10 @@ public class SocketManager
         });
         socket.JsonSerializer = new NewtonsoftJsonSerializer();
 
-        ///// reserved socketio events
+        #region reserved socketio events
         socket.OnConnected += (sender, e) =>
         {
             Debug.Log("Connected !");
-            Debug.Log(sender);
-            Debug.Log(e);
             onConnect();
         };
         socket.OnDisconnected += (sender, e) =>
@@ -48,7 +47,7 @@ public class SocketManager
         {
             Debug.Log($"{DateTime.Now} Reconnecting: attempt = {e}");
         };
-        ////
+        #endregion
 
         Debug.Log("Connecting...");
         socket.Connect();
@@ -77,6 +76,34 @@ public class SocketManager
         {
             onDeleteRoom();
         });
+
+        socket.OnUnityThread("send last data", (data) =>
+        {
+            onSendingData();
+        });
+    }
+
+    public void StartGame(Array array)
+    {
+        socket.Emit("start game", array);
+    }
+
+    public void EmitQuittingRoom()
+    {
+        socket.Emit("quit room");
+    }
+
+    /**
+     * Used when no mini-games left and when the players loses
+     */
+    public void EmitEndGame(Score data)
+    {
+        socket.Emit("ending game", data);
+    }
+
+    public void InitJoinRoom(int idRoom)
+    {
+        socket.Emit("init join", idRoom);
     }
 
     public static bool IsJSON(string str)
@@ -101,25 +128,5 @@ public class SocketManager
         {
             return false;
         }
-    }
-
-    public void EmitTest()
-    {
-        string txt = "sample text";
-
-        socket.Emit("start game", txt);
-    }
-
-    public void EmitQuittingRoom()
-    {
-        socket.Emit("quit room", socket.Id);
-    }
-
-    /**
-     * Used when no mini-games left and when the players loses
-     */
-    public void EmitEndGame(string data)
-    {
-        socket.Emit("ending game", data);
     }
 }
