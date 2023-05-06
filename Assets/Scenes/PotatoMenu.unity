@@ -3031,7 +3031,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: ' '
 --- !u!222 &907562370
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3877,7 +3877,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1506087572, guid: 3a2c51dcd5ef4fb4e849dc512fdfda28, type: 3}
+  m_Sprite: {fileID: 2106584459, guid: d1da25ccf50838a4481ace8af6166553, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5573,6 +5573,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627422785}
   m_CullTransparentMesh: 1
+--- !u!82 &1642760568 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 167295969555709511, guid: 1e6949894f01b064c9a4c68f6fb5d875, type: 3}
+  m_PrefabInstance: {fileID: 928744656}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1672471087 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4215204515292408562, guid: dcb1482e3eebfe64c819ce5acfbdbe4c, type: 3}
@@ -6578,6 +6583,9 @@ MonoBehaviour:
   playerNameInput: {fileID: 1237009287}
   numberOfPlayerInput: {fileID: 1155470493}
   secondsByGamesInput: {fileID: 1378026639}
+  audioSource: {fileID: 1642760568}
+  sound: {fileID: 8300000, guid: 7e71a941d6bc4594caf9ac7aee7d0131, type: 3}
+  errorSound: {fileID: 8300000, guid: 1b9a8ef3db34e454bbc37af16d86af5f, type: 3}
 --- !u!1 &2065835164
 GameObject:
   m_ObjectHideFlags: 0

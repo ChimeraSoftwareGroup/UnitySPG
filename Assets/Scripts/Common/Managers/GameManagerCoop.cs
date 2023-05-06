@@ -76,13 +76,14 @@ public class GameManagerCoop : GameManager
         */ // TO REMOVE
 
         //Gaming Scenes
-        sceneIndexes.Add(7); // Sneuk
-        sceneIndexes.Add(8); // Froggy
-        sceneIndexes.Add(9); // Bobee
-        sceneIndexes.Add(10); // Giraffe
-        sceneIndexes.Add(11); // Brina
-        sceneIndexes.Add(12); // Sanic
-        sceneIndexes.Add(13); // Falleine
+        //sceneIndexes.Add(7); // Sneuk
+        //sceneIndexes.Add(8); // Froggy
+        //sceneIndexes.Add(9); // Bobee
+        //sceneIndexes.Add(10); // Giraffe
+        //sceneIndexes.Add(11); // Brina
+        //sceneIndexes.Add(12); // Sanic
+        //sceneIndexes.Add(13); // Falleine
+        sceneIndexes.Add(14); // Ladybee
 
 
         //sceneIndexes.Add(7);
@@ -94,7 +95,7 @@ public class GameManagerCoop : GameManager
 
     private void Start()
     {
-       initGameManager();
+     //  initGameManager();
     }
 
     private void Update()
@@ -163,13 +164,13 @@ public class GameManagerCoop : GameManager
     * Lancer le mode coop - les initialisations
     */
 
-    private void initGameManager()
-    {
-        if(numberOfGames > 3) numberOfGames = 3;
-        if(timeOfEachGameChosenByPlayers <= 0) timeOfEachGameChosenByPlayers = 20;
+    //private void initGameManager()
+    //{
+    //    if(numberOfGames > 3) numberOfGames = 3;
+    //    if(timeOfEachGameChosenByPlayers <= 0) timeOfEachGameChosenByPlayers = 20;
 
        
-    }
+    //}
 
     public void InputSettingsByPlayer()
     {

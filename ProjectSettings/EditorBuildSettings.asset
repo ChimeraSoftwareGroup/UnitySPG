@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BrinaScene.unity
     guid: 704756ae877b2ae43bf40fd2a16a5b15
+  - enabled: 1
+    path: Assets/Scenes/LadybugScene.unity
+    guid: 85a68b3faaf67594eb97253c996be100
   m_configObjects: {}

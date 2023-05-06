@@ -40,6 +40,12 @@ public class PlayersSettingsInput : MonoBehaviour
     [SerializeField] GameObject numberOfPlayerInput;
     [SerializeField] GameObject secondsByGamesInput;
 
+    [Header("Audio")]
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip sound;
+    [SerializeField] AudioClip errorSound;
+
+
     List<string> nameOfPlayersList = new List<string>();
     private int _countPlayer = 0;
     private Vector3 lastValidPosition;
@@ -72,7 +78,9 @@ public class PlayersSettingsInput : MonoBehaviour
         nameOfPlayersList.Add(playerName);
         AddPlayerInListPlayerUI();
         _countPlayer++;
-        _playerNameIF.text = "Nobody";
+        _playerNameIF.text = "";
+        audioSource.PlayOneShot(sound);
+
     }
 
     private void AddPlayerInListPlayerUI()
@@ -86,6 +94,8 @@ public class PlayersSettingsInput : MonoBehaviour
     {
         if(nameOfPlayersList.Count == 0)
         {
+            audioSource.PlayOneShot(errorSound);
+
             _errorCanvasPlayerList.SetActive(true);
             return;
         }
@@ -99,33 +109,51 @@ public class PlayersSettingsInput : MonoBehaviour
     public void HideInputPlayerList()
     {
         _listOfPlayersCanvas.SetActive(false);
+
     }
     public void CloseErrorPage()
     {
         _errorCanvasPlayerList.SetActive(false);
+        audioSource.PlayOneShot(sound);
+
     }
 
     // GAMES SET UPPING
     public void ReadingNumberOfGames(string _numberOfGames)
     {
+
         numberOfGames = _numberOfGames;
+        print("numberOfGames " + numberOfGames);
+
     }
     public void AddNbMiniGameToGM()
     {
-        if(int.Parse(numberOfGames) < nameOfPlayersList.Count)
-        {
+        print("Add nb mini game");
+
+        if (numberOfGames == "" || numberOfGames == " ")
+            {
+            audioSource.PlayOneShot(errorSound);
+
             _errorCanvasNumberOfGame.SetActive(true);
             return;
         }
-        else if(numberOfGames == "" || numberOfGames == " ")
+        else if (int.Parse(numberOfGames) < nameOfPlayersList.Count)
         {
+            audioSource.PlayOneShot(errorSound);
+
             _errorCanvasNumberOfGame.SetActive(true);
             return;
+        }
+        else
+        {
+            print(numberOfGames);
+            audioSource.PlayOneShot(sound);
+
+            Invoke("CloseNbGames", 3f);
+            _secondsByGamesCanvas.gameObject.SetActive(true);
         }
 
-        print(numberOfGames);
-        Invoke("CloseNbGames", 3f);
-        _secondsByGamesCanvas.gameObject.SetActive(true);
+       
         
        
     }
@@ -139,6 +167,8 @@ public class PlayersSettingsInput : MonoBehaviour
     public void CloseErrorGamesPage()
     {
         _errorCanvasNumberOfGame.SetActive(false);
+        audioSource.PlayOneShot(sound);
+
     }
     private int intParse(string numberOfGames)
     {
@@ -154,9 +184,11 @@ public class PlayersSettingsInput : MonoBehaviour
     public void CloseErrorSecondsPage()
     {
         _errorCanvasSeconds.SetActive(false);
+        audioSource.PlayOneShot(sound);
+
     }
 
-  
+
     public void AddSecondsByGameToGMAndStartCoopGame()
     {
         bool _allGood = true;
@@ -166,7 +198,8 @@ public class PlayersSettingsInput : MonoBehaviour
 
         if (secondsPerGames == "" || secondsPerGames == " " || timeSelectedinSeconds < 20)
             {
-            print("Error");
+            audioSource.PlayOneShot(errorSound);
+
             _errorCanvasSeconds.SetActive(true);
             return;
         }
@@ -196,6 +229,7 @@ public class PlayersSettingsInput : MonoBehaviour
     public void QuitButton()
     {
         SceneManager.LoadScene("MenueScene");
+        audioSource.PlayOneShot(sound);
 
     }
 }

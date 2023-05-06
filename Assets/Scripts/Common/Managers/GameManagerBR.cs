@@ -12,7 +12,7 @@ public class GameManagerBR : GameManager
     [SerializeField] private bool _isPlayerDead = false;
 
     [Header("Game Parameters Set up by player")]
-    [SerializeField] public float timeOfEachGame = 10;
+    [SerializeField] public float timeOfEachGame = 20;
     [SerializeField] public int numberOfGames = 3; //Donnée en dur tant que le back n'estpas connecté
 
     [Header("Canvas")]
