@@ -133,12 +133,7 @@ public class NetworkManager : MonoBehaviour
      */
     private void OnStart(StartGameResponse data)
     {
-        ArrayList array = data.gameIdList; // Array of mini games
-
-        //Start the Game
-
-        //Change to launch with array
-        //_gameManagerBR.StartBattleRoyale();
+        _gameManagerBR.StartBattleRoyale(data.gameIdList);
     }
 
     /**

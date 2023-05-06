@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System;
 
 public class GameManagerBR : GameManager 
 {
@@ -43,7 +44,7 @@ public class GameManagerBR : GameManager
     private int _miniGameFinished = 0;
     private int _hpPlayer = 3;
 
-    private List<int> sceneIndexes = new List<int>();
+    private List<int> sceneIndexes;
 
     public override void Awake()
     {
@@ -80,10 +81,8 @@ public class GameManagerBR : GameManager
         //sceneIndexes.Add(12); // Sanic
         //sceneIndexes.Add(13); // Falleine
 
-    public void StartBattleRoyale() {
-        sceneIndexes.Add(10);
-        sceneIndexes.Add(12);
-        sceneIndexes.Add(10);
+    public void StartBattleRoyale(List<int> gameIdList) {
+        sceneIndexes = gameIdList;
         NewGame();
     }
 

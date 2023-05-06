@@ -1,11 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class StartGameResponse
 {
-    public ArrayList gameIdList;
+    public List<int> gameIdList;
 }
 
 public class EndingScoreResponse
@@ -36,5 +35,5 @@ public class Room
 public class CreateRoomResponse
 {
     public Room room;
-    public Array gameIdList;
+    public List<int> gameIdList;
 }

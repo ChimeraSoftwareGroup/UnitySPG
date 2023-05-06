@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PartyBattleRoyalManager : MonoBehaviour
 {
@@ -39,7 +40,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
 
     private int nbPlayerRoom = 0;
 
-    private Array gameIdList;
+    private List<int> gameIdList;
     private Room currentRoom;
 
     #region Setters
