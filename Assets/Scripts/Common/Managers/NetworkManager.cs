@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NetworkManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class NetworkManager : MonoBehaviour
     [SerializeField] GameManagerBR _gameManagerBR;
 
     private SocketManager socket;
+    private EndingScoreResponse endingScore;
 
     // Start is called before the first frame update
     void Awake()
@@ -18,10 +20,10 @@ public class NetworkManager : MonoBehaviour
         // If backend not ok then not connected to net or server out => Get out from BR MODE.
     }
 
-    // Update is called once per frame
-    void Update()
+    //To be called only once by the endingBR script
+    public EndingScoreResponse getFinalScore()
     {
-        // Listening to Backend.   
+        return endingScore;
     }
 
     /*private void ReadDataFromBackend()
@@ -141,12 +143,12 @@ public class NetworkManager : MonoBehaviour
      */
     private void OnEnd(EndingScoreResponse data)
     {
-        Score userScore = data.userScore;
-        Score bestScore = data.bestScore;
+        endingScore = data;
 
         //Need to display the score of player in Unity
 
         //Load EndingBR scene
+        SceneManager.LoadScene(6);
     }
 
     /**

@@ -2,12 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EndingBR : MonoBehaviour
 {
+    [SerializeField] Text _endingText;
+
+    private NetworkManager _networkManager;
+
     void Start()
     {
+        _networkManager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
         Invoke("ReturnMainMenu", 7f);
+
+        EndingScoreResponse score = _networkManager.getFinalScore();
+        _endingText.text = score.position.ToString();
     }
 
     void Update()
