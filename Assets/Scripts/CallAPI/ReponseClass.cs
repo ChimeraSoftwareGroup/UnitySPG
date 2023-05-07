@@ -35,7 +35,7 @@ public class RoomRequest
 public class Room
 {
     public int id;
-    public int password;
+    public string password;
 }
 
 public class CreateRoomResponse

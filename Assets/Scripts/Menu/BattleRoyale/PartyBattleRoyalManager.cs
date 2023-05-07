@@ -171,7 +171,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
                 gameIdList = json.gameList;
                 _networkManager.StartSocket();
 
-                _codeRoomHost.text = currentRoom.password.ToString();
+                _codeRoomHost.text = currentRoom.password;
 
                 audioSource.PlayOneShot(buttonSound);
                 _hostCanvas.SetActive(true);
