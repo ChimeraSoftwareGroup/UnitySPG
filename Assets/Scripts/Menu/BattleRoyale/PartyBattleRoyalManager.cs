@@ -40,7 +40,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
 
     private int nbPlayerRoom = 0;
 
-    private List<int> gameIdList;
+    private List<string> gameIdList;
     private Room currentRoom;
 
     #region Setters
@@ -168,7 +168,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
                 CreateRoomResponse json = JsonUtility.FromJson<CreateRoomResponse>(response);
                 Debug.Log("response " + response);
                 currentRoom = json.room.rows[0];
-                gameIdList = json.gameIdList;
+                gameIdList = json.gameList;
                 _networkManager.StartSocket();
 
                 _codeRoomHost.text = currentRoom.password.ToString();

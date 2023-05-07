@@ -83,7 +83,7 @@ public class SocketManager
         });
     }
 
-    public void StartGame(List<int> array)
+    public void StartGame(List<string> array)
     {
         socket.Emit("start game", array);
     }
