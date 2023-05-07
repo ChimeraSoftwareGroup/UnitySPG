@@ -26,6 +26,12 @@ public class Score
     }
 }
 
+public class RoomRequest
+{
+    public List<Room> arrayRows;
+    public int rowCount;
+}
+
 public class Room
 {
     public int id;
@@ -34,6 +40,6 @@ public class Room
 
 public class CreateRoomResponse
 {
-    public Room room;
+    public RoomRequest roomRequest;
     public List<int> gameIdList;
 }
