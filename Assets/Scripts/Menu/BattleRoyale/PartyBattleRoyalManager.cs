@@ -167,7 +167,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
 
                 CreateRoomResponse json = JsonUtility.FromJson<CreateRoomResponse>(response);
 
-                currentRoom = json.room;
+                currentRoom = json.roomRequest.arrayRows[0];
                 gameIdList = json.gameIdList;
                 _networkManager.StartSocket();
 
