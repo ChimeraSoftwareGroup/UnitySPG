@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class LadybeeMovement : MonoBehaviour
 {
-    [SerializeField] Animator _animator;
+    [SerializeField] GameObject _tutoPanel;
 
     void Start()
     {
-        Invoke("StartTutoAnimation", 5f);
+        Invoke("StartTutoAnimation", 0.2f);
 
     }
     private int _direction = 2;
@@ -121,7 +121,7 @@ public class LadybeeMovement : MonoBehaviour
     }
     private void StartTutoAnimation()
     {
-        _animator.Play("GirafeTuto");
+        _tutoPanel.SetActive(true);
 
     }
 }
