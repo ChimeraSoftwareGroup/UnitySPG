@@ -44,7 +44,7 @@ public class GameManagerBR : GameManager
     private int _miniGameFinished = 0;
     private int _hpPlayer = 3;
 
-    private List<int> sceneIndexes;
+    private List<int> sceneIndexes; // = new List<int>();
 
     public override void Awake()
     {
@@ -73,16 +73,18 @@ public class GameManagerBR : GameManager
     #endregion
 
     //Gaming Scenes
-        //sceneIndexes.Add(7); // Sneuk
-        //sceneIndexes.Add(8); // Froggy
-        //sceneIndexes.Add(9); // Bobee
-        //sceneIndexes.Add(10); // Giraffe
-        //sceneIndexes.Add(11); // Brina
-        //sceneIndexes.Add(12); // Sanic
-        //sceneIndexes.Add(13); // Falleine
+    //sceneIndexes.Add(7); // Sneuk
+    //sceneIndexes.Add(8); // Froggy
+    //sceneIndexes.Add(9); // Bobee
+    //sceneIndexes.Add(10); // Giraffe
+    //sceneIndexes.Add(11); // Brina
+    //sceneIndexes.Add(12); // Sanic
+    //sceneIndexes.Add(13); // Falleine
 
-    public void StartBattleRoyale(List<int> gameIdList) {
-        sceneIndexes = gameIdList;
+    public void StartBattleRoyale(List<int> gameIdList) 
+    // public void StartBattleRoyale()
+    {
+        sceneIndexes = new List<int>();
         NewGame();
     }
 

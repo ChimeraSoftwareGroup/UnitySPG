@@ -13,10 +13,11 @@ public class EndingBR : MonoBehaviour
     void Start()
     {
         _networkManager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
-        Invoke("ReturnMainMenu", 7f);
+        //Invoke("ReturnMainMenu", 7f);
+        print("ENDING SCENE");
 
         EndingScoreResponse score = _networkManager.getFinalScore();
-        _endingText.text = score.position.ToString();
+       // _endingText.text = score.position.ToString();
     }
 
     void Update()

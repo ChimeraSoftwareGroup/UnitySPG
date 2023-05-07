@@ -20,10 +20,9 @@ public class Timer : MonoBehaviour
             IncreaseTimer();
         }
         else if (_secondsLeft <= 0 && _isRunning) {
-            Debug.Log("REACHED 0");
             GameManager.instance.isMiniGameFinished = true;
-            _scoreText.text = "0:00";
-            _secondsLeft = 20;
+           // _scoreText.text = "0:00";
+           // _secondsLeft = 20;
         }
       
         //if (_isrunning && !_isgamefinished)
