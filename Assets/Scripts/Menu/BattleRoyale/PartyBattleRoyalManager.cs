@@ -166,8 +166,8 @@ public class PartyBattleRoyalManager : MonoBehaviour
                 if (!isSuccess) throw new Exception("Can't create Room");
 
                 CreateRoomResponse json = JsonUtility.FromJson<CreateRoomResponse>(response);
-                Debug.Log("response "  + response);
-                currentRoom = json.roomRequest.arrayRows[0];
+
+                currentRoom = json.room.rows[0];
                 gameIdList = json.gameIdList;
                 _networkManager.StartSocket();
 
