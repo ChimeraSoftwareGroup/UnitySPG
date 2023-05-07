@@ -40,7 +40,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
 
     private int nbPlayerRoom = 0;
 
-    private List<int> gameIdList;
+    private List<string> gameIdList;
     private Room currentRoom;
 
     #region Setters
@@ -166,15 +166,19 @@ public class PartyBattleRoyalManager : MonoBehaviour
                 if (!isSuccess) throw new Exception("Can't create Room");
 
                 CreateRoomResponse json = JsonUtility.FromJson<CreateRoomResponse>(response);
-
-                currentRoom = json.room;
-                gameIdList = json.gameIdList;
+                Debug.Log("response " + response);
+                Debug.Log("json " + json);
+                Debug.Log("json.room " + json.room);
+                Debug.Log("json.room.rows " + json.room.rows);
+                currentRoom = json.room.rows[0];
+                gameIdList = json.gameList;
                 _networkManager.StartSocket();
 
-                _codeRoomHost.text = currentRoom.password.ToString();
+                _codeRoomHost.text = currentRoom.password;
 
                 audioSource.PlayOneShot(buttonSound);
                 _hostCanvas.SetActive(true);
+                _choiceNbMiniGame.SetActive(false);
                 audioSource.PlayOneShot(buttonSound);
             }));
 

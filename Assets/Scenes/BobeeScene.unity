@@ -475,6 +475,26 @@ PrefabInstance:
       propertyPath: _warningSpider
       value: 
       objectReference: {fileID: 742843642}
+    - target: {fileID: 2346970717394381933, guid: 536b740401f2a4542a72b9c662aed454, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346970717394381933, guid: 536b740401f2a4542a72b9c662aed454, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346970717394381933, guid: 536b740401f2a4542a72b9c662aed454, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346970717394381933, guid: 536b740401f2a4542a72b9c662aed454, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346970717394381933, guid: 536b740401f2a4542a72b9c662aed454, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 2346970717735416792, guid: 536b740401f2a4542a72b9c662aed454, type: 3}
       propertyPath: m_Name
       value: Bobee

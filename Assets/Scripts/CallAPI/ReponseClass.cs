@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+[System.Serializable]
 public class StartGameResponse
 {
-    public List<int> gameIdList;
+    public List<string> gameIdList;
 }
 
+[System.Serializable]
 public class EndingScoreResponse
 {
     public int position;
@@ -14,6 +16,7 @@ public class EndingScoreResponse
     public Score bestScore;
 }
 
+[System.Serializable]
 public class Score
 {
     public int nbGamesPlayed;
@@ -26,14 +29,23 @@ public class Score
     }
 }
 
+[System.Serializable]
+public class RoomRequest
+{
+    public List<Room> rows;
+    public int rowCount;
+}
+
+[System.Serializable]
 public class Room
 {
     public int id;
-    public int password;
+    public string password;
 }
 
+[System.Serializable]
 public class CreateRoomResponse
 {
-    public Room room;
-    public List<int> gameIdList;
+    public RoomRequest room;
+    public List<string> gameList;
 }
