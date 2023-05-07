@@ -19,7 +19,7 @@ public class SocketManager
         Action onSendingData)
     {
         //TODO: check the Uri if Valid.
-        var uri = new Uri("http://localhost:3000");
+        var uri = new Uri("192.168.56.1:3000");
         socket = new SocketIOUnity(uri, new SocketIOOptions
         {
             Query = new Dictionary<string, string>

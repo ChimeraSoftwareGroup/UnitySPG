@@ -127,6 +127,7 @@ public class NetworkManager : MonoBehaviour
     private void OnConnect()
     {
         //Get the actual ID of the room
+        Debug.Log("_PBRM.getRoom().id" + _PBRM.getRoom().id);
         socket.InitJoinRoom(_PBRM.getRoom().id);
     }
 
