@@ -81,10 +81,13 @@ public class GameManagerBR : GameManager
     //sceneIndexes.Add(12); // Sanic
     //sceneIndexes.Add(13); // Falleine
 
-    public void StartBattleRoyale(List<int> gameIdList) 
+    public void StartBattleRoyale(List<string> gameIdList) 
     // public void StartBattleRoyale()
     {
-        sceneIndexes = new List<int>();
+        for (int i = 0; i<gameIdList.Count; i++)
+        {
+            sceneIndexes.Add(int.Parse(gameIdList[i]));
+        } //new List<int>();
         NewGame();
     }
 

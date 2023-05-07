@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class StartGameResponse
 {
-    public List<int> gameIdList;
+    public List<string> gameIdList;
 }
 
 public class EndingScoreResponse
@@ -41,5 +41,5 @@ public class Room
 public class CreateRoomResponse
 {
     public RoomRequest room;
-    public List<int> gameIdList;
+    public List<string> gameList;
 }
