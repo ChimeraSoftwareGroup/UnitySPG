@@ -135,6 +135,7 @@ public class NetworkManager : MonoBehaviour
      */
     private void OnStart(StartGameResponse data)
     {
+        //ligne à commenter pour tester mode br
         _gameManagerBR.StartBattleRoyale(data.gameIdList);
     }
 
