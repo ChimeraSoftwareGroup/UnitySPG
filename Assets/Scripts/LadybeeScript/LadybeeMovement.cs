@@ -111,7 +111,7 @@ public class LadybeeMovement : MonoBehaviour
     {
         if (transform.position.z >= -5)
         {
-            this.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1);
+            this.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 2);
             if (_direction != 4)
             {
                 transform.rotation = Quaternion.Euler(0f, 180f, 0f);
