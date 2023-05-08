@@ -8,6 +8,8 @@ public class BobeeMovements : MonoBehaviour
     private bool _isStarting = false;
     [SerializeField] GameObject _tutoBobee;
     [SerializeField] GameObject _warningSpider;
+
+    [SerializeField] ParticleSystem _pollen;
     private void Start()
     {
      joystick = FindObjectOfType<Joystick>();
@@ -37,7 +39,15 @@ public class BobeeMovements : MonoBehaviour
             transform.rotation = rotation;
         }
         transform.position += direction * speed * Time.deltaTime;
-
+        
+        if(direction == Vector3.zero)
+        {
+            _pollen.Stop();
+        }
+        else
+        {
+            _pollen.Play();
+        }
     }
     public void StopTutoBobee()
     {
