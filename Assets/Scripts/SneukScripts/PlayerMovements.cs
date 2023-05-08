@@ -55,7 +55,7 @@ public class PlayerMovements : MonoBehaviour
         _isPlaying = true;
             float horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
             MovePlayer(1.0f);
-             DustPlay();
+         //    DustPlay();
             _isPlaying = false;
     }
 
@@ -66,24 +66,24 @@ public class PlayerMovements : MonoBehaviour
             _isPlaying = true;
             float horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
             MovePlayer(-1.0f);
-        DustPlay();
+       // DustPlay();
 
         _isPlaying = false;
 
         
     }
 
-    public void DustPlay()
-    {
-        if(_isPlaying)
-        {
-            _dust.Play();
-        }
-        else
-        {
-            return;
-        }
-    }
+    //public void DustPlay()
+    //{
+    //    if(_isPlaying)
+    //    {
+    //        _dust.Play();
+    //    }
+    //    else
+    //    {
+    //        return;
+    //    }
+    //}
 
     private void FixedUpdate()
     {
@@ -131,5 +131,10 @@ public class PlayerMovements : MonoBehaviour
             _Gfx.gameObject.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
         }
 
+    }
+
+    public void Dust()
+    {
+        _dust.Play();
     }
 }
