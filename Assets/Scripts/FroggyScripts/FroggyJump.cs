@@ -8,6 +8,8 @@ public class FroggyJump : MonoBehaviour
     public float gravity = -9.81f;
     public float gravityScale = 5;
     public float velocity;
+
+    [SerializeField] ParticleSystem _dust;
     //public AudioSource audioSource;
     //public AudioClip jumpSound;
 
@@ -43,5 +45,14 @@ public class FroggyJump : MonoBehaviour
         }
 
         transform.Translate(new Vector3(0, velocity, 0) * Time.deltaTime);
+
+        if (groundCheck.isGrounded)
+        {
+            _dust.Play();
+        }
+        else
+        {
+            _dust.Stop();
+        }
     }
 }

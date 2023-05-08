@@ -6,10 +6,24 @@ public class GiraffeNeckMesh : ObjectsToSpawn
 {
     private void Start()
     {
-    //    Destroy(gameObject, 5f);
+    //   
     }
     public override void Update()
     {
-        // OVERRIDE UPDATE METHOD FROM OBJECTSTOSPAWN
+        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Scroll")
+        {
+            DestroyNeckMesh();
+            print("Collision");
+        }
+    }
+
+    void DestroyNeckMesh()
+    {
+        Destroy(gameObject);
     }
 }
