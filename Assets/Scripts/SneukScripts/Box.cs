@@ -16,7 +16,7 @@ public class Box : ObjectsToSpawn
         _hitBox.gameObject.SetActive(false);
         // We remove the hitbox on contact with floor / player
 
-        Destroy(gameObject, .5f);
+        Destroy(gameObject, .2f);
         // To avoid box falling into void
         gameObject.GetComponent<Rigidbody>().isKinematic = true;
         gameObject.GetComponent<Rigidbody>().useGravity = false;

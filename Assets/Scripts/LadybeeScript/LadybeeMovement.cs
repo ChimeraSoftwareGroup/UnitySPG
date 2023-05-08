@@ -5,10 +5,14 @@ using UnityEngine;
 public class LadybeeMovement : MonoBehaviour
 {
     [SerializeField] GameObject _tutoPanel;
+    [SerializeField] ParticleSystem _dust;
+    [SerializeField] GameObject _Gfx;
 
+    private SpriteRenderer spriteRenderer;
     void Start()
     {
         Invoke("StartTutoAnimation", 0.2f);
+        spriteRenderer = _Gfx.GetComponent<SpriteRenderer>();
 
     }
     private int _direction = 2;
@@ -80,6 +84,11 @@ public class LadybeeMovement : MonoBehaviour
                 _direction = 3;
             }
         }
+
+        Flip();
+
+        _dust.Play();
+
     }
     public void Left()
     {
@@ -92,6 +101,11 @@ public class LadybeeMovement : MonoBehaviour
                 _direction = 1;
             }
         }
+
+        Flip();
+
+        _dust.Play();
+
     }
     public void Right()
     {
@@ -106,6 +120,10 @@ public class LadybeeMovement : MonoBehaviour
                 _direction = 2;
             }
         }
+        Flip();
+
+        _dust.Play();
+
     }
     public void Down()
     {
@@ -117,6 +135,23 @@ public class LadybeeMovement : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0f, 180f, 0f);
                 _direction = 4;
             }
+        }
+
+        Flip();
+        _dust.Play();
+
+    }
+
+    private void Flip()
+    {
+        if (!spriteRenderer.flipX)
+        {
+            spriteRenderer.flipX = true;
+
+        }
+        else if (spriteRenderer.flipX)
+        {
+            spriteRenderer.flipX = false;
         }
     }
     private void StartTutoAnimation()
