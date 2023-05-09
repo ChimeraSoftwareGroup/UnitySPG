@@ -321,6 +321,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130162251}
   m_CullTransparentMesh: 1
+--- !u!1 &148577854 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 167295969555709504, guid: 1e6949894f01b064c9a4c68f6fb5d875, type: 3}
+  m_PrefabInstance: {fileID: 167295968476345915}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &186258704
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,6 +1058,7 @@ MonoBehaviour:
   _errorPage: {fileID: 2093263221}
   _legalPage: {fileID: 756244334}
   _contactPage: {fileID: 1741959}
+  _AudioManager: {fileID: 148577854}
   _animator: {fileID: 555570096}
   _brAnimation: {fileID: 472896900}
   _coopAnimation: {fileID: 1378102951}
@@ -1067,6 +1073,7 @@ MonoBehaviour:
   explosionBrSound: {fileID: 8300000, guid: ea410cd4d353edd47a89cd93916ebdd1, type: 3}
   slapSound: {fileID: 8300000, guid: 781d7ed63cefb094191873d49a93e694, type: 3}
   metalSound: {fileID: 8300000, guid: a6447ab6fef414b48952b9e13fa95521, type: 3}
+  starsIntro: {fileID: 8300000, guid: 15d437309ba9b664c9eeec2f28f7cad5, type: 3}
 --- !u!82 &555570095
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3045,6 +3052,10 @@ PrefabInstance:
     - target: {fileID: 167295969555709504, guid: 1e6949894f01b064c9a4c68f6fb5d875, type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 167295969555709504, guid: 1e6949894f01b064c9a4c68f6fb5d875, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 167295969555709509, guid: 1e6949894f01b064c9a4c68f6fb5d875, type: 3}
       propertyPath: playlist.Array.size
