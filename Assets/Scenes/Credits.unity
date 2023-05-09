@@ -744,7 +744,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -100.34961}
+  m_AnchoredPosition: {x: 0, y: -100.34985}
   m_SizeDelta: {x: 0, y: 200.699}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1503043508
@@ -881,8 +881,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: -4769.9}
-  m_SizeDelta: {x: 0, y: 9539.816}
+  m_AnchoredPosition: {x: -0.00012207031, y: -4071.1636}
+  m_SizeDelta: {x: 0, y: 8117.193}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1707547291
 Animator:
@@ -1020,8 +1020,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 1.317, y: -4338.1475}
-  m_SizeDelta: {x: 450.88, y: 8461.396}
+  m_AnchoredPosition: {x: 0.43701, y: -3503.0015}
+  m_SizeDelta: {x: 450.88, y: 6955.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1796575801
 MonoBehaviour:
@@ -1067,27 +1067,23 @@ MonoBehaviour:
     588KU</I>\r\n<I>BLUE BIRD  -  MA9ICI4N</I>\r\n<I>GANDALF  -  PETEBITS25</I>\r\n<I>PANEL 
     -  JADE BOUIGES</I>\r\n<I>FIST -  BEVOULIIN.COM</I>\r\n<I>LEGAL BUTTON -  HANSOLO</I>\r\n<I>CONTACT
     BUTTON -  IDK</I>\r\n<I>EXIT BUTTON -  TUTOUNITYFR  (ZEF)</I>\r\n<I>BUTTONS - 
-    BEVOULIIN.COM</I>\r\n<I>ROPE -  SHUTTERSTOCK</I>\r\n<I>PAPER  -  PIKACANNON</I></SIZE>\r\n\r\n<SIZE=40><B>GAMES</B></SIZE>\r\n\r\n<SIZE=30><B>SNEUK</B>\r\n\r\n<I>SNEUK 
-    -  BUCH</I>\r\n<I>BOXE  -  STOCK  VECTOR</I>\r\n<I>FOREST  (BACKGROUND)  -  MEMOANGELES</I></SIZE>\r\n\r\n<SIZE=30><B>FROGGY</B>\r\n\r\n<I>FROGGY 
-    -  NICOLE  MARIE  T</I>\r\n<I>BOXE  -  STOCK  VECTOR</I>\r\n<I>FOREST  (BACKGROUND) 
-    -  MEMOANGELES</I></SIZE>\r\n\r\n<SIZE=30><B>BOBEE</B>\r\n\r\n<I>BOBEE  -  JXY25</I>\r\n<I>SPIDER 
-    -  DON'T  STARVE</I>\r\n<I>FLOWERS  -  SAPHATTHACHAT SUNCHOOTE</I></SIZE>\r\n\r\n<SIZE=30><B>GERARD</B>\r\n\r\n<I>GERARD 
-    -  JADE BOUIGES</I>\r\n<I>BRANCHES  -  JADE BOUIGES</I></SIZE>\r\n\r\n<SIZE=30><B>SANIC</B>\r\n\r\n<I>SANIC 
-    - ANTON PAIVIN </I></SIZE>\r\n\r\n<SIZE=30><B>FALLEINE</B>\r\n\r\n<I>FALLEINE 
-    - WHO  LIKES DRAWING / BRIAN RICHARD</I>\r\n<I>HELICOPTER  - JADE  BOUIGES </I></SIZE>\r\n\r\n<SIZE=30><B>LADYBEE</B>\r\n\r\n<I>LADYBEE 
-    - JADE  BOUIGES </I>\r\n<I>SPIDER  ORANGE  - CAMACEBRA  GAMES </I>\r\n<I>SPIDER 
-    PURPLE  - CAMACEBRA  GAMES </I>\r\n<I>ROPE -  SHUTTERSTOCK</I></SIZE>\r\n\r\n<SIZE=30><B>BRINA</B>\r\n\r\n<I>BLUE
-    BIRD  -  MA9ICI4N</I>\r\n<I>BRANCHES  -  JADE BOUIGES</I></SIZE>\r\n\r\n<SIZE=40><B>TUTORIELS 
+    BEVOULIIN.COM</I>\r\n<I>ROPE -  SHUTTERSTOCK</I>\r\n<I>PAPER  -  PIKACANNON</I></SIZE>\r\n\r\n<SIZE=30><B>GAMES</B>\r\n\r\n<I>SNEUK 
+    -  BUCH</I>\r\n<I>FROGGY  -  NICOLE  MARIE  T</I>\r\n<I>BOBEE  -  JXY25</I>\r\n<I>SPIDER 
+    -  DON'T  STARVE</I>\r\n<I>FOREST  (BACKGROUND)  -  MEMOANGELES</I>\r\n<I>BOXE 
+    -  STOCK  VECTOR</I>\r\n<I>GERARD  -  JADE BOUIGES</I>\r\n<I>BRANCHES  -  JADE
+    BOUIGES</I>\r\n<I>SANIC  - ANTON PAIVIN </I>\r\n<I>FALLEINE  - WHO  LIKES DRAWING
+    </I>\r\n<I>HELICOPTER  - JADE  BOUIGES </I>\r\n<I>LADYBEE  - JADE  BOUIGES </I>\r\n<I>SPIDER 
+    ORANGE  - CAMACEBRA  GAMES </I>\r\n<I>SPIDER  PURPLE  - CAMACEBRA  GAMES </I></SIZE>\r\n\r\n<SIZE=30><B>TUTORIELS 
     IN  GAME</B>\r\n\r\n<I>HAND  - HADIAALTAF </I>\r\n<I>SMARTPHONE  ICON  - ICONFINDER
-    </I>\r\n<I>WARNING  ICON  - PIXELMAKER</I></SIZE>\r\n\r\n<SIZE=40><B>GENERAL
+    </I>\r\n<I>WARNING  ICON  - PIXELMAKER</I></SIZE>\r\n\r\n<SIZE=30><B>GENERAL
     GAME CANVAS</B>\r\n\r\n<I>HEART BROKEN  - ANOOP AJITH </I>\r\n<I>THROPHE  - PNGKIT
-    </I></SIZE>\r\n\r\n<SIZE=40><B>OTHER ASSETS</B>\r\n\r\n<I>ICON  -  JADE  BOUIGES</I>\r\n<I>BUTTONS 
-    -  JADE BOUIGES</I>\r\n<I>BOXEFIRE  -  JESSMOSLEY129</I></SIZE>\r\n\r\n<SIZE=40><B>PARTICULES</B>\r\n\r\n<I>EXPLOSION
-    BATTLE ROYALE - MOONFLOWER CARNIVORE </I>\r\n<I>RAIN - JADE BOUIGES</I>\r\n<I>DUST
-    - JADE BOUIGES</I>\r\n<I>CLAP COOP MODE - JEAN MORENO</I>\r\n<I>ROCK PARTICULES
-    TRAINING MODE - JEAN MORENO</I>\r\n<I>SPLASH ENDING - JEAN MORENO</I>\r\n<I>FIREWORKS
-    CARTOON - JEAN MORENO</I>\r\n<I>FIREWORKS - TUTOUNITYFR (ZEF) </I></SIZE>\r\n\r\n<SIZE=40><B>MATERIALS
-    & TEXTURES</B>\r\n\r\n<I>WOOD - INNOVA GAMES </I>\r\n<I>GRASS - LOWLYPOLY</I></SIZE>\r\n\r\n<SIZE=40><B>OTHER
+    </I></SIZE>\r\n\r\n<SIZE=30><B>OTHER ASSETS</B>\r\n\r\n<I>ICON  -  JADE  BOUIGES</I>\r\n<I>BUTTONS 
+    -  JADE BOUIGES</I>\r\n<I>BOXEFIRE  -  JESSMOSLEY129</I></SIZE>\r\n\r\n<SIZE=30><B>PARTICULES</B>\r\n\r\n<I>EXPLOSION
+    BATTLE ROYALE - MOONFLOWER CARNIVORE </I>\r\n<I>RAIN - JADE BOUIGES</I>\r\n<I>CLAP
+    COOP MODE - JEAN MORENO</I>\r\n<I>ROCK PARTICULES TRAINING MODE - JEAN MORENO</I>\r\n<I>SPLASH
+    ENDING - JEAN MORENO</I>\r\n<I>FIREWORKS CARTOON - JEAN MORENO</I>\r\n<I>FIREWORKS
+    - TUTOUNITYFR (ZEF) </I></SIZE>\r\n\r\n<SIZE=30><B>MATERIALS & TEXTURES</B>\r\n\r\n<I>WOOD
+    - INNOVA GAMES </I>\r\n<I>GRASS - LOWLYPOLY</I></SIZE>\r\n\r\n<SIZE=30><B>OTHER
     PACKAGES</B>\r\n\r\n<I>JOYSTICK - FENERAX STUDIO </I></SIZE>\r\n\r\n<SIZE=60>-
     AUDIO -</SIZE>\r\n\r\n<SIZE=30>SOUND  MANAGER\r\n<I>JADE  BOUIGES</I></SIZE>\r\n\r\n<SIZE=30>MUSIC\r\n<I>MENU
     : THAT  ON  DRAGON  BALL  NES  MUSIC  -  TOSE</I>\r\n<I>CREDITS : NEVER GONNA
@@ -1108,7 +1104,7 @@ MonoBehaviour:
     PERFORMANCE  DOCUMENTATION\r\n<I>BY  BRIAN  RICHARD</I>\r\n<I> LUBIN  PAULY</I>\r\n<I>
     KEVIN  DOBROTA</I>\r\n<I> JADE  BOUIGES</I></SIZE>\r\n\r\n<SIZE=30>TECHNIQUE 
     DOCUMENTATION\r\n<I>BY  BRIAN  RICHARD</I>\r\n<I> LUBIN  PAULY</I>\r\n<I> KEVIN 
-    DOBROTA</I>\r\n<I> JADE  BOUIGES</I></SIZE>\r\n\r\n<SIZE=60>- SPECIAL  \r\nTHANKS
+    DOBROTA</I>\r\n<I> JADE  BOUIGES</I></SIZE>\r\n\r\n<SIZE=60>- SPECIAL  \nTHANKS
     -</SIZE>\r\n\r\n<SIZE=30>CODING  FACTORY\r\n\r\n<I>ROBIN  PENEA,\r\nCOLOMBE 
     VAN  MASTRISH,\r\nVALERIE  ECAILLE,\r\nTHOMAS  LEBRUN,\r\nKEVIN  FAGOT,\r\nMELANIE 
     VAUBIEN,\r\nMAXIME  JOULIN,\r\nANTONIN  PUBLY\r\nCHATGPT</I></SIZE>\r\n"
