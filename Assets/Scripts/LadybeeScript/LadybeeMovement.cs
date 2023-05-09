@@ -11,9 +11,8 @@ public class LadybeeMovement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     void Start()
     {
+        Invoke("StartTutoAnimation", 0.2f);
         spriteRenderer = _Gfx.GetComponent<SpriteRenderer>();
-
-        Invoke("StartTutoAnimation",3f);
 
     }
     private int _direction = 2;
@@ -60,7 +59,7 @@ public class LadybeeMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            if (transform.position.z >= -4)
+            if (transform.position.z >= -5)
             {
                 this.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 2);
                 if (_direction != 4)
