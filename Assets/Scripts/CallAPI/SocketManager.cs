@@ -81,6 +81,14 @@ public class SocketManager
         {
             onSendingData();
         });
+
+        /**
+         * ERROR FROM SERVER
+         */
+        socket.OnUnityThread("socket error", (data) =>
+        {
+            Debug.Log(">>> SOCKET ERROR >>>" + data);
+        });
     }
 
     public void StartGame(List<string> array)
