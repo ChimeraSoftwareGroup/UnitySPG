@@ -131,7 +131,6 @@ public class PartyBattleRoyalManager : MonoBehaviour
         }
 
         print("codeToJoin : " + codeRoom);
-
         StartCoroutine(SPGApi.CheckPassword(codeRoom, (response, isSuccess) => {
             if (!isSuccess)
             {
@@ -146,6 +145,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
             //Need to define what's displaying
             //_waitingPage.SetActive(true);
             print("FIGHT ! ");
+            _waitingPage.SetActive(true);
 
             // Ajoute le joueur � la liste des joueurs dans la room
         }));
