@@ -13,6 +13,8 @@ TagManager:
   - Spawn
   - Wall
   - Panel
+  - FxTemporaire
+  - Scroll
   layers:
   - Default
   - TransparentFX
