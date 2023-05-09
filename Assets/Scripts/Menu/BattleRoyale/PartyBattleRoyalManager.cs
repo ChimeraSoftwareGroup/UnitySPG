@@ -163,9 +163,11 @@ public class PartyBattleRoyalManager : MonoBehaviour
         {
             StartCoroutine(SPGApi.CreateRoom("Room", int.Parse(numberOfGames), _minIdGame, _maxIdGame, (response, isSuccess) => {
 
+                Debug.Log("response " + response);
                 if (!isSuccess) throw new Exception("Can't create Room");
 
                 CreateRoomResponse json = JsonUtility.FromJson<CreateRoomResponse>(response);
+
                 Debug.Log("response " + response);
                 Debug.Log("json " + json);
                 Debug.Log("json.room " + json.room);
