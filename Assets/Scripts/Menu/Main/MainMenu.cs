@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject _errorPage;
     [SerializeField] GameObject _legalPage;
     [SerializeField] GameObject _contactPage;
+    [SerializeField] GameObject _AudioManager;
     //[SerializeField] GameObject _choiceBattleRoyale;
 
     [Header("Animations")]
@@ -41,14 +42,22 @@ public class MainMenu : MonoBehaviour
     public AudioClip explosionBrSound; 
     public AudioClip slapSound;
     public AudioClip metalSound;
+    public AudioClip starsIntro;
 
     private void Start()
     {
+
+        audioSource.PlayOneShot(starsIntro, 0.5f);
+        Invoke("ActiveMusic", 2f);
         _animator = GetComponent<Animator>();
         _animator.SetBool("isOpenContact", false);
         //StartCoroutine(SPGApi.TestApi((string res, bool isSuccess) => { Debug.Log(res); Debug.Log(isSuccess); }));
     }
 
+    private void ActiveMusic()
+    {
+        _AudioManager.SetActive(true);
+    }
     public void ChangeFirstPageByMainMenue()
     {
         audioSource.PlayOneShot(sound);
