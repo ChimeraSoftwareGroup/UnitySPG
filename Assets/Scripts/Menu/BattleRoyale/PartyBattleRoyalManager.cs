@@ -94,6 +94,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
     public void CloseBattleRoyale()
     {
         audioSource.PlayOneShot(pageSound);
+        Debug.Log("Return to main menu");
         SceneManager.LoadScene("MenueScene");
         if (_networkManager.IsSocketStart()) _networkManager.SendQuittingRoom();
     }
@@ -138,18 +139,13 @@ public class PartyBattleRoyalManager : MonoBehaviour
                 _errorCodeRoom.SetActive(true);
                 return;
             }
-            Debug.Log("response " + response);
 
             currentRoom = JsonUtility.FromJson<Room>(response);
             _networkManager.StartSocket();
 
             audioSource.PlayOneShot(buttonSound);
-            //Need to define what's displaying
-            //_waitingPage.SetActive(true);
             print("FIGHT ! ");
             _waitingPage.SetActive(true);
-
-            // Ajoute le joueur � la liste des joueurs dans la room
         }));
     }
 
@@ -165,7 +161,6 @@ public class PartyBattleRoyalManager : MonoBehaviour
         {
             StartCoroutine(SPGApi.CreateRoom("Room", int.Parse(numberOfGames), _minIdGame, _maxIdGame, (response, isSuccess) => {
 
-                Debug.Log("response " + response);
                 if (!isSuccess) throw new Exception("Can't create Room");
 
                 CreateRoomResponse json = JsonUtility.FromJson<CreateRoomResponse>(response);
@@ -197,6 +192,7 @@ public class PartyBattleRoyalManager : MonoBehaviour
         _nbMiniGames = int.Parse(numberOfGames);
         // Envoyer au back les param�tres choisis par l'host
         Debug.Log("Nombre de mini-jeux : " + _nbMiniGames);
+        Debug.Log("Gamelist: " + gameIdList);
 
         _networkManager.SendStartGame(gameIdList);
 

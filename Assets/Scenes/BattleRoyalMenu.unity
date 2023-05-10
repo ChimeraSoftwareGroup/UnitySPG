@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -663,7 +663,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: -93.00586}
+  m_AnchoredPosition: {x: 0, y: -93.00586}
   m_SizeDelta: {x: -112.908, y: -44.0473}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &126515972
@@ -2185,9 +2185,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 527489943}
-        m_TargetAssemblyTypeName: GameManagerBR, Assembly-CSharp
-        m_MethodName: StartBattleRoyale
+      - m_Target: {fileID: 1811662303}
+        m_TargetAssemblyTypeName: PartyBattleRoyalManager, Assembly-CSharp
+        m_MethodName: StartModeBRParty
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3620,6 +3620,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 247481460479874925, guid: 72f93302135ea534cadb7bf23196cef4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 521635735350986081, guid: 72f93302135ea534cadb7bf23196cef4, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3739,6 +3743,14 @@ PrefabInstance:
     - target: {fileID: 3055810765649234084, guid: 72f93302135ea534cadb7bf23196cef4, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3325912105253617711, guid: 72f93302135ea534cadb7bf23196cef4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5548938792101861642, guid: 72f93302135ea534cadb7bf23196cef4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -32.552612
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72f93302135ea534cadb7bf23196cef4, type: 3}
@@ -4864,7 +4876,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0035705566, y: 510}
+  m_AnchoredPosition: {x: 0.003540039, y: 510}
   m_SizeDelta: {x: 0, y: -377.4438}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1577068013
