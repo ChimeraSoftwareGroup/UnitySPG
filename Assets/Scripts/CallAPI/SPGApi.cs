@@ -20,7 +20,7 @@ using Newtonsoft.Json.Linq;
 
 public class SPGApi
 {
-    private static readonly string baseUrl = "http://TestBrian-env.eba-rc662n2e.eu-west-3.elasticbeanstalk.com"; //http://localhost:3000
+    private static readonly string baseUrl = "https://TestBrian-env.eba-rc662n2e.eu-west-3.elasticbeanstalk.com"; //http://localhost:3000
     private readonly string url;
     private readonly Action<string, bool> callback;
 
