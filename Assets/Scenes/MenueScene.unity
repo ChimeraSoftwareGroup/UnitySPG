@@ -1201,6 +1201,47 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 2914.545
       objectReference: {fileID: 0}
+    - target: {fileID: 567754439, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
+      propertyPath: m_Text
+      value: "<SIZE=25>Pr\xE9sentation du jeu\r</SIZE>\n\nLe jeu Super Party Game
+        est d\xE9velopp\xE9 et \xE9dit\xE9 par Chimera Software, une soci\xE9t\xE9
+        \xE0 responsabilit\xE9 limit\xE9e, immatricul\xE9e au registre du commerce
+        et des soci\xE9t\xE9s sous le num\xE9ro 1234 5678 9069 et dont le si\xE8ge
+        social est situ\xE9 au 35 Boulevard du Port\r\n95000 Cergy. Le jeu est accessible
+        via itch.io, une plateforme de distribution en ligne.\r\n\r\n<SIZE=25>Propri\xE9t\xE9
+        intellectuelle</SIZE>\r\n\nLe jeu, ainsi que l'ensemble des \xE9l\xE9ments
+        qui le composent, tels que les images, les sons, les vid\xE9os, les textes
+        et les logos, sont la propri\xE9t\xE9 exclusive de Chimera Software ou de
+        ses partenaires et sont prot\xE9g\xE9s par le droit d'auteur et le droit
+        des marques. Toute utilisation non autoris\xE9e de ces \xE9l\xE9ments est
+        strictement interdite et peut donner lieu \xE0 des poursuites judiciaires.\r\n\r\n<SIZE=25>Licence
+        d'utilisation</SIZE>\r\n\nLe joueur est autoris\xE9 \xE0 utiliser le jeu
+        uniquement pour son usage personnel et non commercial. La licence d'utilisation
+        accord\xE9e par Chimera Software est non exclusive, personnelle, incessible
+        et non transf\xE9rable. Toutefois, le joueur peut autoriser un tiers \xE0
+        utiliser le jeu sur le m\xEAme terminal que celui utilis\xE9 par le joueur.
+        Tout autre usage du jeu est strictement interdit.\r\n\r\n<SIZE=25>Donn\xE9es
+        personnelles</SIZE>\n\r\nLes donn\xE9es personnelles collect\xE9es dans le
+        cadre de l'utilisation du jeu sont trait\xE9es conform\xE9ment \xE0 la politique
+        de confidentialit\xE9 disponible sur le site internet de l'\xE9diteur et
+        en accord avec les r\xE8gles \xE9dict\xE9es par la CNIL (Commission nationale
+        de l'informatique et des libert\xE9s). Le joueur dispose d'un droit d'acc\xE8s,
+        de rectification et de suppression des donn\xE9es le concernant, qu'il peut
+        exercer en \xE9crivant \xE0 chimerasoftware.group@gmail.com. Nous prenons
+        tr\xE8s au s\xE9rieux la protection de la vie priv\xE9e de nos utilisateurs
+        et nous nous engageons \xE0 respecter les dispositions l\xE9gales et r\xE9glementaires
+        en vigueur en mati\xE8re de protection des donn\xE9es personnelles.\r\n\r\n<SIZE=25>Garanties
+        et responsabilit\xE9s</SIZE>\n\r\nLe jeu est fourni tel quel, sans garantie
+        d'aucune sorte, expresse ou implicite. Chimera Software ne saurait \xEAtre
+        tenu responsable en cas de dommage subi par le joueur ou un tiers du fait
+        de l'utilisation du jeu. La responsabilit\xE9 de Chimera Software ne saurait
+        \xEAtre engag\xE9e au-del\xE0 du montant pay\xE9 par le joueur pour l'acquisition
+        du jeu \xE0 savoir 0\u20AC.\r\n\r\n<SIZE=25>Droit applicable et juridiction
+        comp\xE9tente</SIZE>\n\r\nLes pr\xE9sentes mentions l\xE9gales sont soumises
+        au droit fran\xE7ais. Tout litige relatif \xE0 l'utilisation du jeu sera
+        soumis \xE0 la comp\xE9tence exclusive des tribunaux fran\xE7ais.\r\n\r\nNous
+        vous remercions d'avoir pris connaissance de ces mentions l\xE9gales."
+      objectReference: {fileID: 0}
     - target: {fileID: 674511669, guid: 3836efcfb17911245973ae4a414fed17, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

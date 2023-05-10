@@ -216,7 +216,7 @@ public class MainMenu : MonoBehaviour
 
     public void ShowDocUser()
     {
-        Application.OpenURL("https://dianavi22.itch.io/super-party-game");
+        Application.OpenURL("http://www.chimera-software.s3-website.eu-west-3.amazonaws.com/");
     }
     public void QuitButton()
     {
