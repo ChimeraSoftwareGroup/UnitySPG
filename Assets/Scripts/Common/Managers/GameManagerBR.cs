@@ -44,7 +44,7 @@ public class GameManagerBR : GameManager
     private int _miniGameFinished = 0;
     private int _hpPlayer = 3;
 
-    private List<int> sceneIndexes; // = new List<int>();
+    private List<int> sceneIndexes = new();
 
     public override void Awake()
     {

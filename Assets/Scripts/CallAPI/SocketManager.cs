@@ -19,7 +19,7 @@ public class SocketManager
         Action onSendingData)
     {
         //TODO: check the Uri if Valid.
-        var uri = new Uri("http://TestBrian-env.eba-rc662n2e.eu-west-3.elasticbeanstalk.com"); //http://localhost:3000
+        var uri = new Uri("https://nodespg.osc-fr1.scalingo.io"); //http://localhost:3000
         socket = new SocketIOUnity(uri, new SocketIOOptions
         {
             Query = new Dictionary<string, string>
@@ -45,6 +45,7 @@ public class SocketManager
         };
         socket.OnReconnectAttempt += (sender, e) =>
         {
+            if (e > 5) socket.Dispose();
             Debug.Log($"{DateTime.Now} Reconnecting: attempt = {e}");
         };
         #endregion
@@ -54,7 +55,6 @@ public class SocketManager
 
         socket.OnUnityThread("start game", (data) =>
         {
-            Debug.Log("receive start" + data.ToString());
             onStart(data.GetValue<StartGameResponse>());
         });
 
@@ -94,8 +94,9 @@ public class SocketManager
 
     public void StartGame(List<string> array)
     {
-        Debug.Log("array start" + array);
-        socket.Emit("start game", array);
+        StartGameResponse send = new(array);
+        Debug.Log("array to send " + array.ToString());
+        socket.Emit("start game", send);
     }
 
     public void EmitQuittingRoom()

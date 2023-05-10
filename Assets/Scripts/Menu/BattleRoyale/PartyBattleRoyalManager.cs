@@ -35,8 +35,8 @@ public class PartyBattleRoyalManager : MonoBehaviour
     private int codeToJoin;
     public bool isCodeExist;
 
-    private int _minIdGame = 6;
-    private int _maxIdGame = 8;
+    private int _minIdGame = 7;
+    private int _maxIdGame = 14;
 
     private int nbPlayerRoom = 0;
 
@@ -189,10 +189,9 @@ public class PartyBattleRoyalManager : MonoBehaviour
      */
     public void StartModeBRParty()
     {
-        _nbMiniGames = int.Parse(numberOfGames);
+        /*_nbMiniGames = int.Parse(numberOfGames);
         // Envoyer au back les param�tres choisis par l'host
-        Debug.Log("Nombre de mini-jeux : " + _nbMiniGames);
-        Debug.Log("Gamelist: " + gameIdList);
+        Debug.Log("Nombre de mini-jeux : " + _nbMiniGames);*/
 
         _networkManager.SendStartGame(gameIdList);
 

@@ -6,6 +6,11 @@ using System.Collections.Generic;
 public class StartGameResponse
 {
     public List<string> gameIdList;
+
+    public StartGameResponse(List<string> list)
+    {
+        gameIdList = list;
+    }
 }
 
 [System.Serializable]
