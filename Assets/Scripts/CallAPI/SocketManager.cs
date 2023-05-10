@@ -54,6 +54,7 @@ public class SocketManager
 
         socket.OnUnityThread("start game", (data) =>
         {
+            Debug.Log("receive start" + data.ToString());
             onStart(data.GetValue<StartGameResponse>());
         });
 
@@ -93,6 +94,7 @@ public class SocketManager
 
     public void StartGame(List<string> array)
     {
+        Debug.Log("array start" + array);
         socket.Emit("start game", array);
     }
 
