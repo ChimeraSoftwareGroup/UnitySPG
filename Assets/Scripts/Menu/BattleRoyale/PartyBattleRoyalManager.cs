@@ -189,13 +189,16 @@ public class PartyBattleRoyalManager : MonoBehaviour
         }
     }
 
+    /*
+     * Call in Unity (Fight Button for Host)
+     */
     public void StartModeBRParty()
     {
         _nbMiniGames = int.Parse(numberOfGames);
         // Envoyer au back les param�tres choisis par l'host
         Debug.Log("Nombre de mini-jeux : " + _nbMiniGames);
 
-        _networkManager.GetSocket().StartGame(gameIdList);
+        _networkManager.SendStartGame(gameIdList);
 
         // Ensuite, r�cup�rer le retour du back end.*
         // Envoyer la liste de jeu, ou la r�cup�rer c�t� GameManager.

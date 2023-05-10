@@ -16,7 +16,7 @@ public class EndingBR : MonoBehaviour
         //Invoke("ReturnMainMenu", 7f);
         print("ENDING SCENE");
 
-        EndingScoreResponse score = _networkManager.getFinalScore();
+        EndingScoreResponse score = _networkManager.GetFinalScore();
        // _endingText.text = score.position.ToString();
     }
 

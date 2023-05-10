@@ -21,7 +21,7 @@ public class NetworkManager : MonoBehaviour
     }
 
     //To be called only once by the endingBR script
-    public EndingScoreResponse getFinalScore()
+    public EndingScoreResponse GetFinalScore()
     {
         return endingScore;
     }
@@ -115,11 +115,6 @@ public class NetworkManager : MonoBehaviour
         );
     }
 
-    public SocketManager GetSocket()
-    {
-        return socket;
-    }
-
     #region listenerers
     /**
      * Triggered when the connexion is completed
@@ -188,6 +183,11 @@ public class NetworkManager : MonoBehaviour
         }
     }
     #endregion
+
+    public void SendStartGame(List<string> gameIdList)
+    {
+        socket.StartGame(gameIdList);
+    }
 
     public void SendDataEndGame()
     {
