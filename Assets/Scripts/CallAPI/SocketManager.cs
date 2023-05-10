@@ -60,6 +60,7 @@ public class SocketManager
 
         socket.OnUnityThread("end game", (data) =>
         {
+            Debug.Log("data end game: " + data);
             onEnd(data.GetValue<EndingScoreResponse>());
         });
 

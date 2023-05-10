@@ -140,6 +140,7 @@ public class NetworkManager : MonoBehaviour
      */
     private void OnEnd(EndingScoreResponse data)
     {
+        Debug.Log("endgame transformed: " + data);
         endingScore = data;
 
         //Need to display the score of player in Unity
@@ -192,7 +193,7 @@ public class NetworkManager : MonoBehaviour
     public void SendDataEndGame()
     {
         //Need to get the number of Played game + PV Left
-        Score sc = new(_gameManagerBR.GetGameFinished() , _gameManagerBR.GetCurrentHp());
+        Score sc = new(_gameManagerBR.GetGameFinished(), _gameManagerBR.GetCurrentHp());
         socket.EmitEndGame(sc); //Pass a json stringify
     }
 

@@ -1562,6 +1562,7 @@ MonoBehaviour:
   _healthBar: {fileID: 1752268872}
   _countdown: {fileID: 699590062}
   _spawnerManager: {fileID: 280990152}
+  _networkManager: {fileID: 2035895702}
   _doWeShowTutorial: 1
   audioSource: {fileID: 527489942}
   LostMiniGameSound: {fileID: 8300000, guid: a486bc3fe389f634e936aec62f39b2f5, type: 3}

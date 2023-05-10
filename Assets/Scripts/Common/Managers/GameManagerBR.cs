@@ -27,6 +27,7 @@ public class GameManagerBR : GameManager
 
     [Header("Ingame Managers")]
     [SerializeField] private SpawnerManager _spawnerManager;
+    [SerializeField] private NetworkManager _networkManager;
 
     [Header("Player Conf for Tutos")]
     [SerializeField] private bool _doWeShowTutorial = true;
@@ -196,7 +197,7 @@ public class GameManagerBR : GameManager
 
     public override void GameOver()
     {
-        SceneManager.LoadScene(6);
+        _networkManager.SendDataEndGame();
         // audioSource.PlayOneShot(looseSound);
         _screenDeath.SetActive(false);
 
