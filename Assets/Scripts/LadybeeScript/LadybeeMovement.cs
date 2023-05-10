@@ -59,7 +59,7 @@ public class LadybeeMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            if (transform.position.z >= -5)
+            if (transform.position.z >= -3)
             {
                 this.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 2);
                 if (_direction != 4)
@@ -127,7 +127,7 @@ public class LadybeeMovement : MonoBehaviour
     }
     public void Down()
     {
-        if (transform.position.z >= -5)
+        if (transform.position.z >= -3)
         {
             this.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 2);
             if (_direction != 4)
