@@ -19,7 +19,7 @@ public class SocketManager
         Action onSendingData)
     {
         //TODO: check the Uri if Valid.
-        var uri = new Uri("https://TestBrian-env.eba-rc662n2e.eu-west-3.elasticbeanstalk.com"); //http://localhost:3000
+        var uri = new Uri("http://TestBrian-env.eba-rc662n2e.eu-west-3.elasticbeanstalk.com"); //http://localhost:3000
         socket = new SocketIOUnity(uri, new SocketIOOptions
         {
             Query = new Dictionary<string, string>
