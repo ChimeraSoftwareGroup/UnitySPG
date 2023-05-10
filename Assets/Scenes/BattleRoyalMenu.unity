@@ -1718,9 +1718,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 527489943}
-        m_TargetAssemblyTypeName: GameManagerBR, Assembly-CSharp
-        m_MethodName: StartBattleRoyale
+      - m_Target: {fileID: 1811662303}
+        m_TargetAssemblyTypeName: PartyBattleRoyalManager, Assembly-CSharp
+        m_MethodName: StartModeBRParty
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
