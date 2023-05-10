@@ -19,7 +19,7 @@ public class SocketManager
         Action onSendingData)
     {
         //TODO: check the Uri if Valid.
-        var uri = new Uri("https://nodespg.osc-fr1.scalingo.io"); //http://localhost:3000
+        var uri = new Uri("https://nodespg.osc-fr1.scalingo.io/?EIO=4&transport=websocket"); //http://localhost:3000
         socket = new SocketIOUnity(uri, new SocketIOOptions
         {
             Query = new Dictionary<string, string>
