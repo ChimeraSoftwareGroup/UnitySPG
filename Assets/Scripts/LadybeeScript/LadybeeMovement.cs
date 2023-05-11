@@ -11,7 +11,7 @@ public class LadybeeMovement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     void Start()
     {
-        Invoke("StartTutoAnimation", 0.2f);
+        Invoke("StartTutoAnimation", 3f);
         spriteRenderer = _Gfx.GetComponent<SpriteRenderer>();
 
     }
