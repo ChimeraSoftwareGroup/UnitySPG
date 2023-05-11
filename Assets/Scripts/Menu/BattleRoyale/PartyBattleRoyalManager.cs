@@ -91,12 +91,12 @@ public class PartyBattleRoyalManager : MonoBehaviour
         _errorCodeRoom.SetActive(false);
     }
 
-    public void CloseBattleRoyale()
+    public void CloseBattleRoyale(bool sendDataToServer = true)
     {
         audioSource.PlayOneShot(pageSound);
         Debug.Log("Return to main menu");
         SceneManager.LoadScene("MenueScene");
-        if (_networkManager.IsSocketStart()) _networkManager.SendQuittingRoom();
+        if (_networkManager.IsSocketStart() && sendDataToServer) _networkManager.SendQuittingRoom();
     }
     public void GoBackChoiceBattleRoyaleRole()
     {
