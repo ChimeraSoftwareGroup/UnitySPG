@@ -170,7 +170,7 @@ public class NetworkManager : MonoBehaviour
      */
     private void OnDeleteRoom()
     {
-        _PBRM.CloseBattleRoyale();
+        _PBRM.CloseBattleRoyale(false);
     }
 
     //If the current player didn't send his data yet
