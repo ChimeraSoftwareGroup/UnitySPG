@@ -17,8 +17,8 @@ public class EndingBR : MonoBehaviour
         print("ENDING SCENE");
 
         EndingScoreResponse score = _networkManager.GetFinalScore();
-        Debug.Log("score : " + score);
-        _endingText.text = score.position.ToString();
+        Debug.Log("score : " + score.user_position);
+        _endingText.text = score.user_position.ToString();
     }
 
     void Update()
@@ -28,6 +28,7 @@ public class EndingBR : MonoBehaviour
     public void ReturnMainMenu()
     {
         SceneManager.LoadScene(0);
+        _networkManager.SocketDisconnect();
         print("BACK TO THE MAIN MENU");
 
         //Quit room
