@@ -204,5 +204,10 @@ public class NetworkManager : MonoBehaviour
     {
         socket.EmitQuittingRoom();
     }
+
+    public void SocketDisconnect()
+    {
+        socket.Disconnect();
+    }
     #endregion
 }

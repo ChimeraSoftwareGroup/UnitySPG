@@ -118,6 +118,11 @@ public class SocketManager
         socket.Emit("init join", idRoom);
     }
 
+    public void Disconnect()
+    {
+        socket.Disconnect();
+    }
+
     public static bool IsJSON(string str)
     {
         if (string.IsNullOrWhiteSpace(str)) { return false; }
