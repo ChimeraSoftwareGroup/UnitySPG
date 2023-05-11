@@ -17,8 +17,8 @@ public class StartGameResponse
 public class EndingScoreResponse
 {
     public int position;
-    public Score userScore;
-    public Score bestScore;
+    //public Score userScore;
+    //public Score bestScore;
 }
 
 [System.Serializable]

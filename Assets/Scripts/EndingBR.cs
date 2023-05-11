@@ -17,7 +17,8 @@ public class EndingBR : MonoBehaviour
         print("ENDING SCENE");
 
         EndingScoreResponse score = _networkManager.GetFinalScore();
-       // _endingText.text = score.position.ToString();
+        Debug.Log("score : " + score);
+        _endingText.text = score.position.ToString();
     }
 
     void Update()
