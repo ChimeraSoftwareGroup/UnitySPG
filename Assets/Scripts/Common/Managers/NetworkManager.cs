@@ -10,6 +10,7 @@ public class NetworkManager : MonoBehaviour
 
     private SocketManager socket;
     private EndingScoreResponse endingScore;
+    private bool _isOnePlayer = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -115,6 +116,11 @@ public class NetworkManager : MonoBehaviour
         );
     }
 
+    public bool IsPartyFinish()
+    {
+        return _isOnePlayer;
+    }
+
     #region listenerers
     /**
      * Triggered when the connexion is completed
@@ -180,7 +186,8 @@ public class NetworkManager : MonoBehaviour
         // if not -> sendData()
         if (!_gameManagerBR.hasLost())
         {
-            SendDataEndGame();
+            _isOnePlayer = true;
+           // SendDataEndGame();
         }
     }
     #endregion

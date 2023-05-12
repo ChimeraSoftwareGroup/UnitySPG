@@ -149,11 +149,12 @@ public class GameManagerBR : GameManager
 
     public override void NewGame()
     {
-        if (sceneIndexes.Count == 0)
+        if (sceneIndexes.Count == 0 || _networkManager.IsPartyFinish())
         {
             GameOver();
             return;
         }
+
         _gameHasStarted = false;
         isMiniGameFinished = false;
 

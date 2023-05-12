@@ -881,7 +881,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -0.00012207031, y: -4071.1636}
+  m_AnchoredPosition: {x: -0.00012207031, y: -4071.1638}
   m_SizeDelta: {x: 0, y: 8117.193}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1707547291
@@ -1067,7 +1067,8 @@ MonoBehaviour:
     588KU</I>\r\n<I>BLUE BIRD  -  MA9ICI4N</I>\r\n<I>GANDALF  -  PETEBITS25</I>\r\n<I>PANEL 
     -  JADE BOUIGES</I>\r\n<I>FIST -  BEVOULIIN.COM</I>\r\n<I>LEGAL BUTTON -  HANSOLO</I>\r\n<I>CONTACT
     BUTTON -  IDK</I>\r\n<I>EXIT BUTTON -  TUTOUNITYFR  (ZEF)</I>\r\n<I>BUTTONS - 
-    BEVOULIIN.COM</I>\r\n<I>ROPE -  SHUTTERSTOCK</I>\r\n<I>PAPER  -  PIKACANNON</I></SIZE>\r\n\r\n<SIZE=30><B>GAMES</B>\r\n\r\n<I>SNEUK 
+    BEVOULIIN.COM</I>\r\n<I>ROPE -  SHUTTERSTOCK</I>\r\n<I>SILVER MEDAIL -  PIKEPICTURE</I>\r\n<I>BRONZE
+    MEDAIL -  ALARMY</I>\r\n<I>PAPER  -  PIKACANNON</I></SIZE>\r\n\r\n<SIZE=30><B>GAMES</B>\r\n\r\n<I>SNEUK 
     -  BUCH</I>\r\n<I>FROGGY  -  NICOLE  MARIE  T</I>\r\n<I>BOBEE  -  JXY25</I>\r\n<I>SPIDER 
     -  DON'T  STARVE</I>\r\n<I>FOREST  (BACKGROUND)  -  MEMOANGELES</I>\r\n<I>BOXE 
     -  STOCK  VECTOR</I>\r\n<I>GERARD  -  JADE BOUIGES</I>\r\n<I>BRANCHES  -  JADE
