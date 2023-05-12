@@ -32,6 +32,10 @@ public class EndingBR : MonoBehaviour
     [Header("Loser")]
     [SerializeField] AudioClip _loseGingle;
     [SerializeField] GameObject _loseParticules;
+    [SerializeField] GameObject _panelLose;
+    [SerializeField] GameObject _falleine;
+    [SerializeField] GameObject _splashParticules;
+    [SerializeField] Text _loseText;
 
     [Header("All")]
     [SerializeField] Text _endingText;
@@ -48,14 +52,14 @@ public class EndingBR : MonoBehaviour
 
     void Start()
     {
-        //_networkManager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
+        _networkManager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
 
-        //EndingScoreResponse score = _networkManager.GetFinalScore();
-        // _endingText.text = score.user_position.ToString();
+        EndingScoreResponse score = _networkManager.GetFinalScore();
+         _endingText.text = score.user_position.ToString();
+        _loseText.text = score.user_position.ToString();
 
-        _endingText.text = "4";
 
-        if (_endingText.text == "1")
+        if (score.user_position == 1)
         {
             First();
             _emeText.text = "er";
@@ -66,17 +70,17 @@ public class EndingBR : MonoBehaviour
             _emeText.text = "ème";
         }
 
-        if(_endingText.text == "2")
+        if(score.user_position == 2)
         {
             Second();
 
         }
-        else if (_endingText.text == "3")
+        else if (score.user_position == 3)
         {
             Third();
 
         }
-        else if (_endingText.text == "4")
+        else if (score.user_position < 3)
         {
             Loser();
 
@@ -145,7 +149,20 @@ public class EndingBR : MonoBehaviour
         audioSource.PlayOneShot(_loseGingle, 0.2f);
         _loseParticules.SetActive(true);
         _bg.GetComponent<SpriteRenderer>().color = new Color32(114, 114, 114, 225);
+        _panelLose.SetActive(true);
+        Invoke("FallLoser", 1f);
 
+    }
+
+    private void FallLoser()
+    {
+        _falleine.SetActive(true);
+        Invoke("Splash", 2.4f);
+    }
+
+    private void Splash()
+    {
+        _splashParticules.SetActive(true);
     }
 
     void Update()
