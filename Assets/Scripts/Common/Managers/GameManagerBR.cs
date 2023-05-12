@@ -161,6 +161,8 @@ public class GameManagerBR : GameManager
         if(_spawnerManager) _spawnerManager.gameObject.SetActive(false);
         _screenDeath.SetActive(false);
         _countdown.StartCountDown();
+        timeOfEachGame = 20;
+        Debug.Log("timeOfEachGame " + timeOfEachGame);
         _timer.GetComponent<Timer>().SetTimer(timeOfEachGame);
     }
 
