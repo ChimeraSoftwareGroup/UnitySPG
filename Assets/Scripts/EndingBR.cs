@@ -61,7 +61,6 @@ public class EndingBR : MonoBehaviour
 
         if (score.user_position == 1)
         {
-            First();
             _emeText.text = "er";
             
         }
@@ -70,7 +69,13 @@ public class EndingBR : MonoBehaviour
             _emeText.text = "ème";
         }
 
-        if(score.user_position == 2)
+
+        if (score.user_position == 1)
+        {
+            First();
+
+        }
+        else if(score.user_position == 2)
         {
             Second();
 
