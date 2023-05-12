@@ -6,10 +6,27 @@ using UnityEngine.UI;
 
 public class EndingBR : MonoBehaviour
 {
+
+    [Header("First")]
+    [SerializeField] GameObject _firstParticules;
+    [SerializeField] GameObject _panel;
+    [SerializeField] AudioClip _winGingle; 
+
+    [Header("Second")]
+
+    [Header("Third")]
+
+    [Header("Loser")]
+    [SerializeField] AudioClip _loseGingle;
+
+    [Header("All")]
     [SerializeField] Text _endingText;
     [SerializeField] Text _emeText;
 
     private NetworkManager _networkManager;
+
+  
+
 
     void Start()
     {
@@ -21,7 +38,7 @@ public class EndingBR : MonoBehaviour
         Debug.Log("score : " + score.user_position);
         _endingText.text = score.user_position.ToString();
 
-        if(score.user_position == 1)
+        if (score.user_position == 1)
         {
             _emeText.text = "er";
         }
@@ -29,6 +46,27 @@ public class EndingBR : MonoBehaviour
         {
             _emeText.text = "ème";
         }
+    }
+
+    public void First()
+    {
+        _panel.SetActive(true);
+        
+    }
+
+    public void Second()
+    {
+
+    }
+
+    public void Third()
+    {
+
+    }
+
+    public void Loser()
+    {
+
     }
 
     void Update()

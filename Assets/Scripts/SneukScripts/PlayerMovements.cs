@@ -107,7 +107,7 @@ public class PlayerMovements : MonoBehaviour
         _isTutoStart = false;
         print("Tuto Canvas");
         _tutoCanvas.SetActive(true);
-        Invoke("StopTuto", 3f);
+        Invoke("StopTuto", 2f);
 
     }
 
