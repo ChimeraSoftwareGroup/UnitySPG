@@ -59,36 +59,39 @@ public class EndingBR : MonoBehaviour
         _loseText.text = score.user_position.ToString();
 
 
+      
+
+
         if (score.user_position == 1)
         {
             _emeText.text = "er";
-            
-        }
-        else
-        {
-            _emeText.text = "ème";
-        }
+            print("score.user_position " + score.user_position);
 
-
-        if (score.user_position == 1)
-        {
             First();
 
         }
         else if(score.user_position == 2)
         {
+            print("score.user_position " + score.user_position);
+
             Second();
 
         }
         else if (score.user_position == 3)
         {
+            print("score.user_position " + score.user_position);
+
             Third();
 
         }
         else if (score.user_position < 3)
         {
+            print("score.user_position " + score.user_position);
             Loser();
-
+        }
+        else
+        {
+            Loser();
         }
     }
 
@@ -177,7 +180,7 @@ public class EndingBR : MonoBehaviour
     public void ReturnMainMenu()
     {
         SceneManager.LoadScene(0);
-        _networkManager.SocketDisconnect();
+        _networkManager.SendQuittingRoom();
         print("BACK TO THE MAIN MENU");
 
         //Quit room
